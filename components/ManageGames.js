@@ -56,12 +56,8 @@ export default function Games() {
       fetchPlayers();
 
       addGame(data)
-    .then(() => {
-      window.location.reload(); // Reload the page after adding the game
-    })
-    .catch(error => {
-      console.error('Error adding game:', error);
-    });
+      window.location.reload();
+
     } catch (error) {
       console.error('Error adding game:', error);
     }

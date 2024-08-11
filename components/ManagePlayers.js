@@ -34,6 +34,7 @@ export default function ManagePlayers() {
       setPlayerName('');
       setPlayerImage('');
     }
+    window.location.reload();
   };
 
   const handleRemovePlayer = async (playerId) => {
@@ -44,6 +45,7 @@ export default function ManagePlayers() {
     if (response.ok) {
       setPlayers(players.filter(player => player.id !== playerId));
     }
+    window.location.reload();
   };
 
   return (
