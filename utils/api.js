@@ -1,12 +1,10 @@
 // /utils/api.js
 
-// /utils/api.js
-
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://leaderboard-eight-mu.vercel.app';
 
 export const fetchPlayers = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/players`);
+    const response = await fetch(`${API_BASE_URL}/api/players`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -26,18 +24,49 @@ export const fetchPlayers = async () => {
 };
 
 export const removePlayer = async (playerId) => {
-  await fetch(`${API_BASE_URL}/players/${playerId}`, {
+  await fetch(`${API_BASE_URL}/api/players/${playerId}`, {
     method: "DELETE",
   });
 };
 
 export const fetchGames = async () => {
-  const response = await fetch(`${API_BASE_URL}/games`);
+  const response = await fetch(`${API_BASE_URL}/api/games`);
   return await response.json();
 };
 
+export const addPlayer = async (name, image) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/players`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, image }),
+    });
+
+    // Log the response for debugging
+    const contentType = response.headers.get('Content-Type');
+    const text = await response.text();
+    console.log('Response Content-Type:', contentType);
+    console.log('Response Text:', text);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    if (contentType && contentType.includes('application/json')) {
+      return JSON.parse(text); // Parse as JSON if content type is JSON
+    } else {
+      throw new Error('Unexpected content type: Expected JSON');
+    }
+  } catch (error) {
+    console.error('Failed to add player:', error.message);
+    throw error;
+  }
+};
+
 export const addGame = async (player1, player2, player1Points, player2Points) => {
-  await fetch(`${API_BASE_URL}/games`, {
+  await fetch(`${API_BASE_URL}/api/games`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +76,7 @@ export const addGame = async (player1, player2, player1Points, player2Points) =>
 };
 
 export const removeGame = async (gameId) => {
-  await fetch(`${API_BASE_URL}/games/${gameId}`, {
+  await fetch(`${API_BASE_URL}/api/games/${gameId}`, {
     method: "DELETE",
   });
 };
@@ -67,7 +96,7 @@ export const updatePlayerPoints = async (player1, player1Points, player2, player
 
   await Promise.all(
     updatedPlayers.map(async (player) => {
-      await fetch(`${API_BASE_URL}/players/${player._id}`, {
+      await fetch(`${API_BASE_URL}/api/players/${player._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
