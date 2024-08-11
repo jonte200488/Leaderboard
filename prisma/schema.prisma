@@ -1,0 +1,27 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Player {
+  id     Int     @id @default(autoincrement())
+  name   String
+  image  String?
+  points Int
+  games  Game[]
+}
+
+model Game {
+  id            Int     @id @default(autoincrement())
+  player1       Player  @relation("Player1", fields: [player1Id], references: [id])
+  player1Id     Int
+  player2       Player  @relation("Player2", fields: [player2Id], references: [id])
+  player2Id     Int
+  player1Points Int
+  player2Points Int
+}
