@@ -55,26 +55,35 @@ export const fetchGames = async () => {
   }
 };
 
+// /utils/api.js
+
 export const addGame = async (player1Id, player2Id, player1Points, player2Points) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/games`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ player1Id, player2Id, player1Points, player2Points }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    const data = {
+      player1Id: parseInt(player1Id),
+      player2Id: parseInt(player2Id),
+      player1Points: parseInt(player1Points),
+      player2Points: parseInt(player2Points),
+    };
+  
+    try {
+      const response = await fetch('/api/games', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const result = await response.json();
+      console.log('Game added successfully:', result);
+    } catch (error) {
+      console.error('Error adding game:', error);
     }
-
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to add game:', error.message);
-    throw error;
-  }
-};
+  };
 
 export const removeGame = async (gameId) => {
   await fetch(`${API_BASE_URL}/api/games?id=${gameId}`, {
