@@ -94,3 +94,57 @@
     border-radius: 5px;
     margin-bottom: 10px;
   }
+
+  /* Home.module.css */
+
+.podium {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .podiumPosition {
+    text-align: center;
+    margin: 0 10px;
+  }
+  
+  .podium-1 {
+    font-size: 1.5rem;
+  }
+  
+  .podium-2 {
+    font-size: 1.25rem;
+  }
+  
+  .podium-3 {
+    font-size: 1rem;
+  }
+  
+  .otherPlayers {
+    margin-top: 20px;
+  }
+  
+  .playerEntry {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .gamesList {
+    margin-top: 20px;
+  }
+  
+  .gameEntry {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .gamePlayers {
+    font-weight: bold;
+  }
+  
+  .gamePoints {
+    margin-top: 10px;
+  }

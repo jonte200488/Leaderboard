@@ -59,6 +59,24 @@ export default function Games() {
     }
   };
 
+  const handleDeleteGame = async (gameId) => {
+    try {
+      const response = await fetch(`/api/games?id=${gameId}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      console.log('Game deleted successfully');
+      // Fetch updated games list after deleting the game
+      fetchGames();
+    } catch (error) {
+      console.error('Error deleting game:', error);
+    }
+  };
+
   return (
     <div>
       <h2>Games</h2>
@@ -73,6 +91,7 @@ export default function Games() {
               <span>{game.player1.name}: {game.player1Points} points</span>
               <span>{game.player2.name}: {game.player2Points} points</span>
             </div>
+            <button onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
           </div>
         ))}
       </section>
