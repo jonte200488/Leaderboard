@@ -6,7 +6,7 @@ export default function ManagePlayers({ players, addPlayer, removePlayer }) {
   return (
     <>
       <h2>Manage Players</h2>
-      <form id="newPlayerForm" onSubmit={async (e) => {
+      <form id="newPlayerForm" className={styles.newPlayerForm} onSubmit={async (e) => {
         e.preventDefault();
         const playerName = document.getElementById('playerName').value;
         const playerImage = document.getElementById('playerImage').value || "default-image-url.jpg";

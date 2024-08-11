@@ -23,15 +23,15 @@
     background-color: #ccc;
   }
   
-  .tab-content {
+  .tabContent {
     display: none;
   }
   
-  .tab-content.active {
+  .tabContent.active {
     display: block;
   }
   
-  form {
+  .newPlayerForm, .newGameForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -67,19 +67,19 @@
     align-items: center;
   }
   
-  .player-image {
+  .playerImage {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
   
-  .podium-image {
+  .podiumImage {
     width: 80px;
     height: 80px;
   }
   
-  .player-entry {
+  .playerEntry {
     display: flex;
     justify-content: space-between;
     align-items: center;

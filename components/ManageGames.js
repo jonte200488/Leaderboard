@@ -1,13 +1,12 @@
 // /components/ManageGames.js
 
-import { useState } from 'react';
 import styles from '../styles/Home.module.css';
 
 export default function ManageGames({ players, games, addGame, removeGame }) {
   return (
     <>
       <h2>Manage Games</h2>
-      <form id="newGameForm" onSubmit={async (e) => {
+      <form id="newGameForm" className={styles.newGameForm} onSubmit={async (e) => {
         e.preventDefault();
         const player1 = document.getElementById('player1').value;
         const player1Points = document.getElementById('player1Points').value;
