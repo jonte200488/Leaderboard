@@ -38,13 +38,19 @@
     margin-bottom: 20px;
   }
   
-  input[type="text"], input[type="number"], select {
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input, .select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
   
-  button {
+  .button {
     padding: 10px 20px;
     cursor: pointer;
     background-color: #28a745;
@@ -53,7 +59,7 @@
     color: white;
   }
   
-  button:hover {
+  .button:hover {
     background-color: #218838;
   }
   

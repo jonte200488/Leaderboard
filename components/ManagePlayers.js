@@ -12,16 +12,18 @@ export default function ManagePlayers({ players, addPlayer, removePlayer }) {
         const playerImage = document.getElementById('playerImage').value || "default-image-url.jpg";
         await addPlayer(playerName, playerImage);
       }}>
-        <input type="text" id="playerName" placeholder="Player Name" />
-        <input type="text" id="playerImage" placeholder="Profile Image URL" />
-        <button type="submit">Add Player</button>
+        <div className={styles.formGroup}>
+          <input type="text" id="playerName" placeholder="Player Name" className={styles.input} />
+          <input type="text" id="playerImage" placeholder="Profile Image URL" className={styles.input} />
+        </div>
+        <button type="submit" className={styles.button}>Add Player</button>
       </form>
       <section id="playersList">
         {players.map((player) => (
           <div key={player._id} className={styles.playerEntry}>
             <img src={player.image} alt={player.name} className={styles.playerImage} />
             {player.name}
-            <button onClick={() => removePlayer(player._id)}>Remove</button>
+            <button onClick={() => removePlayer(player._id)} className={styles.button}>Remove</button>
           </div>
         ))}
       </section>
