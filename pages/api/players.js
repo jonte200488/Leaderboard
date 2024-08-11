@@ -7,10 +7,6 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       const players = await prisma.player.findMany();
-      if (players.length === 0) {
-        // Handle the case where no players are found
-        return res.status(200).json({ message: 'No players found', players: [] });
-      }
       res.status(200).json(players);
     } else if (req.method === 'POST') {
       const { name, image } = req.body;
@@ -27,7 +23,8 @@ export default async function handler(req, res) {
       res.status(405).end(`Method ${req.method} Not Allowed`);
     }
   } catch (error) {
-    console.error('Error fetching players:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Error fetching players:', error.message);
+    console.error('Stack Trace:', error.stack);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
   }
 }
