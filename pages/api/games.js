@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     try {
       const { player1Id, player2Id, player1Points, player2Points } = req.body;
 
-      // Ensure IDs and points are valid integers
+      // Ensure IDs and points are valid
       if (
         !player1Id ||
         !player2Id ||
@@ -33,8 +33,8 @@ export default async function handler(req, res) {
 
       const newGame = await prisma.game.create({
         data: {
-          player1Id: parseInt(player1Id, 10),
-          player2Id: parseInt(player2Id, 10),
+          player1: { connect: { id: parseInt(player1Id, 10) } },
+          player2: { connect: { id: parseInt(player2Id, 10) } },
           player1Points: parseInt(player1Points, 10),
           player2Points: parseInt(player2Points, 10),
         },
