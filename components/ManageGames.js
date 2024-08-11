@@ -56,11 +56,11 @@ export default function Games() {
       fetchPlayers();
 
       addGame(data)
-      window.location.reload();
 
     } catch (error) {
       console.error('Error adding game:', error);
     }
+    window.location.reload();
   };
 
   const handleDeleteGame = async (gameId) => {
