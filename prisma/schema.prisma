@@ -9,13 +9,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// prisma/schema.prisma
-
 model Player {
   id     Int     @id @default(autoincrement())
   name   String
   image  String?
-  points Int
   games1 Game[]  @relation("Player1")
   games2 Game[]  @relation("Player2")
 }
