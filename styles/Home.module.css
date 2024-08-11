@@ -1,123 +1,119 @@
-/* /styles/Home.module.css */
-.header {
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100%;
+  }
+  
+  a {
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #0070f3;
     text-align: center;
     margin-bottom: 20px;
   }
   
-  .tab {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
   }
   
-  .tab button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    margin: 0 5px;
-    border-radius: 5px;
-  }
-  
-  .tab button.active {
-    background-color: #ccc;
-  }
-  
-  .tabContent {
-    display: none;
-  }
-  
-  .tabContent.active {
-    display: block;
-  }
-  
-  .newPlayerForm, .newGameForm {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .formGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .input, .select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #28a745;
+  button {
+    background-color: #0070f3;
+    color: white;
     border: none;
     border-radius: 5px;
-    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
-  .button:hover {
-    background-color: #218838;
+  button:hover {
+    background-color: #005bb5;
   }
   
-  #podium, #otherPlayers, #gamesList, #playersList {
-    margin-top: 20px;
-  }
-  
-  .podium-position {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .playerImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .podiumImage {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .playerEntry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-
-  /* Home.module.css */
-
-.podium {
+  /* Navbar Styles */
+  .navbar {
+    background-color: #0070f3;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .navbar a:hover {
+    color: #eaeaea;
+  }
+  
+  /* Header and Main Layout */
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Leaderboard Styles */
+  .podium {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
   }
   
   .podiumPosition {
     text-align: center;
-    margin: 0 10px;
+    margin-top: 10px;
   }
   
-  .podium-1 {
-    font-size: 1.5rem;
+  .podiumImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #0070f3;
   }
   
-  .podium-2 {
-    font-size: 1.25rem;
+  .playerName {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
   }
   
-  .podium-3 {
-    font-size: 1rem;
+  .playerPoints {
+    color: #555;
   }
   
   .otherPlayers {
@@ -127,24 +123,49 @@
   .playerEntry {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
   }
   
-  .gamesList {
+  .playerImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Manage Games and Manage Players Styles */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin-top: 20px;
   }
   
-  .gameEntry {
-    margin-bottom: 20px;
+  input[type="text"],
+  input[type="number"],
+  select {
     padding: 10px;
+    font-size: 1rem;
     border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
-  .gamePlayers {
-    font-weight: bold;
+  button {
+    align-self: flex-start;
   }
   
-  .gamePoints {
-    margin-top: 10px;
+  .gamesList,
+  .playersList {
+    margin-top: 30px;
+  }
+  
+  .gameEntry,
+  .playerEntry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eaeaea;
   }

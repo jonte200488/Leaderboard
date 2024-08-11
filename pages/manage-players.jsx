@@ -1,18 +1,17 @@
-// /pages/index.js
+// /pages/manage-players.js
 
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
-import { fetchPlayers } from '../utils/api';
-import Leaderboard from '../components/Leaderboard';
+import { fetchPlayers, addPlayer, removePlayer } from '../utils/api';
+import ManagePlayers from '../components/ManagePlayers';
 import Navbar from '../components/Navbar';
 
-export default function Home() {
+export default function ManagePlayersPage() {
   const [players, setPlayers] = useState([]);
-  const [leaderboardType, setLeaderboardType] = useState('all-time');
 
   useEffect(() => {
     updatePlayerList();
-  }, [leaderboardType]);
+  }, []);
 
   const updatePlayerList = async () => {
     const players = await fetchPlayers();
@@ -26,7 +25,7 @@ export default function Home() {
         <h1>Leaderboard</h1>
       </header>
       <main>
-        <Leaderboard players={players} leaderboardType={leaderboardType} setLeaderboardType={setLeaderboardType} />
+        <ManagePlayers players={players} addPlayer={addPlayer} removePlayer={removePlayer} />
       </main>
     </div>
   );
