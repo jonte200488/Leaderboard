@@ -49,11 +49,11 @@ export default function Games() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const result = await response.json();
-      console.log('Game added successfully:', result);
+      const newGame = await response.json();
+      setGames([...games, newGame]); // Add the new game to the state
 
-      // Fetch updated games list after adding the game
-      fetchGames();
+      // Optionally, update the players list to reflect the updated points
+      fetchPlayers();
     } catch (error) {
       console.error('Error adding game:', error);
     }
@@ -69,9 +69,11 @@ export default function Games() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      console.log('Game deleted successfully');
-      // Fetch updated games list after deleting the game
-      fetchGames();
+      // Remove the game from the state
+      setGames(games.filter(game => game.id !== gameId));
+
+      // Optionally, update the players list to reflect the updated points
+      fetchPlayers();
     } catch (error) {
       console.error('Error deleting game:', error);
     }
