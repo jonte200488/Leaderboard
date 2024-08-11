@@ -14,8 +14,12 @@ export default function ManagePlayers() {
 
   const fetchPlayers = async () => {
     const response = await fetch('/api/players');
-    const data = await response.json();
-    setPlayers(data);
+    if (response.ok) {
+      const data = await response.json();
+      setPlayers(data);
+    } else {
+      console.error('Failed to fetch players');
+    }
   };
 
   const handleAddPlayer = async (e) => {
@@ -30,11 +34,12 @@ export default function ManagePlayers() {
 
     if (response.ok) {
       const newPlayer = await response.json();
-      setPlayers([...players, newPlayer]);
+      setPlayers([...players, newPlayer]); // Update the state with the new player
       setPlayerName('');
       setPlayerImage('');
+    } else {
+      console.error('Failed to add player');
     }
-    window.location.reload();
   };
 
   const handleRemovePlayer = async (playerId) => {
@@ -43,9 +48,10 @@ export default function ManagePlayers() {
     });
 
     if (response.ok) {
-      setPlayers(players.filter(player => player.id !== playerId));
+      setPlayers(players.filter(player => player.id !== playerId)); // Remove the player from the state
+    } else {
+      console.error('Failed to remove player');
     }
-    window.location.reload();
   };
 
   return (
