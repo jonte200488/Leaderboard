@@ -8,19 +8,18 @@ const AddGame = () => {
   const [player2Points, setPlayer2Points] = useState('');
 
   useEffect(() => {
-    // Fetch players when the component loads
-    const fetchPlayers = async () => {
-      try {
-        const response = await fetch('/api/players');
-        const data = await response.json();
-        setPlayers(data);
-      } catch (error) {
-        console.error('Error fetching players:', error);
-      }
-    };
-
     fetchPlayers();
   }, []);
+
+  const fetchPlayers = async () => {
+    try {
+      const response = await fetch('/api/players');
+      const data = await response.json();
+      setPlayers(data);
+    } catch (error) {
+      console.error('Error fetching players:', error);
+    }
+  };
 
   const handleAddGame = async () => {
     const data = {
@@ -45,6 +44,9 @@ const AddGame = () => {
 
       const result = await response.json();
       console.log('Game added successfully:', result);
+
+      // Fetch updated players list after adding the game
+      fetchPlayers();
     } catch (error) {
       console.error('Error adding game:', error);
     }
@@ -101,6 +103,15 @@ const AddGame = () => {
       />
 
       <button onClick={handleAddGame}>Add Game</button>
+
+      <h3>Player List</h3>
+      <ul>
+        {players.map((player) => (
+          <li key={player.id}>
+            {player.name}: {player.points} points
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

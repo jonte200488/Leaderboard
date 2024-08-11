@@ -30,6 +30,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Invalid input data' });
       }
 
+      // Create a new game entry
       const newGame = await prisma.game.create({
         data: {
           player1: { connect: { id: parseInt(player1Id, 10) } },
@@ -38,9 +39,30 @@ export default async function handler(req, res) {
           player2Points: parseInt(player2Points, 10),
         },
       });
+
+      // Update the points for player 1
+      await prisma.player.update({
+        where: { id: parseInt(player1Id, 10) },
+        data: {
+          points: {
+            increment: parseInt(player1Points, 10),
+          },
+        },
+      });
+
+      // Update the points for player 2
+      await prisma.player.update({
+        where: { id: parseInt(player2Id, 10) },
+        data: {
+          points: {
+            increment: parseInt(player2Points, 10),
+          },
+        },
+      });
+
       res.status(201).json(newGame);
     } catch (error) {
-      console.error('Error creating game:', error.message);
+      console.error('Error creating game and updating points:', error.message);
       res.status(500).json({ error: 'Internal Server Error', message: error.message });
     }
   } else if (req.method === 'DELETE') {
