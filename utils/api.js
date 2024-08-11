@@ -5,33 +5,14 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://leaderboar
 export const fetchPlayers = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/players`);
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
-    const contentType = response.headers.get('Content-Type');
-
-    if (contentType && contentType.includes('application/json')) {
-      return await response.json(); // Parse JSON if content type is application/json
-    } else {
-      throw new Error('Unexpected content type: Expected JSON');
-    }
+    return await response.json();
   } catch (error) {
     console.error('Failed to fetch players:', error.message);
     throw error;
   }
-};
-
-export const removePlayer = async (playerId) => {
-  await fetch(`${API_BASE_URL}/api/players/${playerId}`, {
-    method: "DELETE",
-  });
-};
-
-export const fetchGames = async () => {
-  const response = await fetch(`${API_BASE_URL}/api/games`);
-  return await response.json();
 };
 
 export const addPlayer = async (name, image) => {
@@ -44,65 +25,59 @@ export const addPlayer = async (name, image) => {
       body: JSON.stringify({ name, image }),
     });
 
-    // Log the response for debugging
-    const contentType = response.headers.get('Content-Type');
-    const text = await response.text();
-    console.log('Response Content-Type:', contentType);
-    console.log('Response Text:', text);
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    if (contentType && contentType.includes('application/json')) {
-      return JSON.parse(text); // Parse as JSON if content type is JSON
-    } else {
-      throw new Error('Unexpected content type: Expected JSON');
-    }
+    return await response.json();
   } catch (error) {
     console.error('Failed to add player:', error.message);
     throw error;
   }
 };
 
-export const addGame = async (player1, player2, player1Points, player2Points) => {
-  await fetch(`${API_BASE_URL}/api/games`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ player1, player2, player1Points, player2Points }),
-  });
-};
-
-export const removeGame = async (gameId) => {
-  await fetch(`${API_BASE_URL}/api/games/${gameId}`, {
+export const removePlayer = async (playerId) => {
+  await fetch(`${API_BASE_URL}/api/players/${playerId}`, {
     method: "DELETE",
   });
 };
 
-export const updatePlayerPoints = async (player1, player1Points, player2, player2Points) => {
-  const players = await fetchPlayers();
+export const fetchGames = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/games`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to fetch games:', error.message);
+    throw error;
+  }
+};
 
-  const updatedPlayers = players.map((player) => {
-    if (player.name === player1) {
-      player.points += parseInt(player1Points);
+export const addGame = async (player1Id, player2Id, player1Points, player2Points) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/games`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ player1Id, player2Id, player1Points, player2Points }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-    if (player.name === player2) {
-      player.points += parseInt(player2Points);
-    }
-    return player;
+
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to add game:', error.message);
+    throw error;
+  }
+};
+
+export const removeGame = async (gameId) => {
+  await fetch(`${API_BASE_URL}/api/games?id=${gameId}`, {
+    method: "DELETE",
   });
-
-  await Promise.all(
-    updatedPlayers.map(async (player) => {
-      await fetch(`${API_BASE_URL}/api/players/${player._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(player),
-      });
-    })
-  );
 };

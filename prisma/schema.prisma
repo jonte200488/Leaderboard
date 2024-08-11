@@ -2,7 +2,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("POSTGRES_URL")
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -19,10 +19,10 @@ model Player {
 }
 
 model Game {
-  id            Int    @id @default(autoincrement())
-  player1       Player @relation("Player1", fields: [player1Id], references: [id])
+  id            Int     @id @default(autoincrement())
+  player1       Player  @relation("Player1", fields: [player1Id], references: [id])
   player1Id     Int
-  player2       Player @relation("Player2", fields: [player2Id], references: [id])
+  player2       Player  @relation("Player2", fields: [player2Id], references: [id])
   player2Id     Int
   player1Points Int
   player2Points Int
