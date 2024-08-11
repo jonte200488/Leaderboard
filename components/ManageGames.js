@@ -54,6 +54,14 @@ export default function Games() {
 
       // Optionally, update the players list to reflect the updated points
       fetchPlayers();
+
+      addGame(data)
+    .then(() => {
+      window.location.reload(); // Reload the page after adding the game
+    })
+    .catch(error => {
+      console.error('Error adding game:', error);
+    });
     } catch (error) {
       console.error('Error adding game:', error);
     }
@@ -74,6 +82,7 @@ export default function Games() {
 
       // Optionally, update the players list to reflect the updated points
       fetchPlayers();
+      window.location.reload();
     } catch (error) {
       console.error('Error deleting game:', error);
     }
