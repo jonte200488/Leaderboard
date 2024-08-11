@@ -1,3 +1,5 @@
+// prisma/schema.prisma
+
 datasource db {
   provider  = "postgresql"
   url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
@@ -13,14 +15,15 @@ model Player {
   name   String
   image  String?
   points Int
-  games  Game[]
+  games1 Game[]  @relation("Player1")
+  games2 Game[]  @relation("Player2")
 }
 
 model Game {
-  id            Int     @id @default(autoincrement())
-  player1       Player  @relation("Player1", fields: [player1Id], references: [id])
+  id            Int    @id @default(autoincrement())
+  player1       Player @relation("Player1", fields: [player1Id], references: [id])
   player1Id     Int
-  player2       Player  @relation("Player2", fields: [player2Id], references: [id])
+  player2       Player @relation("Player2", fields: [player2Id], references: [id])
   player2Id     Int
   player1Points Int
   player2Points Int
