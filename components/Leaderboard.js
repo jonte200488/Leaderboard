@@ -15,11 +15,8 @@ export default function Leaderboard() {
     const response = await fetch('/api/players');
     let data = await response.json();
 
-    if (leaderboardType === 'all-time') {
-      data = data.sort((a, b) => b.points - a.points);
-    }
-
-    // If you had a weekly points system, you'd filter and sort accordingly here
+    // Sort players by points in descending order
+    data = data.sort((a, b) => b.points - a.points);
 
     setPlayers(data);
   };
@@ -32,8 +29,9 @@ export default function Leaderboard() {
         value={leaderboardType}
         className={styles.select}
       >
-        <option value="weekly">This Week</option>
         <option value="all-time">All Time</option>
+        {/* If you had a weekly points system, you'd filter accordingly here */}
+        {/* <option value="weekly">This Week</option> */}
       </select>
       <section id="podium" className={styles.podium}>
         {players.slice(0, 3).map((player, index) => (
