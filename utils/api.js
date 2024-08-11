@@ -2,7 +2,7 @@
 
 // /utils/api.js
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://leaderboard-eight-mu.vercel.app';
 
 export const fetchPlayers = async () => {
   try {

@@ -24,7 +24,6 @@ export default async function handler(req, res) {
     }
   } catch (error) {
     console.error('Error fetching players:', error.message);
-    console.error('Stack Trace:', error.stack);
-    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 }
