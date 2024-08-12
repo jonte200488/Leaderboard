@@ -28,6 +28,9 @@ max-width: 1000px;
   min-height: 100vh;
 }
 
+main {
+    margin-top: 50px;
+}
 /* Leaderboard Styles */
 /* Leaderboard Styles */
 .podium {
@@ -54,7 +57,7 @@ max-width: 1000px;
     width: 140px; /* Adjusted width */
     height: 170px; /* Adjusted height */
     border-radius: 10px 10px 0 0;
-    color: white;
+    color: #a324c9;
     position: relative;
     z-index: 1;
     box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
@@ -103,7 +106,7 @@ max-width: 1000px;
   
 .playerPoints {
     font-size: 1rem;
-    color: white; /* Updated to match the image */
+    color: #a324c9; /* Updated to match the image */
 }
   
   /* Leaderboard List */
@@ -155,7 +158,6 @@ max-width: 1000px;
 
 /* Navbar Styles */
 .navbar {
-    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     max-width: 550px;
