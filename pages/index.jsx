@@ -21,9 +21,6 @@ export default function Home() {
   return (
     <div className="theme">
       <Navbar />
-      <header className="header">
-        <h1>Leaderboard</h1>
-      </header>
       <main>
         <Leaderboard players={players} leaderboardType={leaderboardType} setLeaderboardType={setLeaderboardType} />
       </main>

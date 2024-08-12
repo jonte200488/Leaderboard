@@ -155,9 +155,8 @@ max-width: 1000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, var(--button-bg), var(--highlight-color));
-    padding: 1rem 2rem;
-    border-radius: 10px;
+    background-color: #5a1dbb;
+    border-radius: 100%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     font-family: 'Raleway', sans-serif;
   }
@@ -169,18 +168,16 @@ max-width: 1000px;
     border-radius: 8px;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1);
   }
   
   .navbar > *:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 20px rgba(119, 141, 169, 0.4);
     transform: translateY(-3px);
   }
   
   .navbar > *:active {
+    color: #5a1dbb;
+    background-color: #fece3d;
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(119, 141, 169, 0.2);
   }
   
   .navbar > *:nth-child(1) {
@@ -204,8 +201,7 @@ max-width: 1000px;
   
   /* Add active link styling */
   .navbar .active {
-    background-color: var(--button-hover-bg);
-    box-shadow: 0 8px 20px rgba(27, 38, 59, 0.4);
+    background-color: #5a1dbb;
     transform: translateY(-3px);
   }
   
