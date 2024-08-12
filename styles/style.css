@@ -41,13 +41,15 @@ max-width: 1000px;
     text-align: center;
     margin-top: 10px;
     position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
     color: var(--button-text-color);
   }
   
   /* Larger center podium with background image */
   .podium-1 {
     order: 2;
-    background-color: var(--highlight-color);
+    background: linear-gradient(to bottom right, #fece3d, #ff9900);
     width: 180px;
     height: 250px;
     border-radius: 10px 10px 0 0;
@@ -71,7 +73,7 @@ max-width: 1000px;
   
   /* Smaller side podiums */
   .podium-2, .podium-3 {
-    background-color: var(--accent-color);
+    background: linear-gradient(to bottom right, #fece3d, #ff9900);
     width: 120px;
     height: 150px;
     border-radius: 10px 10px 0 0;
