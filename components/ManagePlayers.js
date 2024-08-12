@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import styles from '../styles/style.css';
 
 export default function ManagePlayers() {
   const [players, setPlayers] = useState([]);

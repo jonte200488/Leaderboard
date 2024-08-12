@@ -1,7 +1,6 @@
 // /components/Navbar.js
 
 import Link from 'next/link';
-import styles from '../styles/style.css';
 
 export default function Navbar() {
   return (

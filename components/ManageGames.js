@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import styles from '../styles/Home.module.css';
 
 export default function Games() {
   const [games, setGames] = useState([]);
