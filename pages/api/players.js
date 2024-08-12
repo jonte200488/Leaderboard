@@ -14,17 +14,20 @@ export default async function handler(req, res) {
 
       // Calculate total points for each player
       const playersWithTotalPoints = players.map(player => {
-        const totalPoints = player.games1.reduce((sum, game) => sum + game.player1Points, 0) +
-                           player.games2.reduce((sum, game) => sum + game.player2Points, 0);
+        // Sum up the points for games where the player is player1
+        const totalPointsAsPlayer1 = player.games1.reduce((sum, game) => sum + game.player1Points, 0);
+
+        // Sum up the points for games where the player is player2
+        const totalPointsAsPlayer2 = player.games2.reduce((sum, game) => sum + game.player2Points, 0);
+
+        // Total points is the sum of both
+        const totalPoints = totalPointsAsPlayer1 + totalPointsAsPlayer2;
 
         return {
           ...player,
           totalPoints,
         };
       });
-
-      // Sort players by total points before returning
-      playersWithTotalPoints.sort((a, b) => b.totalPoints - a.totalPoints);
 
       res.status(200).json(playersWithTotalPoints);
     } catch (error) {
