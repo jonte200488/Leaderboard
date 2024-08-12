@@ -17,7 +17,7 @@ html {
   --black: #000;
 }
 
-body, .container {
+body {
 max-width: 1000px;
   margin: 0;
   margin: auto;
@@ -120,6 +120,9 @@ max-width: 1000px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .playerImage {
@@ -155,7 +158,7 @@ max-width: 1000px;
     margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
-    max-width: 400px;
+    max-width: 550px;
     margin: auto;
     align-items: center;
     background-color: #5a1dbb;
