@@ -316,3 +316,147 @@ main {
       margin-top: 0.5rem;
     }
   }
+
+  .gamesContainer {
+    padding: 20px;
+  }
+  
+  .header {
+    color: var(--highlight-color);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .gamesList {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    padding: 20px;
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .gameEntry {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+  
+  .gamePlayers {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .gamePoints {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .gameButton {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .gameButton:hover {
+    background-color: var(--button-hover-bg);
+  }
+  
+  .form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--accent-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .playersWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .playerSide {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 45%;
+  }
+  
+  .versusImage {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .versusImg {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .input, .select {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid var(--highlight-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .addButton {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.addButton:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .playersWrapper {
+    flex-direction: column;
+  }
+
+  .playerSide, .versusImage {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .versusImage {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .form {
+    padding: 15px;
+  }
+
+  .gamesList, .form {
+    width: 100%;
+  }
+}

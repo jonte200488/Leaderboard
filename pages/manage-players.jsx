@@ -30,9 +30,6 @@ export default function ManagePlayersPage() {
   return (
     <div>
       <Navbar />
-      <header className="header">
-        <h1>Leaderboard</h1>
-      </header>
       <main>
         <ManagePlayers
           players={players}
