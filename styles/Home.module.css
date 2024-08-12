@@ -9,23 +9,50 @@
   }
   
   /* Navbar Styles */
-  .navbar {
-    background-color: #0070f3;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .navbar a {
-    color: white;
-    margin: 0 15px;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  .navbar a:hover {
-    color: #eaeaea;
-  }
+  /* Assuming styles.navbar maps to .navbar */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333; /* Dark background color */
+  padding: 1rem; /* Padding around the navbar */
+  border-radius: 8px; /* Rounded corners for the navbar */
+}
+
+.navbar > * {
+  color: white; /* White text for links */
+  text-decoration: none; /* Remove underline */
+  padding: 0.5rem 1rem; /* Padding around each link */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.navbar > *:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+  transform: scale(1.05); /* Slightly enlarge the link on hover */
+}
+
+.navbar > *:active {
+  transform: scale(0.95); /* Slightly shrink the link when active (clicked) */
+}
+
+.navbar > *:nth-child(1) {
+  border-bottom-left-radius: 8px; /* Round left corners of the first link */
+  border-top-left-radius: 8px;
+}
+
+.navbar > *:nth-child(3) {
+  border-bottom-right-radius: 8px; /* Round right corners of the last link */
+  border-top-right-radius: 8px;
+}
+
+.navbar > * + * {
+  margin-left: 1rem; /* Spacing between links */
+}
+
+.navbar > *:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Custom focus outline */
+}
   
   /* Header and Main Layout */
   .header {
