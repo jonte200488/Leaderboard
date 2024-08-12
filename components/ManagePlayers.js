@@ -44,7 +44,7 @@ export default function ManagePlayers() {
         },
         body: JSON.stringify({ name: playerName, image: playerImage }),
       });
-
+      console.log("fjfdlkgdfjglkfkl");
       if (response.ok) {
         const newPlayer = await response.json();
         console.log('Player added successfully:', newPlayer); // Debugging output
