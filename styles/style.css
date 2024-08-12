@@ -156,7 +156,7 @@ max-width: 1000px;
     justify-content: space-between;
     align-items: center;
     background-color: #5a1dbb;
-    border-radius: 100%;
+    border-radius: 1000px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     font-family: 'Raleway', sans-serif;
   }
@@ -165,7 +165,7 @@ max-width: 1000px;
     color: var(--button-text-color);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    border-radius: 1000px;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -196,7 +196,6 @@ max-width: 1000px;
   
   .navbar > *:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(119, 141, 169, 0.2);
   }
   
   /* Add active link styling */
