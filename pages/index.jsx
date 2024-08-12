@@ -5,7 +5,6 @@ import styles from '../styles/Home.module.css';
 import { fetchPlayers } from '../utils/api';
 import Leaderboard from '../components/Leaderboard';
 import Navbar from '../components/Navbar';
-import '../styles/style.css';
 
 export default function Home() {
   const [players, setPlayers] = useState([]);
