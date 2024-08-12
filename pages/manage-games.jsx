@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import Navbar from '../components/Navbar';
+import '../styles/style.css';
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -84,32 +85,32 @@ export default function Games() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={container}>
       <Navbar />
-      <header className={styles.header}></header>
-      <h2 className={styles.header}>Games</h2>
+      <header className={header}></header>
+      <h2 className={header}>Games</h2>
 
-      <section className={styles.gamesList}>
+      <section className={gamesList}>
         {games.map((game) => (
-          <div key={game.id} className={styles.gameEntry}>
-            <div className={styles.gamePlayers}>
+          <div key={game.id} className={gameEntry}>
+            <div className={gamePlayers}>
               <span>{game.player1.name} vs {game.player2.name}</span>
             </div>
-            <div className={styles.gamePoints}>
+            <div className={gamePoints}>
               <span>{game.player1.name}: {game.player1Points} points</span>
               <span>{game.player2.name}: {game.player2Points} points</span>
             </div>
-            <button className={styles.gameButton} onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
+            <button className={gameButton} onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
           </div>
         ))}
       </section>
 
-      <h3 className={styles.header}>Add a New Game</h3>
-      <div className={styles.formContainer}>
-        <label className={styles.formLabel} htmlFor="player1">Player 1:</label>
+      <h3 className={header}>Add a New Game</h3>
+      <div className={formContainer}>
+        <label className={formLabel} htmlFor="player1">Player 1:</label>
         <select
           id="player1"
-          className={styles.formSelect}
+          className={formSelect}
           value={player1Id}
           onChange={(e) => setPlayer1Id(e.target.value)}
         >
