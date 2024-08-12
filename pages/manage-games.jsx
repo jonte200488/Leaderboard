@@ -84,6 +84,8 @@ export default function Games() {
 
   return (
     <div className={styles.container}>
+      <Navbar />
+      <header className={styles.header}></header>
       <h2 className={styles.header}>Games</h2>
 
       <section className={styles.gamesList}>

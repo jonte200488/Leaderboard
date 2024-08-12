@@ -42,7 +42,7 @@ export default function ManagePlayers() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: playerName, image: playerImage, points: 0 }),
+        body: JSON.stringify({ name: playerName, image: playerImage}),
       });
       console.log("fjfdlkgdfjglkfkl");
       if (response.ok) {
