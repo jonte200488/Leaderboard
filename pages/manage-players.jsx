@@ -18,6 +18,16 @@ export default function ManagePlayersPage() {
     setPlayers(players);
   };
 
+  const handleAddPlayer = async (name, image) => {
+    const newPlayer = await addPlayer(name, image);
+    setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
+  };
+
+  const handleRemovePlayer = async (playerId) => {
+    await removePlayer(playerId);
+    setPlayers((prevPlayers) => prevPlayers.filter(player => player.id !== playerId));
+  };
+
   return (
     <div>
       <Navbar />
@@ -25,7 +35,11 @@ export default function ManagePlayersPage() {
         <h1>Leaderboard</h1>
       </header>
       <main>
-        <ManagePlayers players={players} addPlayer={addPlayer} removePlayer={removePlayer} />
+        <ManagePlayers
+          players={players}
+          onAddPlayer={handleAddPlayer}
+          onRemovePlayer={handleRemovePlayer}
+        />
       </main>
     </div>
   );
