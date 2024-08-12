@@ -1,169 +1,101 @@
 import { useState, useEffect } from 'react';
 
-export default function Games() {
-  const [games, setGames] = useState([]);
+export default function ManagePlayers() {
   const [players, setPlayers] = useState([]);
-  const [player1Id, setPlayer1Id] = useState('');
-  const [player2Id, setPlayer2Id] = useState('');
-  const [player1Points, setPlayer1Points] = useState('');
-  const [player2Points, setPlayer2Points] = useState('');
+  const [playerName, setPlayerName] = useState('');
+  const [playerImage, setPlayerImage] = useState('');
 
   useEffect(() => {
-    fetchGames();
     fetchPlayers();
   }, []);
 
-  const fetchGames = async () => {
-    const response = await fetch('/api/games');
-    const data = await response.json();
-    setGames(data);
-  };
-
   const fetchPlayers = async () => {
-    const response = await fetch('/api/players');
-    const data = await response.json();
-    setPlayers(data);
+    try {
+      const response = await fetch('/api/players');
+      if (response.ok) {
+        const data = await response.json();
+        setPlayers(data);
+      } else {
+        console.error('Failed to fetch players');
+      }
+    } catch (error) {
+      console.error('Error fetching players:', error);
+    }
   };
 
-  const handleAddGame = async (e) => {
+  const handleAddPlayer = async (e) => {
     e.preventDefault();
-    const data = {
-      player1Id: parseInt(player1Id),
-      player2Id: parseInt(player2Id),
-      player1Points: parseInt(player1Points),
-      player2Points: parseInt(player2Points),
-    };
+
+    if (!playerName.trim() || !playerImage.trim()) {
+      console.error('Player name or image is empty');
+      return;
+    }
 
     try {
-      const response = await fetch('/api/games', {
+      const response = await fetch('/api/players', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ name: playerName, image: playerImage }),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.ok) {
+        const newPlayer = await response.json();
+        console.log('Player added successfully:', newPlayer);
+        setPlayers([...players, newPlayer]);
+        setPlayerName('');
+        setPlayerImage('');
+      } else {
+        console.error('Failed to add player');
       }
-
-      const newGame = await response.json();
-      setGames([...games, newGame]);
-
-      setPlayer1Id('');
-      setPlayer2Id('');
-      setPlayer1Points('');
-      setPlayer2Points('');
-
-      fetchPlayers();
-
     } catch (error) {
-      console.error('Error adding game:', error);
+      console.error('Error adding player:', error);
     }
   };
 
-  const handleDeleteGame = async (gameId) => {
+  const handleRemovePlayer = async (playerId) => {
     try {
-      const response = await fetch(`/api/games?id=${gameId}`, {
+      const response = await fetch(`/api/players/${playerId}`, {
         method: 'DELETE',
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (response.ok) {
+        setPlayers(players.filter(player => player.id !== playerId));
+      } else {
+        console.error('Failed to remove player');
       }
-
-      setGames(games.filter(game => game.id !== gameId));
-      fetchPlayers();
     } catch (error) {
-      console.error('Error deleting game:', error);
+      console.error('Error removing player:', error);
     }
   };
 
   return (
-    <div className="gamesContainer">
-      
-      <h3 className="header">Add a New Game</h3>
-      <form className="form" onSubmit={handleAddGame}>
-        <div className="playersWrapper">
-          <div className="playerSide">
-            <label className="label" htmlFor="player1">Player 1:</label>
-            <select
-              id="player1"
-              className="select"
-              value={player1Id}
-              onChange={(e) => setPlayer1Id(e.target.value)}
-              required
-            >
-              <option value="">Select Player 1</option>
-              {players.map((player) => (
-                <option key={player.id} value={player.id}>
-                  {player.name}
-                </option>
-              ))}
-            </select>
-
-            <label className="label" htmlFor="player1Points">Player 1 Points:</label>
-            <input
-              type="number"
-              id="player1Points"
-              className="input"
-              placeholder="Player 1 Points"
-              value={player1Points}
-              onChange={(e) => setPlayer1Points(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="versusImage">
-            <img src="https://media.istockphoto.com/id/904853290/sv/foto/bordtennisbord-isolerade.jpg?s=612x612&w=0&k=20&c=1g1k7fej4i4xp8ZQ2OuevOLH7aYdcHyS6G7bvAs9pJQ=" alt="Versus" className="versusImg" />
-          </div>
-
-          <div className="playerSide">
-            <label className="label" htmlFor="player2">Player 2:</label>
-            <select
-              id="player2"
-              className="select"
-              value={player2Id}
-              onChange={(e) => setPlayer2Id(e.target.value)}
-              required
-            >
-              <option value="">Select Player 2</option>
-              {players.map((player) => (
-                <option key={player.id} value={player.id}>
-                  {player.name}
-                </option>
-              ))}
-            </select>
-
-            <label className="label" htmlFor="player2Points">Player 2 Points:</label>
-            <input
-              type="number"
-              id="player2Points"
-              className="input"
-              placeholder="Player 2 Points"
-              value={player2Points}
-              onChange={(e) => setPlayer2Points(e.target.value)}
-              required
-            />
-          </div>
-        </div>
-
-        <button type="submit" className="addButton">Add Game</button>
+    <div className="managePlayersContainer">
+      <h2>Manage Players</h2>
+      <form onSubmit={handleAddPlayer} className="newPlayerForm">
+        <input
+          type="text"
+          placeholder="Player Name"
+          value={playerName}
+          onChange={(e) => setPlayerName(e.target.value)}
+          className="input"
+        />
+        <input
+          type="text"
+          placeholder="Profile Image URL"
+          value={playerImage}
+          onChange={(e) => setPlayerImage(e.target.value)}
+          className="input"
+        />
+        <button type="submit" className="button">Add Player</button>
       </form>
-
-      <h2 className="header">Games</h2>
-
-      <section className="gamesList">
-        {games.map((game) => (
-          <div key={game.id} className="gameEntry">
-            <div className="gamePlayers">
-              <span>{game.player1.name} vs {game.player2.name}</span>
-            </div>
-            <div className="gamePoints">
-              <span>{game.player1.name}: {game.player1Points} points</span>
-              <span>{game.player2.name}: {game.player2Points} points</span>
-            </div>
-            <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
+      <section id="playersList" className="playersList">
+        {players.map((player) => (
+          <div key={player.id} className="playerEntry">
+            <img src={player.image} alt={player.name} className="playerImage" />
+            <span className="playerName">{player.name}</span>
+            <button onClick={() => handleRemovePlayer(player.id)} className="button removeButton">Remove</button>
           </div>
         ))}
       </section>

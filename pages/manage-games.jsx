@@ -86,22 +86,6 @@ export default function Games() {
     <div className="container">
       <Navbar />
       <header className="header"></header>
-      <h2 className="header">Games</h2>
-
-      <section className="gamesList">
-        {games.map((game) => (
-          <div key={game.id} className="gameEntry">
-            <div className="gamePlayers">
-              <span>{game.player1.name} vs {game.player2.name}</span>
-            </div>
-            <div className="gamePoints">
-              <span>{game.player1.name}: {game.player1Points} points</span>
-              <span>{game.player2.name}: {game.player2Points} points</span>
-            </div>
-            <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
-          </div>
-        ))}
-      </section>
 
       <h3 className="header">Add a New Game</h3>
       <div className="formContainer">

@@ -25,7 +25,8 @@ export default function Games() {
     setPlayers(data);
   };
 
-  const handleAddGame = async () => {
+  const handleAddGame = async (e) => {
+    e.preventDefault();
     const data = {
       player1Id: parseInt(player1Id),
       player2Id: parseInt(player2Id),
@@ -49,12 +50,16 @@ export default function Games() {
       const newGame = await response.json();
       setGames([...games, newGame]);
 
+      setPlayer1Id('');
+      setPlayer2Id('');
+      setPlayer1Points('');
+      setPlayer2Points('');
+
       fetchPlayers();
 
     } catch (error) {
       console.error('Error adding game:', error);
     }
-    window.location.reload();
   };
 
   const handleDeleteGame = async (gameId) => {
@@ -69,7 +74,6 @@ export default function Games() {
 
       setGames(games.filter(game => game.id !== gameId));
       fetchPlayers();
-      window.location.reload();
     } catch (error) {
       console.error('Error deleting game:', error);
     }
@@ -79,7 +83,7 @@ export default function Games() {
     <div className="gamesContainer">
       
       <h3 className="header">Add a New Game</h3>
-      <div className="form">
+      <form className="form" onSubmit={handleAddGame}>
         <div className="playersWrapper">
           <div className="playerSide">
             <label className="label" htmlFor="player1">Player 1:</label>
@@ -88,6 +92,7 @@ export default function Games() {
               className="select"
               value={player1Id}
               onChange={(e) => setPlayer1Id(e.target.value)}
+              required
             >
               <option value="">Select Player 1</option>
               {players.map((player) => (
@@ -105,11 +110,12 @@ export default function Games() {
               placeholder="Player 1 Points"
               value={player1Points}
               onChange={(e) => setPlayer1Points(e.target.value)}
+              required
             />
           </div>
 
           <div className="versusImage">
-            <img src="/path/to/versus-image.jpg" alt="Versus" className="versusImg" />
+            <img src="https://media.istockphoto.com/id/904853290/sv/foto/bordtennisbord-isolerade.jpg?s=612x612&w=0&k=20&c=1g1k7fej4i4xp8ZQ2OuevOLH7aYdcHyS6G7bvAs9pJQ=" alt="Versus" className="versusImg" />
           </div>
 
           <div className="playerSide">
@@ -119,6 +125,7 @@ export default function Games() {
               className="select"
               value={player2Id}
               onChange={(e) => setPlayer2Id(e.target.value)}
+              required
             >
               <option value="">Select Player 2</option>
               {players.map((player) => (
@@ -136,13 +143,14 @@ export default function Games() {
               placeholder="Player 2 Points"
               value={player2Points}
               onChange={(e) => setPlayer2Points(e.target.value)}
+              required
             />
           </div>
         </div>
 
-        <button className="addButton" onClick={handleAddGame}>Add Game</button>
-      </div>
-      
+        <button type="submit" className="addButton">Add Game</button>
+      </form>
+
       <h2 className="header">Games</h2>
 
       <section className="gamesList">
