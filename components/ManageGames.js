@@ -77,7 +77,7 @@ export default function Games() {
   };
 
   return (
-    <div className={`${styles.container} ${styles['theme-dark-blue']}`}>
+    <div className={`${styles.container}`}>
       <h2 className={styles.header}>Games</h2>
 
       <section className={styles.gamesList}>
