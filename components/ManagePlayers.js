@@ -73,29 +73,29 @@ export default function ManagePlayers() {
   return (
     <div>
       <h2>Manage Players</h2>
-      <form onSubmit={handleAddPlayer} className={styles.newPlayerForm}>
+      <form onSubmit={handleAddPlayer} className="newPlayerForm">
         <input
           type="text"
           placeholder="Player Name"
           value={playerName}
           onChange={(e) => setPlayerName(e.target.value)}
-          className={styles.input}
+          className="input"
         />
         <input
           type="text"
           placeholder="Profile Image URL"
           value={playerImage}
           onChange={(e) => setPlayerImage(e.target.value)}
-          className={styles.input}
+          className="input"
         />
-        <button type="submit" className={styles.button}>Add Player</button>
+        <button type="submit" className="button">Add Player</button>
       </form>
-      <section id="playersList" className={styles.playersList}>
+      <section id="playersList" className="playersList">
         {players.map((player) => (
-          <div key={player.id} className={styles.playerEntry}>
-            <img src={player.image} alt={player.name} className={styles.playerImage} />
+          <div key={player.id} className="playerEntry">
+            <img src={player.image} alt={player.name} className="playerImage" />
             {player.name}
-            <button onClick={() => handleRemovePlayer(player.id)} className={styles.button}>Remove</button>
+            <button onClick={() => handleRemovePlayer(player.id)} className="button">Remove</button>
           </div>
         ))}
       </section>
