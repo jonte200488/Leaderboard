@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export default async function handler(req, res) {
   const { id } = req.query;
 
-  if (!parseInt(id)) {
+  if (isNaN(parseInt(id))) {
     return res.status(400).json({ error: 'Invalid player ID' });
   }
 
@@ -30,14 +30,26 @@ export default async function handler(req, res) {
     // Update a player's data
     const { name, image, points } = req.body;
 
-    if (!name || !image || isNaN(parseInt(points))) {
-      return res.status(400).json({ error: 'Invalid input data' });
+    if (!name) {
+      return res.status(400).json({ error: 'Name is required' });
     }
 
     try {
+      const updatedData = { name };
+
+      if (image !== undefined) {
+        updatedData.image = image;
+      }
+      if (points !== undefined) {
+        if (isNaN(parseInt(points))) {
+          return res.status(400).json({ error: 'Points must be a number' });
+        }
+        updatedData.points = parseInt(points);
+      }
+
       const updatedPlayer = await prisma.player.update({
         where: { id: parseInt(id) },
-        data: { name, image, points: parseInt(points) },
+        data: updatedData,
       });
 
       res.status(200).json(updatedPlayer);
