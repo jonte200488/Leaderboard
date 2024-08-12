@@ -7,9 +7,9 @@ html {
 
 /* Global Styles */
 :root {
-  --bg-color: #0d1b2a;
-  --accent-color: #1b263b;
-  --highlight-color: #415a77;
+    --bg-color: linear-gradient(to bottom right, #a324c9, #3d0b98);
+    --accent-color: #1b263b;
+  --highlight-color: #3d0b98;
   --text-color: #e0e1dd;
   --button-bg: #778da9;
   --button-hover-bg: #1b263b;
@@ -33,9 +33,6 @@ max-width: 1000px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-image: url('https://img.freepik.com/free-vector/leaderboard-with-abstract-background_23-2148753469.jpg');
-    background-size: cover;
-    background-position: bottom;
     margin-bottom: 30px;
     position: relative;
   }
@@ -57,8 +54,8 @@ max-width: 1000px;
     color: white;
     position: relative;
     z-index: 1;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
+    box-shadow: 15px 15px 28px 5px rgba(0,0,0,0.58);
+}
   
   .podium-1 .podiumImage {
     border: 3px solid white;
