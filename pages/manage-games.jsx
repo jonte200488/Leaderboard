@@ -157,6 +157,23 @@ export default function Games() {
 
         <button className="formButton" onClick={handleAddGame}>Add Game</button>
       </div>
+
+      <h2 className="header">Games</h2>
+
+      <section className="gamesList">
+        {games.map((game) => (
+          <div key={game.id} className="gameEntry">
+            <div className="gamePlayers">
+              <span>{game.player1.name} vs {game.player2.name}</span>
+            </div>
+            <div className="gamePoints">
+              <span>{game.player1.name}: {game.player1Points} points</span>
+              <span>{game.player2.name}: {game.player2Points} points</span>
+            </div>
+            <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
