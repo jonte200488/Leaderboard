@@ -63,7 +63,8 @@
   }
   
   /* Dark blue theme */
-:root {
+/* Custom theme class */
+.theme-dark-blue {
   --bg-color: #0d1b2a;
   --accent-color: #1b263b;
   --highlight-color: #415a77;
@@ -124,7 +125,7 @@
   background-color: var(--button-hover-bg);
 }
 
-.formContainer {
+.form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -136,12 +137,12 @@
   margin: 2rem auto;
 }
 
-.formLabel {
+.label {
   margin-bottom: 0.5rem;
   color: var(--highlight-color);
 }
 
-.formInput, .formSelect {
+.input, .select {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--highlight-color);
@@ -149,16 +150,16 @@
   color: var(--text-color);
 }
 
-.formInput::placeholder {
+.input::placeholder {
   color: var(--highlight-color);
 }
 
-.formInput:focus, .formSelect:focus {
+.input:focus, .select:focus {
   outline: none;
   border-color: var(--button-bg);
 }
 
-.formButton {
+.addButton {
   grid-column: span 2;
   background-color: var(--button-bg);
   color: var(--button-text-color);
@@ -170,7 +171,7 @@
   margin-top: 1rem;
 }
 
-.formButton:hover {
+.addButton:hover {
   background-color: var(--button-hover-bg);
 }
 
@@ -179,7 +180,7 @@
     grid-template-columns: 1fr;
   }
 
-  .formContainer {
+  .form {
     grid-template-columns: 1fr;
   }
 }
