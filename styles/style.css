@@ -50,7 +50,7 @@ max-width: 1000px;
     width: 180px;
     height: 250px;
     border-radius: 10px 10px 0 0;
-    background-image: url('/path/to/your/background-image.jpg');
+    background-image: url('https://img.freepik.com/free-vector/leaderboard-with-abstract-background_23-2148753469.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -61,6 +61,14 @@ max-width: 1000px;
   
   .podium-1 .podiumImage {
     border: 3px solid white;
+  }
+
+  .podium-2 {
+    order: 1;
+  }
+
+  .podium-3 {
+    order: 3;
   }
   
   /* Smaller side podiums */
