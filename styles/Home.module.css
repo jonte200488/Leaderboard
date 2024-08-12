@@ -62,53 +62,124 @@
     border: 3px solid #0070f3;
   }
   
-  .playerName {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+  /* Dark blue theme */
+:root {
+  --bg-color: #0d1b2a;
+  --accent-color: #1b263b;
+  --highlight-color: #415a77;
+  --text-color: #e0e1dd;
+  --button-bg: #778da9;
+  --button-hover-bg: #1b263b;
+  --button-text-color: #fefefe;
+}
+
+.container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+}
+
+.header {
+  color: var(--highlight-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.gamesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.gameEntry {
+  background-color: var(--accent-color);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gamePlayers {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gamePoints {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gameButton {
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.gameButton:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.formContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--accent-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.formLabel {
+  margin-bottom: 0.5rem;
+  color: var(--highlight-color);
+}
+
+.formInput, .formSelect {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--highlight-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.formInput::placeholder {
+  color: var(--highlight-color);
+}
+
+.formInput:focus, .formSelect:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+.formButton {
+  grid-column: span 2;
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.formButton:hover {
+  background-color: var(--button-hover-bg);
+}
+
+@media (max-width: 768px) {
+  .gamesList {
+    grid-template-columns: 1fr;
   }
-  
-  .playerPoints {
-    color: #555;
+
+  .formContainer {
+    grid-template-columns: 1fr;
   }
-  
-  .otherPlayers {
-    margin-top: 20px;
-  }
-  
-  .playerEntry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #eaeaea;
-  }
-  
-  .playerImage {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  /* Manage Games and Manage Players Styles */
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .gamesList,
-  .playersList {
-    margin-top: 30px;
-  }
-  
-  .gameEntry,
-  .playerEntry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eaeaea;
-  }
+}
