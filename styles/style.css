@@ -100,7 +100,6 @@ main {
   
 .playerName {
     font-size: 1.1rem; /* Adjusted font size */
-    margin-top: 45px; /* Adjusted margin */
     color: #5a1dbb; /* Updated to match the image */
 }
   
@@ -235,14 +234,14 @@ main {
   .input {
     padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid var(--highlight-color);
+    border: 1px solid #ffc400;
     background-color: var(--bg-color);
-    color: var(--text-color);
+    color: #ffc400;
     font-size: 1rem;
   }
   
   .input::placeholder {
-    color: var(--highlight-color);
+    color: #000;
   }
   
   .button {
