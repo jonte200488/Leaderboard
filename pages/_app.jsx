@@ -1,5 +1,5 @@
 // pages/_app.jsx
-import '../styles/style.css'; // Import your global CSS file here
+import styles from '../styles/style.css'; // Import your global CSS file here
 import Navbar from '../components/Navbar';
 
 function MyApp({ Component, pageProps }) {
