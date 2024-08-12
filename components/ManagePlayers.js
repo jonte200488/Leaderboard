@@ -14,7 +14,7 @@ export default function ManagePlayers() {
 
   const fetchPlayers = async () => {
     try {
-      const response = await fetch('/api/player');
+      const response = await fetch('/api/players');
       if (response.ok) {
         const data = await response.json();
         setPlayers(data);
@@ -37,7 +37,7 @@ export default function ManagePlayers() {
     console.log('Adding player:', playerName, playerImage); // Debugging output
 
     try {
-      const response = await fetch('/api/player', {
+      const response = await fetch('/api/players', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function ManagePlayers() {
 
   const handleRemovePlayer = async (playerId) => {
     try {
-      const response = await fetch(`/api/player/${playerId}`, {
+      const response = await fetch(`/api/players/${playerId}`, {
         method: 'DELETE',
       });
 
