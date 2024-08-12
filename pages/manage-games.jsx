@@ -1,7 +1,6 @@
 // /pages/manage-games.js
 
 import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
 import Navbar from '../components/Navbar';
 
 export default function Games() {
@@ -84,32 +83,32 @@ export default function Games() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Navbar />
-      <header className={styles.header}></header>
-      <h2 className={styles.header}>Games</h2>
+      <header className="header"></header>
+      <h2 className="header">Games</h2>
 
-      <section className={styles.gamesList}>
+      <section className="gamesList">
         {games.map((game) => (
-          <div key={game.id} className={styles.gameEntry}>
-            <div className={styles.gamePlayers}>
+          <div key={game.id} className="gameEntry">
+            <div className="gamePlayers">
               <span>{game.player1.name} vs {game.player2.name}</span>
             </div>
-            <div className={styles.gamePoints}>
+            <div className="gamePoints">
               <span>{game.player1.name}: {game.player1Points} points</span>
               <span>{game.player2.name}: {game.player2Points} points</span>
             </div>
-            <button className={styles.gameButton} onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
+            <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
           </div>
         ))}
       </section>
 
-      <h3 className={styles.header}>Add a New Game</h3>
-      <div className={styles.formContainer}>
-        <label className={styles.formLabel} htmlFor="player1">Player 1:</label>
+      <h3 className="header">Add a New Game</h3>
+      <div className="formContainer">
+        <label className="formLabel" htmlFor="player1">Player 1:</label>
         <select
           id="player1"
-          className={styles.formSelect}
+          className="formSelect"
           value={player1Id}
           onChange={(e) => setPlayer1Id(e.target.value)}
         >
@@ -121,20 +120,20 @@ export default function Games() {
           ))}
         </select>
 
-        <label className={styles.formLabel} htmlFor="player1Points">Player 1 Points:</label>
+        <label className="formLabel" htmlFor="player1Points">Player 1 Points:</label>
         <input
           type="number"
           id="player1Points"
-          className={styles.formInput}
+          className="formInput"
           placeholder="Player 1 Points"
           value={player1Points}
           onChange={(e) => setPlayer1Points(e.target.value)}
         />
 
-        <label className={styles.formLabel} htmlFor="player2">Player 2:</label>
+        <label className="formLabel" htmlFor="player2">Player 2:</label>
         <select
           id="player2"
-          className={styles.formSelect}
+          className="formSelect"
           value={player2Id}
           onChange={(e) => setPlayer2Id(e.target.value)}
         >
@@ -146,17 +145,17 @@ export default function Games() {
           ))}
         </select>
 
-        <label className={styles.formLabel} htmlFor="player2Points">Player 2 Points:</label>
+        <label className="formLabel" htmlFor="player2Points">Player 2 Points:</label>
         <input
           type="number"
           id="player2Points"
-          className={styles.formInput}
+          className="formInput"
           placeholder="Player 2 Points"
           value={player2Points}
           onChange={(e) => setPlayer2Points(e.target.value)}
         />
 
-        <button className={styles.formButton} onClick={handleAddGame}>Add Game</button>
+        <button className="formButton" onClick={handleAddGame}>Add Game</button>
       </div>
     </div>
   );
