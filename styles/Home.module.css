@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
 /* Global Styles */
-.theme-dark-blue {
+.theme {
   --bg-color: #0d1b2a;
   --accent-color: #1b263b;
   --highlight-color: #415a77;
@@ -13,8 +13,8 @@
   --black: #000;
 }
 
-.theme-dark-blue body,
-.theme-dark-blue .container {
+.theme body,
+.theme .container {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -24,7 +24,7 @@
 }
 
 /* Navbar Styles */
-.theme-dark-blue .navbar {
+.theme .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,7 +35,7 @@
   font-family: 'Raleway', sans-serif;
 }
 
-.theme-dark-blue .navbar > * {
+.theme .navbar > * {
   color: var(--button-text-color);
   text-decoration: none;
   padding: 0.75rem 1.5rem;
@@ -45,57 +45,57 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.theme-dark-blue .navbar > *:hover {
+.theme .navbar > *:hover {
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 20px rgba(119, 141, 169, 0.4);
   transform: translateY(-3px);
 }
 
-.theme-dark-blue .navbar > *:active {
+.theme .navbar > *:active {
   transform: translateY(0);
   box-shadow: 0 4px 15px rgba(119, 141, 169, 0.2);
 }
 
-.theme-dark-blue .navbar > *:nth-child(1) {
+.theme .navbar > *:nth-child(1) {
   border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
 }
 
-.theme-dark-blue .navbar > *:nth-child(3) {
+.theme .navbar > *:nth-child(3) {
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
 }
 
-.theme-dark-blue .navbar > * + * {
+.theme .navbar > * + * {
   margin-left: 1rem;
 }
 
-.theme-dark-blue .navbar > *:focus {
+.theme .navbar > *:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(119, 141, 169, 0.2);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .theme-dark-blue .navbar {
+  .theme .navbar {
     flex-direction: column;
     padding: 1rem;
   }
 
-  .theme-dark-blue .navbar > * + * {
+  .theme .navbar > * + * {
     margin-left: 0;
     margin-top: 0.75rem;
   }
 }
 
 /* Header and Main Layout */
-.theme-dark-blue .header {
+.theme .header {
   color: var(--highlight-color);
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.theme-dark-blue .main {
+.theme .main {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -105,18 +105,18 @@
 }
 
 /* Leaderboard Styles */
-.theme-dark-blue .podium {
+.theme .podium {
   display: flex;
   justify-content: space-around;
   margin-bottom: 30px;
 }
 
-.theme-dark-blue .podiumPosition {
+.theme .podiumPosition {
   text-align: center;
   margin-top: 10px;
 }
 
-.theme-dark-blue .podiumImage {
+.theme .podiumImage {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -125,31 +125,31 @@
 }
 
 /* Games List */
-.theme-dark-blue .gamesList {
+.theme .gamesList {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 1rem;
 }
 
-.theme-dark-blue .gameEntry {
+.theme .gameEntry {
   background-color: var(--accent-color);
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.theme-dark-blue .gamePlayers {
+.theme .gamePlayers {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
-.theme-dark-blue .gamePoints {
+.theme .gamePoints {
   font-size: 1rem;
   margin-bottom: 1rem;
 }
 
-.theme-dark-blue .gameButton {
+.theme .gameButton {
   background-color: var(--button-bg);
   color: var(--button-text-color);
   border: none;
@@ -159,12 +159,12 @@
   transition: background-color 0.3s;
 }
 
-.theme-dark-blue .gameButton:hover {
+.theme .gameButton:hover {
   background-color: var(--button-hover-bg);
 }
 
 /* Form Styles */
-.theme-dark-blue .form {
+.theme .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -176,12 +176,12 @@
   margin: 2rem auto;
 }
 
-.theme-dark-blue .label {
+.theme .label {
   margin-bottom: 0.5rem;
   color: var(--highlight-color);
 }
 
-.theme-dark-blue .input, .theme-dark-blue .select {
+.theme .input, .theme .select {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--highlight-color);
@@ -189,16 +189,16 @@
   color: var(--text-color);
 }
 
-.theme-dark-blue .input::placeholder {
+.theme .input::placeholder {
   color: var(--highlight-color);
 }
 
-.theme-dark-blue .input:focus, .theme-dark-blue .select:focus {
+.theme .input:focus, .theme .select:focus {
   outline: none;
   border-color: var(--button-bg);
 }
 
-.theme-dark-blue .addButton {
+.theme .addButton {
   grid-column: span 2;
   background-color: var(--button-bg);
   color: var(--button-text-color);
@@ -210,16 +210,16 @@
   margin-top: 1rem;
 }
 
-.theme-dark-blue .addButton:hover {
+.theme .addButton:hover {
   background-color: var(--button-hover-bg);
 }
 
 @media (max-width: 768px) {
-  .theme-dark-blue .gamesList {
+  .theme .gamesList {
     grid-template-columns: 1fr;
   }
 
-  .theme-dark-blue .form {
+  .theme .form {
     grid-template-columns: 1fr;
   }
 }

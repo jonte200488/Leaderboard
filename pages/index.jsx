@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.theme-dark-blue}>
+    <div className={styles.theme}>
       <Navbar />
       <header className={styles.header}>
         <h1>Leaderboard</h1>
