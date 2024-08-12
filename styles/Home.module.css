@@ -1,48 +1,57 @@
-/* Global Styles (use a container class to apply these globally if needed) */
-.container {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    min-height: 100vh;
-  }
-  
-  /* Navbar Styles */
-  /* Assuming styles.navbar maps to .navbar */
-/* Assuming styles.navbar maps to .navbar */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap'); /* Custom Google Font */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
 
+/* Global Styles */
+:root {
+  --bg-color: #0d1b2a;
+  --accent-color: #1b263b;
+  --highlight-color: #415a77;
+  --text-color: #e0e1dd;
+  --button-bg: #778da9;
+  --button-hover-bg: #1b263b;
+  --button-text-color: #fefefe;
+}
+
+body, .container {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: linear-gradient(90deg, #0061ff, #60efff); /* Gradient background */
+  background: linear-gradient(90deg, var(--button-bg), var(--highlight-color));
   padding: 1rem 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
-  font-family: 'Raleway', sans-serif; /* Applying custom font */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Raleway', sans-serif;
 }
 
 .navbar > * {
-  color: #ffffff; /* White text for better contrast */
+  color: var(--button-text-color);
   text-decoration: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.1); /* Transparent background for links */
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar > *:hover {
-  background-color: rgba(255, 255, 255, 0.3); /* Brighter background on hover */
-  box-shadow: 0 8px 20px rgba(0, 97, 255, 0.4); /* Glow effect on hover */
-  transform: translateY(-3px); /* Slight lift on hover */
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(119, 141, 169, 0.4);
+  transform: translateY(-3px);
 }
 
 .navbar > *:active {
-  transform: translateY(0); /* Reset transform when active (clicked) */
-  box-shadow: 0 4px 15px rgba(0, 97, 255, 0.2); /* Softer shadow when clicked */
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(119, 141, 169, 0.2);
 }
 
 .navbar > *:nth-child(1) {
@@ -61,10 +70,10 @@
 
 .navbar > *:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 97, 255, 0.2); /* Custom focus outline with shadow */
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(119, 141, 169, 0.2);
 }
 
-/* Optional: Responsive adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -76,67 +85,44 @@
     margin-top: 0.75rem;
   }
 }
-  
-  /* Header and Main Layout */
-  .header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-  
-  /* Leaderboard Styles */
-  .podium {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-  }
-  
-  .podiumPosition {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .podiumImage {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 3px solid #0070f3;
-  }
-  
-  /* Dark blue theme */
-/* Custom theme class */
-.theme-dark-blue {
-  --bg-color: #0d1b2a;
-  --accent-color: #1b263b;
-  --highlight-color: #415a77;
-  --text-color: #e0e1dd;
-  --button-bg: #778da9;
-  --button-hover-bg: #1b263b;
-  --button-text-color: #fefefe;
-}
 
-.container {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: 'Arial', sans-serif;
-  padding: 2rem;
-}
-
+/* Header and Main Layout */
 .header {
   color: var(--highlight-color);
   text-align: center;
   margin-bottom: 1rem;
 }
 
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Leaderboard Styles */
+.podium {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.podiumPosition {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.podiumImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid var(--button-bg);
+}
+
+/* Games List */
 .gamesList {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -175,6 +161,7 @@
   background-color: var(--button-hover-bg);
 }
 
+/* Form Styles */
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
