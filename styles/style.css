@@ -18,6 +18,7 @@ html {
 }
 
 body, .container {
+max-width: 1000px;
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -29,7 +30,7 @@ body, .container {
 /* Podium Styles */
 .podium {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 30px;
 }
@@ -120,3 +121,75 @@ body, .container {
     grid-template-columns: 1fr;
   }
 }
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--button-bg), var(--highlight-color));
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .navbar > * {
+    color: var(--button-text-color);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .navbar > *:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(119, 141, 169, 0.4);
+    transform: translateY(-3px);
+  }
+  
+  .navbar > *:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(119, 141, 169, 0.2);
+  }
+  
+  .navbar > *:nth-child(1) {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+  }
+  
+  .navbar > *:nth-child(3) {
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .navbar > * + * {
+    margin-left: 1rem;
+  }
+  
+  .navbar > *:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(119, 141, 169, 0.2);
+  }
+  
+  /* Add active link styling */
+  .navbar .active {
+    background-color: var(--button-hover-bg);
+    box-shadow: 0 8px 20px rgba(27, 38, 59, 0.4);
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .navbar > * + * {
+      margin-left: 0;
+      margin-top: 0.75rem;
+    }
+  }
