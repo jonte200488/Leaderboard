@@ -29,6 +29,7 @@ max-width: 1000px;
 }
 
 /* Leaderboard Styles */
+/* Leaderboard Styles */
 .podium {
     display: flex;
     justify-content: center;
@@ -37,70 +38,73 @@ max-width: 1000px;
     position: relative;
   }
   
-  .podiumPosition {
+.podiumPosition {
     text-align: center;
     margin-top: 10px;
     position: relative;
     margin-left: 10px;
     margin-right: 10px;
-    color: var(--button-text-color);
-  }
-  
-  /* Larger center podium with background image */
-  .podium-1 {
+    color: #ffc400; /* Updated to match the text color in the image */
+}
+
+/* Larger center podium with background image */
+.podium-1 {
     order: 2;
     background: linear-gradient(to bottom right, #fece3d, #ff9900);
-    width: 180px;
-    height: 250px;
+    width: 140px; /* Adjusted width */
+    height: 170px; /* Adjusted height */
     border-radius: 10px 10px 0 0;
     color: white;
     position: relative;
     z-index: 1;
-    box-shadow: 15px 15px 28px 5px rgba(0,0,0,0.58);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
 }
   
-  .podium-1 .podiumImage {
+.podium-1 .podiumImage {
     border: 3px solid white;
-  }
+}
 
-  .podium-2 {
+.podium-2 {
     order: 1;
-  }
+}
 
-  .podium-3 {
+.podium-3 {
     order: 3;
-  }
+}
   
-  /* Smaller side podiums */
-  .podium-2, .podium-3 {
+/* Smaller side podiums */
+.podium-2, .podium-3 {
     background: linear-gradient(to bottom right, #fece3d, #ff9900);
-    width: 120px;
-    height: 150px;
+    width: 100px; /* Adjusted width */
+    height: 120px; /* Adjusted height */
     border-radius: 10px 10px 0 0;
     position: relative;
     z-index: 0;
-  }
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
+}
   
-  .podiumImage {
-    width: 80px;
-    height: 80px;
+.podiumImage {
+    width: 70px; /* Adjusted size */
+    height: 70px; /* Adjusted size */
     border-radius: 50%;
     margin-bottom: 10px;
-    border: 3px solid var(--button-bg);
+    border: 3px solid #ffffff; /* Adjusted border color */
     position: absolute;
-    top: -40px;
+    top: -35px; /* Adjusted position */
     left: 50%;
     transform: translateX(-50%);
-  }
+}
   
-  .playerName {
-    font-size: 1.2rem;
-    margin-top: 50px;
-  }
+.playerName {
+    font-size: 1.1rem; /* Adjusted font size */
+    margin-top: 40px; /* Adjusted margin */
+    color: white; /* Updated to match the image */
+}
   
-  .playerPoints {
+.playerPoints {
     font-size: 1rem;
-  }
+    color: white; /* Updated to match the image */
+}
   
   /* Leaderboard List */
   .otherPlayers {
