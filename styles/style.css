@@ -107,6 +107,7 @@ main {
 .playerPoints {
     font-size: 1rem;
     color: #a324c9; /* Updated to match the image */
+    font-weight: 800;
 }
   
   /* Leaderboard List */

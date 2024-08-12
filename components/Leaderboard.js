@@ -25,17 +25,17 @@ export default function Leaderboard() {
             <div key={players[1].id} className="podiumPosition podium-2">
               <img src={players[1].image} alt={players[1].name} className="podiumImage" />
               <div className="playerName">{players[1].name}</div>
-              <div className="playerPoints">{players[1].totalPoints} Points</div>
+              <div className="playerPoints">{players[1].totalPoints}p</div>
             </div>
             <div key={players[0].id} className="podiumPosition podium-1">
               <img src={players[0].image} alt={players[0].name} className="podiumImage" />
               <div className="playerName">{players[0].name}</div>
-              <div className="playerPoints">{players[0].totalPoints} Points</div>
+              <div className="playerPoints">{players[0].totalPoints}p</div>
             </div>
             <div key={players[2].id} className="podiumPosition podium-3">
               <img src={players[2].image} alt={players[2].name} className="podiumImage" />
               <div className="playerName">{players[2].name}</div>
-              <div className="playerPoints">{players[2].totalPoints} Points</div>
+              <div className="playerPoints">{players[2].totalPoints}p</div>
             </div>
           </>
         )}
@@ -45,7 +45,7 @@ export default function Leaderboard() {
           <div key={player.id} className="playerEntry">
             <img src={player.image} alt={player.name} className="playerImage" />
             <span>{player.name}</span>
-            <span>{player.totalPoints} Points</span>
+            <span>{player.totalPoints}p</span>
           </div>
         ))}
       </section>
