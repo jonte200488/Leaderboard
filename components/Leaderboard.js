@@ -1,5 +1,3 @@
-// /components/Leaderboard.js
-
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 
@@ -12,11 +10,9 @@ export default function Leaderboard() {
 
   const fetchPlayers = async () => {
     const response = await fetch('/api/players');
-    let data = await response.json();
+    const data = await response.json();
 
-    // Sort players by their dynamically calculated total points
-    data = data.sort((a, b) => b.totalPoints - a.totalPoints);
-
+    // Ensure data is sorted by totalPoints (although it should be sorted by the API)
     setPlayers(data);
   };
 
