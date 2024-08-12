@@ -1,7 +1,6 @@
 // /pages/index.js
 
 import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
 import { fetchPlayers } from '../utils/api';
 import Leaderboard from '../components/Leaderboard';
 import Navbar from '../components/Navbar';
@@ -20,9 +19,9 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.theme}>
+    <div className="theme">
       <Navbar />
-      <header className={styles.header}>
+      <header className="header">
         <h1>Leaderboard</h1>
       </header>
       <main>
