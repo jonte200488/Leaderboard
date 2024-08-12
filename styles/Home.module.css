@@ -10,48 +10,71 @@
   
   /* Navbar Styles */
   /* Assuming styles.navbar maps to .navbar */
+/* Assuming styles.navbar maps to .navbar */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap'); /* Custom Google Font */
+
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #333; /* Dark background color */
-  padding: 1rem; /* Padding around the navbar */
-  border-radius: 8px; /* Rounded corners for the navbar */
+  background: linear-gradient(90deg, #0061ff, #60efff); /* Gradient background */
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  font-family: 'Raleway', sans-serif; /* Applying custom font */
 }
 
 .navbar > * {
-  color: white; /* White text for links */
-  text-decoration: none; /* Remove underline */
-  padding: 0.5rem 1rem; /* Padding around each link */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  color: #ffffff; /* White text for better contrast */
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background for links */
 }
 
 .navbar > *:hover {
-  background-color: #555; /* Slightly lighter background on hover */
-  transform: scale(1.05); /* Slightly enlarge the link on hover */
+  background-color: rgba(255, 255, 255, 0.3); /* Brighter background on hover */
+  box-shadow: 0 8px 20px rgba(0, 97, 255, 0.4); /* Glow effect on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
 }
 
 .navbar > *:active {
-  transform: scale(0.95); /* Slightly shrink the link when active (clicked) */
+  transform: translateY(0); /* Reset transform when active (clicked) */
+  box-shadow: 0 4px 15px rgba(0, 97, 255, 0.2); /* Softer shadow when clicked */
 }
 
 .navbar > *:nth-child(1) {
-  border-bottom-left-radius: 8px; /* Round left corners of the first link */
+  border-bottom-left-radius: 8px;
   border-top-left-radius: 8px;
 }
 
 .navbar > *:nth-child(3) {
-  border-bottom-right-radius: 8px; /* Round right corners of the last link */
+  border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 .navbar > * + * {
-  margin-left: 1rem; /* Spacing between links */
+  margin-left: 1rem;
 }
 
 .navbar > *:focus {
-  outline: none; /* Remove default focus outline */
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Custom focus outline */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 97, 255, 0.2); /* Custom focus outline with shadow */
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .navbar > * + * {
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
 }
   
   /* Header and Main Layout */
