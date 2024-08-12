@@ -1,5 +1,5 @@
 html {
-    background-color: pink !important;
+    padding: 50px;
 }
 
 /* Import Google Fonts */
@@ -17,8 +17,7 @@ html {
   --black: #000;
 }
 
- body,
- .container {
+body, .container {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -27,203 +26,97 @@ html {
   min-height: 100vh;
 }
 
-/* Navbar Styles */
- .navbar {
+/* Podium Styles */
+.podium {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: linear-gradient(90deg, var(--button-bg), var(--highlight-color));
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  font-family: 'Raleway', sans-serif;
-}
-
- .navbar > * {
-  color: var(--button-text-color);
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
- .navbar > *:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(119, 141, 169, 0.4);
-  transform: translateY(-3px);
-}
-
- .navbar > *:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(119, 141, 169, 0.2);
-}
-
- .navbar > *:nth-child(1) {
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-}
-
- .navbar > *:nth-child(3) {
-  border-bottom-right-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
- .navbar > * + * {
-  margin-left: 1rem;
-}
-
- .navbar > *:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(119, 141, 169, 0.2);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-   .navbar {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-   .navbar > * + * {
-    margin-left: 0;
-    margin-top: 0.75rem;
-  }
-}
-
-/* Header and Main Layout */
- .header {
-  color: var(--highlight-color);
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
- .main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: var(--accent-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-/* Leaderboard Styles */
- .podium {
-  display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: flex-end;
   margin-bottom: 30px;
 }
 
- .podiumPosition {
+.podiumPosition {
   text-align: center;
   margin-top: 10px;
+  position: relative;
 }
 
- .podiumImage {
+.podium-1 {
+  order: 2;
+  background-color: var(--highlight-color);
+  width: 120px;
+  height: 200px;
+  border-radius: 10px 10px 0 0;
+}
+
+.podium-2 {
+  order: 1;
+  background-color: var(--accent-color);
   width: 100px;
-  height: 100px;
+  height: 150px;
+  border-radius: 10px 10px 0 0;
+}
+
+.podium-3 {
+  order: 3;
+  background-color: var(--accent-color);
+  width: 100px;
+  height: 150px;
+  border-radius: 10px 10px 0 0;
+}
+
+.podiumImage {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   margin-bottom: 10px;
   border: 3px solid var(--button-bg);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Games List */
- .gamesList {
+.playerName {
+  font-size: 1.2rem;
+  margin-top: 50px;
+  color: var(--button-text-color);
+}
+
+.playerPoints {
+  font-size: 1rem;
+  color: var(--button-text-color);
+}
+
+/* Leaderboard List */
+.otherPlayers {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: 1rem;
 }
 
- .gameEntry {
+.playerEntry {
   background-color: var(--accent-color);
   padding: 1rem;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
- .gamePlayers {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
- .gamePoints {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
- .gameButton {
-  background-color: var(--button-bg);
-  color: var(--button-text-color);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
- .gameButton:hover {
-  background-color: var(--button-hover-bg);
-}
-
-/* Form Styles */
- .form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: var(--accent-color);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 2rem auto;
-}
-
- .label {
-  margin-bottom: 0.5rem;
-  color: var(--highlight-color);
-}
-
- .input,  .select {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid var(--highlight-color);
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
- .input::placeholder {
-  color: var(--highlight-color);
-}
-
- .input:focus,  .select:focus {
-  outline: none;
-  border-color: var(--button-bg);
-}
-
- .addButton {
-  grid-column: span 2;
-  background-color: var(--button-bg);
-  color: var(--button-text-color);
-  border: none;
-  padding: 0.75rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 1rem;
-}
-
- .addButton:hover {
-  background-color: var(--button-hover-bg);
+.playerImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
-   .gamesList {
-    grid-template-columns: 1fr;
+  .podium {
+    flex-direction: column;
+    align-items: center;
   }
 
-   .form {
+  .otherPlayers {
     grid-template-columns: 1fr;
   }
 }
