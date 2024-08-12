@@ -13,44 +13,65 @@ export default function ManagePlayers() {
   }, []);
 
   const fetchPlayers = async () => {
-    const response = await fetch('/api/players');
-    if (response.ok) {
-      const data = await response.json();
-      setPlayers(data);
-    } else {
-      console.error('Failed to fetch players');
+    try {
+      const response = await fetch('/api/players');
+      if (response.ok) {
+        const data = await response.json();
+        setPlayers(data);
+      } else {
+        console.error('Failed to fetch players');
+      }
+    } catch (error) {
+      console.error('Error fetching players:', error);
     }
   };
 
   const handleAddPlayer = async (e) => {
     e.preventDefault();
-    const response = await fetch('/api/players', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name: playerName, image: playerImage }),
-    });
 
-    if (response.ok) {
-      const newPlayer = await response.json();
-      setPlayers([...players, newPlayer]); // Update the state with the new player
-      setPlayerName('');
-      setPlayerImage('');
-    } else {
-      console.error('Failed to add player');
+    if (!playerName.trim() || !playerImage.trim()) {
+      console.error('Player name or image is empty');
+      return;
+    }
+
+    console.log('Adding player:', playerName, playerImage); // Debugging output
+
+    try {
+      const response = await fetch('/api/players', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: playerName, image: playerImage }),
+      });
+
+      if (response.ok) {
+        const newPlayer = await response.json();
+        console.log('Player added successfully:', newPlayer); // Debugging output
+        setPlayers([...players, newPlayer]);
+        setPlayerName('');
+        setPlayerImage('');
+      } else {
+        console.error('Failed to add player');
+      }
+    } catch (error) {
+      console.error('Error adding player:', error);
     }
   };
 
   const handleRemovePlayer = async (playerId) => {
-    const response = await fetch(`/api/players/${playerId}`, {
-      method: 'DELETE',
-    });
+    try {
+      const response = await fetch(`/api/players/${playerId}`, {
+        method: 'DELETE',
+      });
 
-    if (response.ok) {
-      setPlayers(players.filter(player => player.id !== playerId)); // Remove the player from the state
-    } else {
-      console.error('Failed to remove player');
+      if (response.ok) {
+        setPlayers(players.filter(player => player.id !== playerId));
+      } else {
+        console.error('Failed to remove player');
+      }
+    } catch (error) {
+      console.error('Error removing player:', error);
     }
   };
 
