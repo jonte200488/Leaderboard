@@ -1,9 +1,12 @@
+// /pages/api/players/index.js
+
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
+    // Handle creating a new player
     const { name, image } = req.body;
 
     if (!name || !image) {
@@ -11,19 +14,25 @@ export default async function handler(req, res) {
     }
 
     try {
-      // Execute raw SQL query using Prisma
-      await prisma.$executeRaw`
-        INSERT INTO "Player" (name, image)
-        VALUES (${name}, ${image});
-      `;
-
-      res.status(201).json({ message: 'Player added successfully' });
+      const newPlayer = await prisma.player.create({
+        data: { name, image },
+      });
+      res.status(201).json(newPlayer);
     } catch (error) {
-      console.error('Error inserting player:', error);
-      res.status(500).json({ error: 'Failed to add player', message: error.message });
+      console.error('Error creating player:', error);
+      res.status(500).json({ error: 'Failed to create player', message: error.message });
+    }
+  } else if (req.method === 'GET') {
+    // Handle fetching all players
+    try {
+      const players = await prisma.player.findMany();
+      res.status(200).json(players);
+    } catch (error) {
+      console.error('Error fetching players:', error);
+      res.status(500).json({ error: 'Failed to fetch players', message: error.message });
     }
   } else {
-    res.setHeader('Allow', ['POST']);
+    res.setHeader('Allow', ['POST', 'GET']);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
