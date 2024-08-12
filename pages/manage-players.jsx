@@ -1,7 +1,6 @@
 // /pages/manage-players.js
 
 import { useEffect, useState } from 'react';
-import styles from '../styles/Home.module.css';
 import { fetchPlayers, addPlayer, removePlayer } from '../utils/api';
 import ManagePlayers from '../components/ManagePlayers';
 import Navbar from '../components/Navbar';
@@ -31,7 +30,7 @@ export default function ManagePlayersPage() {
   return (
     <div>
       <Navbar />
-      <header className={styles.header}>
+      <header className="header">
         <h1>Leaderboard</h1>
       </header>
       <main>
