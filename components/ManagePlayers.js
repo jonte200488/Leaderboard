@@ -1,5 +1,3 @@
-// /components/ManagePlayers.js
-
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 
@@ -34,8 +32,6 @@ export default function ManagePlayers() {
       return;
     }
 
-    console.log('Adding player:', playerName, playerImage); // Debugging output
-
     try {
       const response = await fetch('/api/players', {
         method: 'POST',
@@ -44,7 +40,7 @@ export default function ManagePlayers() {
         },
         body: JSON.stringify({ name: playerName, image: playerImage}),
       });
-      console.log("fjfdlkgdfjglkfkl" + response.json);
+
       if (response.ok) {
         const newPlayer = await response.json();
         console.log('Player added successfully:', newPlayer); // Debugging output
