@@ -37,12 +37,12 @@ export default function ManagePlayers() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name: playerName, image: playerImage}),
+        body: JSON.stringify({ name: playerName, image: playerImage }),
       });
 
       if (response.ok) {
         const newPlayer = await response.json();
-        console.log('Player added successfully:', newPlayer); // Debugging output
+        console.log('Player added successfully:', newPlayer);
         setPlayers([...players, newPlayer]);
         setPlayerName('');
         setPlayerImage('');
@@ -71,7 +71,7 @@ export default function ManagePlayers() {
   };
 
   return (
-    <div>
+    <div className="managePlayersContainer">
       <h2>Manage Players</h2>
       <form onSubmit={handleAddPlayer} className="newPlayerForm">
         <input
@@ -94,8 +94,8 @@ export default function ManagePlayers() {
         {players.map((player) => (
           <div key={player.id} className="playerEntry">
             <img src={player.image} alt={player.name} className="playerImage" />
-            {player.name}
-            <button onClick={() => handleRemovePlayer(player.id)} className="button">Remove</button>
+            <span className="playerName">{player.name}</span>
+            <button onClick={() => handleRemovePlayer(player.id)} className="button removeButton">Remove</button>
           </div>
         ))}
       </section>

@@ -215,3 +215,105 @@ main {
       margin-top: 0.75rem;
     }
   }
+
+  .managePlayersContainer {
+    background-color: var(--accent-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+  }
+  
+  .newPlayerForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input {
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid var(--highlight-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  
+  .input::placeholder {
+    color: var(--highlight-color);
+  }
+  
+  .button {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+  }
+  
+  .removeButton {
+    background-color: var(--highlight-color);
+  }
+  
+  .playersList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .playerEntry {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+  }
+  
+  .playerImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid var(--button-bg);
+  }
+  
+  .playerName {
+    flex-grow: 1;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  @media (max-width: 768px) {
+    .newPlayerForm {
+      grid-template-columns: 1fr;
+    }
+  
+    .playersList {
+      grid-template-columns: 1fr;
+    }
+  
+    .playerEntry {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .button {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
