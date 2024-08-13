@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import Table from '../table.png';
+import table from '../table.png';
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -120,7 +120,7 @@ export default function Games() {
           </div>
 
           <div className="versusImage">
-            <Image src={Table} alt="Versus" className="versusImg" layout="responsive" />
+            <img src={table} alt="Versus" className="versusImg" />
           </div>
 
           <div className="playerSide right">
