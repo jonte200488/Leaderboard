@@ -90,7 +90,7 @@ export default function Games() {
       <h3 className="header">Add a New Game</h3>
       <form className="form" onSubmit={handleAddGame}>
         <div className="playersWrapper">
-          <div className="playerSide">
+          <div className="playerSide left">
             <label className="label" htmlFor="player1">Player 1:</label>
             <select
               id="player1"
@@ -123,7 +123,7 @@ export default function Games() {
             <img src="https://media.istockphoto.com/id/904853290/sv/foto/bordtennisbord-isolerade.jpg?s=612x612&w=0&k=20&c=1g1k7fej4i4xp8ZQ2OuevOLH7aYdcHyS6G7bvAs9pJQ=" alt="Versus" className="versusImg" />
           </div>
 
-          <div className="playerSide">
+          <div className="playerSide right">
             <label className="label" htmlFor="player2">Player 2:</label>
             <select
               id="player2"
