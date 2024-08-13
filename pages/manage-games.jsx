@@ -100,7 +100,7 @@ export default function Games() {
               onChange={(e) => setPlayer1Id(e.target.value)}
               required
             >
-              <option value="">Select Player 1</option>
+              <option value="">Player 1</option>
               {players.map((player) => (
                 <option key={player.id} value={player.id}>
                   {player.name}
@@ -112,7 +112,7 @@ export default function Games() {
               type="number"
               id="player1Points"
               className="input"
-              placeholder="Player 1 Points"
+              placeholder="Points"
               value={player1Points}
               onChange={(e) => setPlayer1Points(e.target.value)}
               required
@@ -131,7 +131,7 @@ export default function Games() {
               onChange={(e) => setPlayer2Id(e.target.value)}
               required
             >
-              <option value="">Select Player 2</option>
+              <option value="">Player 2</option>
               {players.map((player) => (
                 <option key={player.id} value={player.id}>
                   {player.name}
@@ -143,7 +143,7 @@ export default function Games() {
               type="number"
               id="player2Points"
               className="input"
-              placeholder="Player 2 Points"
+              placeholder="Points"
               value={player2Points}
               onChange={(e) => setPlayer2Points(e.target.value)}
               required
