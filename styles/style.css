@@ -178,7 +178,6 @@ main {
     align-items: center;
     background-color: #5a1dbb;
     border-radius: 1000px;
-    box-shadow: inset 0px 0px 14px 1px rgba(0,0,0,0.75);
     font-family: 'Raleway', sans-serif;
   }
   
@@ -193,7 +192,7 @@ main {
   
   .navbar > *:hover {
     color: #5a1dbb;
-    background-color: #fece3d;
+    background-color: #ffc400;
     transform: translateY(-3px);
   }
   
