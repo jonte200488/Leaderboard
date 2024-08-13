@@ -87,60 +87,74 @@ export default function Games() {
       <Navbar />
       <header className="header"></header>
 
-      <h3 className="header">Add a New Game 1</h3>
-      <div className="formContainer">
-        <label className="formLabel" htmlFor="player1">Player 1:</label>
-        <select
-          id="player1"
-          className="formSelect"
-          value={player1Id}
-          onChange={(e) => setPlayer1Id(e.target.value)}
-        >
-          <option value="">Select Player 1</option>
-          {players.map((player) => (
-            <option key={player.id} value={player.id}>
-              {player.name}
-            </option>
-          ))}
-        </select>
+      <h3 className="header">Add a New Game</h3>
+      <form className="form" onSubmit={handleAddGame}>
+        <div className="playersWrapper">
+          <div className="playerSide">
+            <label className="label" htmlFor="player1">Player 1:</label>
+            <select
+              id="player1"
+              className="select"
+              value={player1Id}
+              onChange={(e) => setPlayer1Id(e.target.value)}
+              required
+            >
+              <option value="">Select Player 1</option>
+              {players.map((player) => (
+                <option key={player.id} value={player.id}>
+                  {player.name}
+                </option>
+              ))}
+            </select>
 
-        <label className="formLabel" htmlFor="player1Points">Player 1 Points:</label>
-        <input
-          type="number"
-          id="player1Points"
-          className="formInput"
-          placeholder="Player 1 Points"
-          value={player1Points}
-          onChange={(e) => setPlayer1Points(e.target.value)}
-        />
+            <label className="label" htmlFor="player1Points">Player 1 Points:</label>
+            <input
+              type="number"
+              id="player1Points"
+              className="input"
+              placeholder="Player 1 Points"
+              value={player1Points}
+              onChange={(e) => setPlayer1Points(e.target.value)}
+              required
+            />
+          </div>
 
-        <label className="formLabel" htmlFor="player2">Player 2:</label>
-        <select
-          id="player2"
-          className="formSelect"
-          value={player2Id}
-          onChange={(e) => setPlayer2Id(e.target.value)}
-        >
-          <option value="">Select Player 2</option>
-          {players.map((player) => (
-            <option key={player.id} value={player.id}>
-              {player.name}
-            </option>
-          ))}
-        </select>
+          <div className="versusImage">
+            <img src="https://media.istockphoto.com/id/904853290/sv/foto/bordtennisbord-isolerade.jpg?s=612x612&w=0&k=20&c=1g1k7fej4i4xp8ZQ2OuevOLH7aYdcHyS6G7bvAs9pJQ=" alt="Versus" className="versusImg" />
+          </div>
 
-        <label className="formLabel" htmlFor="player2Points">Player 2 Points:</label>
-        <input
-          type="number"
-          id="player2Points"
-          className="formInput"
-          placeholder="Player 2 Points"
-          value={player2Points}
-          onChange={(e) => setPlayer2Points(e.target.value)}
-        />
+          <div className="playerSide">
+            <label className="label" htmlFor="player2">Player 2:</label>
+            <select
+              id="player2"
+              className="select"
+              value={player2Id}
+              onChange={(e) => setPlayer2Id(e.target.value)}
+              required
+            >
+              <option value="">Select Player 2</option>
+              {players.map((player) => (
+                <option key={player.id} value={player.id}>
+                  {player.name}
+                </option>
+              ))}
+            </select>
 
-        <button className="formButton" onClick={handleAddGame}>Add Game</button>
-      </div>
+            <label className="label" htmlFor="player2Points">Player 2 Points:</label>
+            <input
+              type="number"
+              id="player2Points"
+              className="input"
+              placeholder="Player 2 Points"
+              value={player2Points}
+              onChange={(e) => setPlayer2Points(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit" className="addButton">Add Game</button>
+      </form>
 
       <h2 className="header">Games</h2>
 
