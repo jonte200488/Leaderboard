@@ -418,17 +418,17 @@ main {
 }
 
 .playerSide.left {
-    left: 0; /* Aligns to the left side */
+    left: 10%; /* Aligns to the left side */
     text-align: right; /* Optional: Align text to the right */
 }
 
 .playerSide.right {
-    right: 0; /* Aligns to the right side */
+    right: 10%; /* Aligns to the right side */
     text-align: left; /* Optional: Align text to the left */
 }
 
 .versusImage {
-    width: 75%; /* Adjust this as needed */
+    width: 95%; /* Adjust this as needed */
     display: flex;
     justify-content: center;
 }
