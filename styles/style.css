@@ -428,7 +428,7 @@ main {
 }
 
 .versusImage {
-    width: 50%; /* Adjust this as needed */
+    width: 75%; /* Adjust this as needed */
     display: flex;
     justify-content: center;
 }

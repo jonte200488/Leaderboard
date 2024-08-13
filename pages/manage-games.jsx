@@ -91,7 +91,6 @@ export default function Games() {
       <form className="form" onSubmit={handleAddGame}>
         <div className="playersWrapper">
           <div className="playerSide left">
-            <label className="label" htmlFor="player1">Player 1:</label>
             <select
               id="player1"
               className="select"
@@ -107,7 +106,6 @@ export default function Games() {
               ))}
             </select>
 
-            <label className="label" htmlFor="player1Points">Player 1 Points:</label>
             <input
               type="number"
               id="player1Points"
@@ -124,7 +122,6 @@ export default function Games() {
           </div>
 
           <div className="playerSide right">
-            <label className="label" htmlFor="player2">Player 2:</label>
             <select
               id="player2"
               className="select"
@@ -140,7 +137,6 @@ export default function Games() {
               ))}
             </select>
 
-            <label className="label" htmlFor="player2Points">Player 2 Points:</label>
             <input
               type="number"
               id="player2Points"
