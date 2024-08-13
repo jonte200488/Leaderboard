@@ -211,11 +211,12 @@ main {
     outline: none;
   }
   
-  /* Add active link styling 
-  .navbar .active {
-    background-color: #5a1dbb;
-    transform: translateY(-3px);
-  }*/
+  /* Add active link styling */
+  .navbar a.active {
+    color: #5a1dbb;
+    background-color: #fece3d;
+    transform: translateY(0);
+  }
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
