@@ -149,10 +149,6 @@ main {
   }
   
   @media (max-width: 768px) {
-    .podium {
-      flex-direction: column;
-      align-items: center;
-    }
   
     .otherPlayers {
       grid-template-columns: 1fr;
@@ -220,10 +216,6 @@ main {
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      padding: 1rem;
-    }
   
     .navbar > * + * {
       margin-left: 0;
@@ -331,11 +323,6 @@ main {
   
     .playersList {
       grid-template-columns: 1fr;
-    }
-  
-    .playerEntry {
-      flex-direction: column;
-      align-items: flex-start;
     }
   
     .button {
