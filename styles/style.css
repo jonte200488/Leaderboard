@@ -77,10 +77,21 @@ main {
 }
   
 /* Smaller side podiums */
-.podium-2, .podium-3 {
-    background: linear-gradient(to bottom right, #fece3d, #ff9900);
+.podium-2 {
+  background: linear-gradient(135deg, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 100%);
+  width: 120px; /* Adjusted width */
+  height: 120px; /* Adjusted height */
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  z-index: 0;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
+  padding-top: 45px;
+}
+
+.podium-3 {
+  background: linear-gradient(135deg, rgba(243,226,199,1) 0%, rgba(182,141,76,1) 88%, rgba(182,141,76,1) 89%);
     width: 120px; /* Adjusted width */
-    height: 120px; /* Adjusted height */
+    height: 100px; /* Adjusted height */
     border-radius: 10px 10px 0 0;
     position: relative;
     z-index: 0;
