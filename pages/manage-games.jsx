@@ -1,5 +1,6 @@
 // /pages/manage-games.js
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Table from '../table.png';
@@ -119,7 +120,7 @@ export default function Games() {
           </div>
 
           <div className="versusImage">
-            <img src={Table} alt="Versus" className="versusImg" />
+            <Image src={Table} alt="Versus" className="versusImg" layout="responsive" />
           </div>
 
           <div className="playerSide right">
