@@ -8,7 +8,7 @@ html {
 /* Global Styles */
 :root {
     --bg-color: linear-gradient(to bottom right, #a324c9, #3d0b98);
-    --accent-color: #1b263b;
+    --accent-color: #5a1dbb;
   --highlight-color: #3d0b98;
   --text-color: #e0e1dd;
   --button-bg: #778da9;
@@ -177,6 +177,7 @@ main {
     margin: auto;
     align-items: center;
     background-color: #5a1dbb;
+    box-shadow: inset 0px 0px 10px 0px rgba(34,0,84,1);
     border-radius: 1000px;
     font-family: 'Raleway', sans-serif;
   }
@@ -297,6 +298,11 @@ main {
     color: var(--text-color);
   }
   
+  .playerInfo {
+    display: flex;
+    align-items: center;
+  }
+  
   .playerImage {
     width: 50px;
     height: 50px;
@@ -307,6 +313,12 @@ main {
   
   .playerName {
     flex-grow: 1;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+  
+  .playerPoints {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-color);
@@ -347,7 +359,7 @@ main {
     margin: 0 auto 2rem auto;
     padding: 20px;
     background-color: var(--accent-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0px 0px 10px 0px rgba(34,0,84,1);
     border-radius: 10px;
   }
   
