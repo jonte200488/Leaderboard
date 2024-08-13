@@ -54,7 +54,7 @@ main {
 .podium-1 {
     order: 2;
     background: linear-gradient(to bottom right, #fece3d, #ff9900);
-    width: 140px; /* Adjusted width */
+    width: 160px; /* Adjusted width */
     height: 170px; /* Adjusted height */
     border-radius: 10px 10px 0 0;
     color: #a324c9;
@@ -79,7 +79,7 @@ main {
 /* Smaller side podiums */
 .podium-2, .podium-3 {
     background: linear-gradient(to bottom right, #fece3d, #ff9900);
-    width: 100px; /* Adjusted width */
+    width: 120px; /* Adjusted width */
     height: 120px; /* Adjusted height */
     border-radius: 10px 10px 0 0;
     position: relative;
@@ -100,7 +100,7 @@ main {
     transform: translateX(-50%);
 }
   
-.playerName {
+.podiumPosition .playerName {
     font-size: 1.1rem; /* Adjusted font size */
     color: #5a1dbb; /* Updated to match the image */
 }
@@ -181,6 +181,8 @@ main {
   }
   
   .navbar > *:hover {
+    color: #5a1dbb;
+    background-color: #fece3d;
     transform: translateY(-3px);
   }
   
