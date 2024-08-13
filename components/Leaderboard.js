@@ -43,9 +43,11 @@ export default function Leaderboard() {
       <section id="otherPlayers" className="otherPlayers">
         {players.slice(3).map((player) => (
           <div key={player.id} className="playerEntry">
-            <img src={player.image} alt={player.name} className="playerImage" />
-            <span>{player.name}</span>
-            <span>{player.totalPoints}p</span>
+            <div className="playerInfo">
+              <img src={player.image} alt={player.name} className="playerImage" />
+              <span className="playerName">{player.name}</span>
+            </div>
+            <span className="playerPoints">{player.totalPoints}p</span>
           </div>
         ))}
       </section>

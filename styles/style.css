@@ -116,7 +116,7 @@ main {
     color: #5a1dbb; /* Updated to match the image */
 }
   
-.playerPoints {
+.podiumPosition .playerPoints {
     margin-top: 5px;
     color: #a324c9; /* Updated to match the image */
     font-weight: 800;
