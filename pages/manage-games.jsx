@@ -120,7 +120,7 @@ export default function Games() {
           </div>
 
           <div className="versusImage">
-            <img src={table} alt="Versus" className="versusImg" />
+            <img src="../table.png" alt="Versus" className="versusImg" />
           </div>
 
           <div className="playerSide right">
