@@ -439,6 +439,9 @@ main {
     max-height: 100%;
     border-radius: 5px;
     display: block;
+    outline: 5px solid white;
+    outline-offset: -5px;
+
 }
   
   .input, .select {

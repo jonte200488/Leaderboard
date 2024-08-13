@@ -118,7 +118,7 @@ export default function Games() {
           </div>
 
           <div className="versusImage">
-            <img src="https://media.istockphoto.com/id/904853290/sv/foto/bordtennisbord-isolerade.jpg?s=612x612&w=0&k=20&c=1g1k7fej4i4xp8ZQ2OuevOLH7aYdcHyS6G7bvAs9pJQ=" alt="Versus" className="versusImg" />
+            <img src="../styles/table.png" alt="Versus" className="versusImg" />
           </div>
 
           <div className="playerSide right">
