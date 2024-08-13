@@ -87,7 +87,7 @@ export default function Games() {
       <Navbar />
       <header className="header"></header>
 
-      <h3 className="header">Add a New Game</h3>
+      <h3 className="header">Add a New Game 1</h3>
       <div className="formContainer">
         <label className="formLabel" htmlFor="player1">Player 1:</label>
         <select

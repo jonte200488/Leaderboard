@@ -98,7 +98,7 @@ export default function Games() {
         ))}
       </section>
 
-      <h3 className="header">Add a New Game</h3>
+      <h3 className="header">Add a New Game 2</h3>
       <form className="form" onSubmit={handleAddGame}>
         <div className="playersWrapper">
           <div className="playerSide">
