@@ -114,6 +114,7 @@ main {
 }
   
 .podiumPosition .playerName {
+  padding-top: 10px;
     font-size: 1.1rem; /* Adjusted font size */
     color: #5a1dbb; /* Updated to match the image */
 }
