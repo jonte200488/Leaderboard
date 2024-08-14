@@ -110,6 +110,7 @@ main {
     top: -35px; /* Adjusted position */
     left: 50%;
     transform: translateX(-50%);
+    object-fit: cover;
 }
   
 .podiumPosition .playerName {
