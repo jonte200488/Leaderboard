@@ -303,6 +303,7 @@ main {
     border-radius: 50%;
     margin-right: 10px;
     border: 2px solid var(--button-bg);
+    object-fit: cover;
   }
   
   .playerName {
