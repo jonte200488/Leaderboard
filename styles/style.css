@@ -507,3 +507,9 @@ main {
     width: 100%;
   }
 }
+
+@media (min-width: 1350px) {
+  body {
+    max-width: 1300px;
+  }
+ }
