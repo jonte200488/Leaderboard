@@ -415,6 +415,7 @@ main {
     flex-direction: column;
     gap: 0.75rem;
     width: 17.5%;
+    z-index: 99;
 }
 
 .playerSide.left {
