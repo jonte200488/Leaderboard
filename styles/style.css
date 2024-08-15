@@ -447,7 +447,7 @@ main {
     height: auto;
     border-radius: 5px;
     display: block;
-    position: initial;
+    position: initial !important;
 }
   
   .input, .select {
