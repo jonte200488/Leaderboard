@@ -128,7 +128,12 @@ export default function Games() {
           </div>
 
           <div className="versusImage">
-            <Image src={table} alt="Versus" className="versusImg" />
+            <Image src={table} alt="Versus" className="versusImg" 
+            style={{ 
+              all: 'unset', // Resets all styles
+              width: 'auto', 
+              height: 'auto' 
+            }} />
           </div>
 
           <div className="playerSide right">

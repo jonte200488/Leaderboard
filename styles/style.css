@@ -438,7 +438,7 @@ main {
 .versusImage {
   position: relative;
     width: 100%; /* Adjust this as needed */
-    height: auto;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
