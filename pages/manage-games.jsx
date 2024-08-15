@@ -166,7 +166,7 @@ export default function Games() {
                 id="player2Points"
                 className="input"
                 placeholder="Points"
-                value= '0'
+                value= {player2Points}
                 onChange={(e) => setPlayer2Points(Number(e.target.value))}
                 required
                 style={{
