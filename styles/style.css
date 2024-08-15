@@ -441,7 +441,7 @@ main {
     height: 100%;
 }
 
-.versusImg, .versusImg * {
+.versusImg, .versusImage * {
     max-width: 100%;
     width: 100%;
     height: auto;
