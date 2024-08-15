@@ -163,8 +163,7 @@ export default function Games() {
               <span>{game.player1.name} vs {game.player2.name}</span>
             </div>
             <div className="gamePoints">
-              <span>{game.player1.name}: {game.player1Points} points</span>
-              <span>{game.player2.name}: {game.player2Points} points</span>
+              <span>{game.player1Points} - {game.player2Points}</span>
             </div>
             <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
           </div>
