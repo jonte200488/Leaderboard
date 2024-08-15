@@ -13,6 +13,14 @@ export default function Games() {
   const [player1Points, setPlayer1Points] = useState('');
   const [player2Points, setPlayer2Points] = useState('');
 
+  const incrementPoints = () => {
+    setPlayer2Points((prevPoints) => prevPoints + 1);
+  };
+
+  const decrementPoints = () => {
+    setPlayer2Points((prevPoints) => prevPoints > 0 ? prevPoints - 1 : 0); // Ensure the value doesn't go below 0
+  };
+
   useEffect(() => {
     fetchGames();
     fetchPlayers();
@@ -139,15 +147,48 @@ export default function Games() {
               ))}
             </select>
 
-            <input
-              type="number"
-              id="player2Points"
-              className="input"
-              placeholder="Points"
-              value={player2Points}
-              onChange={(e) => setPlayer2Points(e.target.value)}
-              required
-            />
+            <div className="points-input-container" style={{ display: 'flex', alignItems: 'center' }}>
+              <button
+                type="button"
+                onClick={decrementPoints}
+                style={{
+                  width: '30px',
+                  height: '30px',
+                  textAlign: 'center',
+                  lineHeight: '30px',
+                  cursor: 'pointer',
+                }}
+              >
+                -
+              </button>
+              <input
+                type="number"
+                id="player2Points"
+                className="input"
+                placeholder="Points"
+                value={player2Points}
+                onChange={(e) => setPlayer2Points(Number(e.target.value))}
+                required
+                style={{
+                  textAlign: 'center',
+                  margin: '0 10px',
+                  width: '60px',
+                }}
+              />
+              <button
+                type="button"
+                onClick={incrementPoints}
+                style={{
+                  width: '30px',
+                  height: '30px',
+                  textAlign: 'center',
+                  lineHeight: '30px',
+                  cursor: 'pointer',
+                }}
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
 
