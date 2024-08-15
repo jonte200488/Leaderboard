@@ -439,8 +439,6 @@ main {
   position: relative;
     width: 100%; /* Adjust this as needed */
     height: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 .versusImg, .versusImg * {
@@ -449,6 +447,7 @@ main {
     height: auto;
     border-radius: 5px;
     display: block;
+    position: initial;
 }
   
   .input, .select {
