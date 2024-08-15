@@ -14,11 +14,11 @@ export default function Games() {
   const [player2Points, setPlayer2Points] = useState('');
 
   const incrementPoints = () => {
-    setPlayer2Points((prevPoints) => prevPoints + 1);
+    setPlayer2Points((prevPoints) => Number(prevPoints) + 1);
   };
 
   const decrementPoints = () => {
-    setPlayer2Points((prevPoints) => prevPoints > 0 ? prevPoints - 1 : 0); // Ensure the value doesn't go below 0
+    setPlayer2Points((prevPoints) => prevPoints > 0 ? Number(prevPoints) - 1 : 0);
   };
 
   useEffect(() => {
