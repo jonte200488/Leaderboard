@@ -161,7 +161,7 @@ export default function Games() {
           <div key={game.id} className="gameEntry">
             <div className="gamePlayers">
               <span>{game.player1.name}</span>
-              <span> vs </span>
+              <span> {game.player1Points} - {game.player2Points} </span>
               <span>{game.player2.name}</span>
             </div>
             <div className="gamePoints">
