@@ -394,7 +394,9 @@ main {
   }
   
   .form {
+    position: relative;
     max-width: 1300px;
+    width: 100%;
     margin: 0 auto;
     background-color: var(--accent-color);
     padding: 20px;
