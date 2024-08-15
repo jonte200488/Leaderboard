@@ -160,12 +160,7 @@ export default function Games() {
         {games.map((game) => (
           <div key={game.id} className="gameEntry">
             <div className="gamePlayers">
-              <span>{game.player1.name}</span>
-              <span> {game.player1Points} - {game.player2Points} </span>
-              <span>{game.player2.name}</span>
-            </div>
-            <div className="gamePoints">
-              <span>{game.player1Points} - {game.player2Points}</span>
+              <span>{game.player1.name} {game.player1Points} - {game.player2Points} {game.player2.name}</span>
             </div>
             <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
           </div>
