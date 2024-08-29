@@ -435,26 +435,19 @@ main {
     text-align: left; /* Optional: Align text to the left */
 }
 
-  .versusImage {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-    width: 100%;
-  }
-
 .versusImage {
-  position: relative;
-    width: 100%; /* Adjust this as needed */
-    height: 100%;
+  display: flex; /* Keep the flex property if needed */
+  justify-content: center; /* Center content horizontally */
+  margin-bottom: 1.5rem; /* Adjust margin as needed */
+  position: relative; /* This is fine if you need it */
+  width: 100%; /* Make sure the container is 100% wide */
+  height: auto; /* Adjust height based on content */
 }
 
-.versusImg, .versusImage * {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    display: block;
-    position: initial !important;
+.versusImage img {
+  width: 100%; /* Make the image take up the full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
 }
   
   .input, .select {
