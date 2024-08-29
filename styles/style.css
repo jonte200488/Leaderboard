@@ -435,6 +435,13 @@ main {
     text-align: left; /* Optional: Align text to the left */
 }
 
+  .versusImage {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
 .versusImage {
   position: relative;
     width: 100%; /* Adjust this as needed */
