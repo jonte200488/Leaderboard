@@ -436,18 +436,21 @@ main {
 }
 
 .versusImage {
-  display: flex; /* Keep the flex property if needed */
-  justify-content: center; /* Center content horizontally */
-  margin-bottom: 1.5rem; /* Adjust margin as needed */
-  position: relative; /* This is fine if you need it */
-  width: 100%; /* Make sure the container is 100% wide */
-  height: auto; /* Adjust height based on content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .versusImage img {
-  width: 100%; /* Make the image take up the full width of its container */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure the image covers the container without distortion */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
   
   .input, .select {
