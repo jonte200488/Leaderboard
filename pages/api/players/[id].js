@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         const totalWins = player.games1.length;
 
         // Calculate average wins per game
-        const averageWins = totalGamesPlayed > 0 ? totalWins / totalGamesPlayed : 0;
+        const averageWins = totalGamesPlayed > 0 ? (totalWins / totalGamesPlayed) * 100 : 0;
 
       console.log("Average: " + averagePoints);
 
