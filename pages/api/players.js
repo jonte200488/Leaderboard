@@ -23,9 +23,14 @@ export default async function handler(req, res) {
         // Total points is the sum of both
         const totalPoints = totalPointsAsPlayer1 + totalPointsAsPlayer2;
 
+        const totalGamesPlayed = player.games1.length + player.games2.length;
+
+        const averagePoints = totalGamesPlayed > 0 ? totalPoints / totalGamesPlayed : 0;
+
         return {
           ...player,
           totalPoints,
+          averagePoints,
         };
       });
 
