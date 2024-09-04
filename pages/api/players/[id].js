@@ -30,11 +30,14 @@ export default async function handler(req, res) {
                           console.log("Total: " + totalPoints);
                           
 
-      // Calculate total games played
-      const totalGamesPlayed = player.games1.length + player.games2.length;
+      // Assuming player.games1 and player.games2 contain information about each game's result
+        const totalGamesPlayed = player.games1.length + player.games2.length;
 
-      // Calculate average points per game
-      const averagePoints = totalGamesPlayed > 0 ? totalPoints / totalGamesPlayed : 0;
+        // Calculate total wins from games1 and games2
+        const totalWins = player.games1.filter(game => game.isWin).length + player.games2.filter(game => game.isWin).length;
+
+        // Calculate average wins per game
+        const averageWins = totalGamesPlayed > 0 ? totalWins / totalGamesPlayed : 0;
 
       console.log("Average: " + averagePoints);
 
