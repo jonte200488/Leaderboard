@@ -34,14 +34,14 @@ export default async function handler(req, res) {
         const totalGamesPlayed = player.games1.length + player.games2.length;
 
         // Calculate total wins from games1 and games2
-        const totalWins = player.games1.filter(game => game.isWin).length + player.games2.filter(game => game.isWin).length;
+        const totalWins = player.games1.length;
 
         // Calculate average wins per game
         const averageWins = totalGamesPlayed > 0 ? totalWins / totalGamesPlayed : 0;
 
       console.log("Average: " + averagePoints);
 
-      res.status(200).json({ ...player, totalPoints, totalGamesPlayed, averagePoints });
+      res.status(200).json({ ...player, totalPoints, totalGamesPlayed, averageWins });
     } catch (error) {
       res.status(500).json({ error: 'Failed to fetch player', message: error.message });
     }
