@@ -15,6 +15,8 @@ export default function Leaderboard() {
     data.sort((a, b) => b.averagePoints - a.averagePoints);
 
     setPlayers(data);
+    console.log(data);
+    
   };
 
   return (
