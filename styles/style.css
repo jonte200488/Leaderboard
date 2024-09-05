@@ -197,7 +197,7 @@ main {
 }
 
 .otherPlayers .playerEntry {
-    background-color: #f9f9f9; /* Light background to keep focus on podiums */
+    background-color: #5a1dbb; /* Light background to keep focus on podiums */
     padding: 1rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -249,7 +249,7 @@ main {
 }
 
 .otherPlayers .playerEntry .playerPoints {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #5a1dbb; /* Purple color matching the podiums */
     margin-right: 0.5rem;
@@ -257,7 +257,7 @@ main {
 }
 
 .otherPlayers .playerEntry .playerTotalPoints {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #555; /* Neutral gray for less emphasis */
     margin-left: 0.2rem;
