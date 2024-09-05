@@ -25,12 +25,12 @@ export default function Leaderboard() {
         {players.length >= 3 && (
           <>
             <div key={players[1].id} className="podiumPosition podium-2">
-              <Link href={players[1].id}>
+              <Link href={`/player/${players[1].id}`}>
                 <a>
                   <img src={players[1].image} alt={players[1].name} className="podiumImage" />
                   <div className="playerName">{players[1].name}</div>
                   <div className="playerPoints">{players[1].averageWins.toFixed(0)}%</div>
-                  <div className="playerName">{players[1].totalPoints}</div>
+                  <div className="playerTotalPoints">{players[1].totalPoints}</div>
                 </a>
               </Link>
             </div>
