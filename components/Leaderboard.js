@@ -3,25 +3,41 @@ import Link from 'next/link';
 
 export default function Leaderboard() {
   const [players, setPlayers] = useState([]);
+  const [timeRange, setTimeRange] = useState('all'); // 'today' or 'all'
 
   useEffect(() => {
     fetchPlayers();
-  }, []);
+  }, [timeRange]); // Refetch when timeRange changes
 
   const fetchPlayers = async () => {
-    const response = await fetch('/api/players');
+    const response = await fetch(`/api/players?timeRange=${timeRange}`);
     const data = await response.json();
 
     // Ensure the players are sorted by averagePoints in descending order
     data.sort((a, b) => b.averageWins - a.averageWins);
 
     setPlayers(data);
-    console.log(data);
-    
+  };
+
+  const handleTimeRangeChange = (range) => {
+    setTimeRange(range); // Change the time range
   };
 
   return (
     <div>
+      <div className="timeRangeToggle">
+        <button 
+          className={timeRange === 'all' ? 'active' : ''} 
+          onClick={() => handleTimeRangeChange('all')}>
+          All Time
+        </button>
+        <button 
+          className={timeRange === 'today' ? 'active' : ''} 
+          onClick={() => handleTimeRangeChange('today')}>
+          Today
+        </button>
+      </div>
+
       <section id="podium" className="podium">
         {players.length >= 3 && (
           <>
@@ -58,6 +74,7 @@ export default function Leaderboard() {
           </>
         )}
       </section>
+
       <section id="otherPlayers" className="otherPlayers">
         {players.slice(3).map((player) => (
           <div key={player.id} className="playerEntry">
