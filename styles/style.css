@@ -192,26 +192,76 @@ main {
   .otherPlayers {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0.5rem;
-  }
-  
-  .playerEntry {
-    background-color: var(--accent-color);
+    gap: 1.5rem;
     padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+}
+
+.otherPlayers .playerEntry {
+    background-color: #f9f9f9; /* Light background to keep focus on podiums */
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .playerImage {
-    width: 60px;
-    height: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid transparent; /* Accent that appears on hover */
+}
+
+.otherPlayers .playerEntry:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid #ff9900; /* Orange accent on hover matching podiums */
+}
+
+.otherPlayers .playerEntry a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.otherPlayers .playerEntry .playerInfo {
+    display: flex;
+    align-items: center;
+}
+
+.otherPlayers .playerEntry .playerImage {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-  }
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    margin-right: 1rem; /* Space between image and player name */
+}
+
+.otherPlayers .playerEntry .playerName {
+    font-size: 1.1rem;
+    color: #333; /* Dark text for readability */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.otherPlayers .playerEntry div {
+    text-align: right;
+}
+
+.otherPlayers .playerEntry .playerPoints {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #5a1dbb; /* Purple color matching the podiums */
+    margin-right: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.otherPlayers .playerEntry .playerTotalPoints {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555; /* Neutral gray for less emphasis */
+    margin-left: 0.2rem;
+}
   
   @media (max-width: 768px) {
   
