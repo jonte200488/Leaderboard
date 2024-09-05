@@ -60,98 +60,114 @@ main {
 }
 
 
-/* Leaderboard Styles */
 .podium {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 30px;
-    position: relative;
-  }
-  
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  position: relative;
+  gap: 15px; /* Adding some gap between podiums for better spacing */
+}
+
 .podiumPosition {
-    text-align: center;
-    margin-top: 10px;
-    position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #ffc400; /* Updated to match the text color in the image */
+  text-align: center;
+  margin-top: 10px;
+  position: relative;
+  color: #ffc400; /* Gold-like text color */
+  font-family: 'Arial', sans-serif; /* Use a more bold and clean font */
+  animation: podium-appear 1s ease-in-out; /* Add animation when podiums appear */
 }
 
-/* Larger center podium with background image */
+@keyframes podium-appear {
+  from {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
 .podium-1 {
-    order: 2;
-    background: linear-gradient(to bottom right, #fece3d, #ff9900);
-    width: 160px; /* Adjusted width */
-    height: 170px; /* Adjusted height */
-    border-radius: 10px 10px 0 0;
-    color: #a324c9;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
-    padding-top: 45px;
-}
-  
-.podium-1 .podiumImage {
-    border: 3px solid white;
+  order: 2;
+  background: radial-gradient(circle, #ffdc73, #ff9900);
+  width: 180px;
+  height: 200px;
+  border-radius: 20px 20px 0 0;
+  color: #5e20a4;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow for more pop */
+  padding-top: 60px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.podium-2 {
-    order: 1;
+.podium-1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); /* Podium hover effect */
 }
 
-.podium-3 {
-    order: 3;
-}
-  
-/* Smaller side podiums */
-.podium-2 {
-  background: linear-gradient(135deg, rgba(254,254,254,1) 0%, rgba(219,219,219,1) 100%);
-  width: 120px; /* Adjusted width */
-  height: 120px; /* Adjusted height */
-  border-radius: 10px 10px 0 0;
+.podium-2, .podium-3 {
+  width: 140px;
+  height: 140px;
+  border-radius: 15px 15px 0 0;
   position: relative;
   z-index: 0;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
-  padding-top: 45px;
+  padding-top: 60px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.podium-2 {
+  order: 1;
+  background: linear-gradient(135deg, #f2f2f2, #d3d3d3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3); /* Subtle shadow for less dominance */
 }
 
 .podium-3 {
-  background: linear-gradient(135deg, rgba(243,226,199,1) 0%, rgba(182,141,76,1) 88%, rgba(182,141,76,1) 89%);
-    width: 120px; /* Adjusted width */
-    height: 100px; /* Adjusted height */
-    border-radius: 10px 10px 0 0;
-    position: relative;
-    z-index: 0;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Adjusted shadow to match the image */
-    padding-top: 45px;
+  order: 3;
+  background: linear-gradient(135deg, #f3d2a5, #c47b36);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
 }
-  
+
+.podium-2:hover, .podium-3:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
 .podiumImage {
-    width: 70px; /* Adjusted size */
-    height: 70px; /* Adjusted size */
-    border-radius: 50%;
-    margin-bottom: 10px;
-    border: 3px solid #ffffff; /* Adjusted border color */
-    position: absolute;
-    top: -35px; /* Adjusted position */
-    left: 50%;
-    transform: translateX(-50%);
-    object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 5px solid #ffffff; /* Thicker white border for clarity */
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
-  
+
+.podiumImage:hover {
+  transform: scale(1.1); /* Slight zoom-in effect on hover */
+}
+
 .podiumPosition .playerName {
-  padding-top: 10px;
-    font-size: 1.1rem; /* Adjusted font size */
-    color: #5a1dbb; /* Updated to match the image */
+  padding-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #5a1dbb; /* Richer purple */
+  letter-spacing: 1px; /* Slight letter spacing for elegance */
 }
-  
+
 .podiumPosition .playerPoints {
-    margin-top: 5px;
-    color: #a324c9; /* Updated to match the image */
-    font-weight: 800;
-    font-size: 32px;
+  margin-top: 10px;
+  color: #a324c9;
+  font-weight: 800;
+  font-size: 36px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow to make points stand out */
 }
   
   /* Leaderboard List */
