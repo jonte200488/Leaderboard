@@ -104,6 +104,7 @@ main {
   outline-style: solid;
   outline-width: 5px;
   outline-offset: -15px; /* Moves the outline inside by 10px */
+  transform: translateY(10px);
 }
 
 .podium-1::before {
@@ -125,7 +126,7 @@ main {
 
 /* Side podiums with 3D cylindrical effect */
 .podium-2 {
-  background: linear-gradient(180deg, #0a0a0a, #0a0a0a); /* Bottom shading for depth */
+  background: linear-gradient(180deg, #222222, #242424); /* Bottom shading for depth */
   width: 150px;
   height: 180px;
   position: relative;
@@ -140,7 +141,7 @@ main {
 }
 
 .podium-3 {
-  background: linear-gradient(180deg, #0a0a0a, #0a0a0a); /* Bottom shading for depth */
+  background: linear-gradient(180deg, #222222, #242424); /* Bottom shading for depth */
   width: 150px;
   height: 180px;
   position: relative;
