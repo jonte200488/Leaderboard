@@ -37,6 +37,26 @@ main {
     margin-top: 50px;
 }
 /* Leaderboard Styles */
+.timeRangeToggle {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.timeRangeToggle button {
+  background-color: transparent;
+  border: none;
+  color: #ffc400;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.timeRangeToggle button:hover {
+  color: #ff9900;
+}
+
+
 /* Leaderboard Styles */
 .podium {
     display: flex;
