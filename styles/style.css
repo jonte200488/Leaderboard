@@ -117,7 +117,6 @@ main {
 
 .podium-1:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(255, 153, 0, 0.8);
 }
 
 /* Side podiums with 3D cylindrical effect */
