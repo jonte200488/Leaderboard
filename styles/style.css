@@ -191,8 +191,8 @@ main {
   /* Leaderboard List */
   .otherPlayers {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 0.5rem;
   }
   
