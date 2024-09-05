@@ -36,6 +36,12 @@ max-width: 1000px;
 main {
     margin-top: 20px;
 }
+
+.leaderboardContainer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+}
 /* Leaderboard Styles */
 .timeRangeToggle {
   width: 150px;
@@ -83,7 +89,7 @@ main {
   order: 2;
   background: linear-gradient(45deg, #ffce00, #ff9900, #ff5733);
   width: 190px;
-  height: 230px;
+  height: 180px;
   border-radius: 15px;
   position: relative;
   z-index: 2;
@@ -113,7 +119,7 @@ main {
 .podium-2, .podium-3 {
   background: linear-gradient(135deg, #e0e0e0, #b3b3b3);
   width: 150px;
-  height: 180px;
+  height: 150px;
   border-radius: 10px;
   position: relative;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
@@ -150,6 +156,7 @@ main {
   transform: translateX(-50%) rotateY(10deg); /* Reduced tilt for readability */
   transition: transform 0.3s ease;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  object-fit: cover;
 }
 
 .podiumImage:hover {

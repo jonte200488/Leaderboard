@@ -25,74 +25,76 @@ export default function Leaderboard() {
 
   return (
     <div>
-      <div className="timeRangeToggle">
-        <button 
-          className={timeRange === 'all' ? 'active' : ''} 
-          onClick={() => handleTimeRangeChange('all')}>
-          All Time
-        </button>
-        <button 
-          className={timeRange === 'today' ? 'active' : ''} 
-          onClick={() => handleTimeRangeChange('today')}>
-          This week
-        </button>
-      </div>
-
-      <section id="podium" className="podium">
-        {players.length >= 3 && (
-          <>
-            <div key={players[1].id} className="podiumPosition podium-2">
-              <Link href={`/player/${players[1].id}`}>
-                <a>
-                  <img src={players[1].image} alt={players[1].name} className="podiumImage" />
-                  <div className="playerName">{players[1].name}</div>
-                  <div className="playerPoints">{players[1].averageWins.toFixed(0)}%</div>
-                  <div className="playerTotalPoints">{players[1].totalPoints}p</div>
-                </a>
-              </Link>
-            </div>
-            <div key={players[0].id} className="podiumPosition podium-1">
-              <Link href={`/player/${players[0].id}`}>
-                <a>
-                  <img src={players[0].image} alt={players[0].name} className="podiumImage" />
-                  <div className="playerName">{players[0].name}</div>
-                  <div className="playerPoints">{players[0].averageWins.toFixed(0)}%</div>
-                  <div className="playerTotalPoints">{players[0].totalPoints}p</div>
-                </a>
-              </Link>
-            </div>
-            <div key={players[2].id} className="podiumPosition podium-3">
-              <Link href={`/player/${players[2].id}`}>
-                <a>
-                  <img src={players[2].image} alt={players[2].name} className="podiumImage" />
-                  <div className="playerName">{players[2].name}</div>
-                  <div className="playerPoints">{players[2].averageWins.toFixed(0)}%</div>
-                  <div className="playerTotalPoints">{players[2].totalPoints}p</div>
-                </a>
-              </Link>
-            </div>
-          </>
-        )}
-      </section>
-
-      <section id="otherPlayers" className="otherPlayers">
-        {players.slice(3).map((player) => (
-          <div key={player.id} className="playerEntry">
-            <Link href={`/player/${player.id}`}>
-              <a>
-                <div className="playerInfo">
-                  <img src={player.image} alt={player.name} className="playerImage" />
-                  <span className="playerName">{player.name}</span>
-                </div>
-                <div>
-                  <span className="playerPoints">{player.averageWins.toFixed(0)}% </span>
-                  <span className="playerTotalPoints">{player.totalPoints}p</span>
-                </div>
-              </a>
-            </Link>
+      <div class="leaderboardContainer">
+        <div>
+          <div className="timeRangeToggle">
+            <button
+              className={timeRange === 'all' ? 'active' : ''}
+              onClick={() => handleTimeRangeChange('all')}>
+              All Time
+            </button>
+            <button
+              className={timeRange === 'today' ? 'active' : ''}
+              onClick={() => handleTimeRangeChange('today')}>
+              This week
+            </button>
           </div>
-        ))}
-      </section>
+          <section id="podium" className="podium">
+            {players.length >= 3 && (
+              <>
+                <div key={players[1].id} className="podiumPosition podium-2">
+                  <Link href={`/player/${players[1].id}`}>
+                    <a>
+                      <img src={players[1].image} alt={players[1].name} className="podiumImage" />
+                      <div className="playerName">{players[1].name}</div>
+                      <div className="playerPoints">{players[1].averageWins.toFixed(0)}%</div>
+                      <div className="playerTotalPoints">{players[1].totalPoints}p</div>
+                    </a>
+                  </Link>
+                </div>
+                <div key={players[0].id} className="podiumPosition podium-1">
+                  <Link href={`/player/${players[0].id}`}>
+                    <a>
+                      <img src={players[0].image} alt={players[0].name} className="podiumImage" />
+                      <div className="playerName">{players[0].name}</div>
+                      <div className="playerPoints">{players[0].averageWins.toFixed(0)}%</div>
+                      <div className="playerTotalPoints">{players[0].totalPoints}p</div>
+                    </a>
+                  </Link>
+                </div>
+                <div key={players[2].id} className="podiumPosition podium-3">
+                  <Link href={`/player/${players[2].id}`}>
+                    <a>
+                      <img src={players[2].image} alt={players[2].name} className="podiumImage" />
+                      <div className="playerName">{players[2].name}</div>
+                      <div className="playerPoints">{players[2].averageWins.toFixed(0)}%</div>
+                      <div className="playerTotalPoints">{players[2].totalPoints}p</div>
+                    </a>
+                  </Link>
+                </div>
+              </>
+            )}
+          </section>
+        </div>
+        <section id="otherPlayers" className="otherPlayers">
+          {players.slice(3).map((player) => (
+            <div key={player.id} className="playerEntry">
+              <Link href={`/player/${player.id}`}>
+                <a>
+                  <div className="playerInfo">
+                    <img src={player.image} alt={player.name} className="playerImage" />
+                    <span className="playerName">{player.name}</span>
+                  </div>
+                  <div>
+                    <span className="playerPoints">{player.averageWins.toFixed(0)}% </span>
+                    <span className="playerTotalPoints">{player.totalPoints}p</span>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </section>
+      </div>
     </div>
   );
 }
