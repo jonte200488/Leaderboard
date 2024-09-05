@@ -73,7 +73,7 @@ main {
   position: relative;
   gap: 40px;
   margin: 80px 0;
-  perspective: 1200px; /* Increase perspective for better 3D effect */
+  perspective: 800px; /* Adds 3D depth */
 }
 
 .podiumPosition {
@@ -84,53 +84,75 @@ main {
   z-index: 2;
 }
 
-/* Center podium with cylindrical 3D effect */
+/* Center podium with 3D cylindrical effect using pseudo-elements */
 .podium-1 {
   order: 2;
-  background: radial-gradient(circle at 50% 50%, #ffce00, #ff9900 40%, #ff5733 70%);
+  background: linear-gradient(180deg, #ff9900, #ff5733); /* Bottom shading for depth */
   width: 190px;
-  height: 250px;
-  border-radius: 100px / 40px; /* Elliptical border radius for a cylindrical effect */
+  height: 200px;
+  border-radius: 100px / 50px; /* Oval shape for cylindrical appearance */
   position: relative;
   z-index: 2;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   border: 2px solid rgba(255, 153, 0, 0.5);
   padding-top: 100px;
-  transform: rotateX(10deg); /* Tilt for 3D look */
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
+.podium-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px; /* Height of the top cap */
+  background: radial-gradient(circle at 50% 50%, #ffce00, #ff9900); /* Cylindrical top cap */
+  border-radius: 50%;
+  transform: translateY(-15px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 .podium-1:hover {
-  transform: rotateX(0deg) translateY(-10px); /* Smooth transition on hover */
+  transform: translateY(-10px);
   box-shadow: 0 12px 30px rgba(255, 153, 0, 0.8);
 }
 
-/* Side podiums with cylindrical 3D effect */
+/* Side podiums with 3D cylindrical effect */
 .podium-2, .podium-3 {
-  background: radial-gradient(circle at 50% 50%, #e0e0e0, #b3b3b3 60%);
+  background: linear-gradient(180deg, #e0e0e0, #b3b3b3);
   width: 150px;
-  height: 200px;
-  border-radius: 80px / 30px; /* Creates a cylindrical look */
+  height: 180px;
+  border-radius: 80px / 40px; /* Elliptical for cylinder effect */
   position: relative;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.3);
   padding-top: 80px;
-  transform: rotateX(10deg); /* Apply 3D rotation */
   transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.podium-2::before, .podium-3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  background: radial-gradient(circle at 50% 50%, #f5f5f5, #c0c0c0);
+  border-radius: 50%;
+  transform: translateY(-12px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .podium-2 {
   order: 1;
-  transform: rotateY(-3deg) rotateX(10deg); /* Subtle rotation */
 }
 
 .podium-3 {
   order: 3;
-  transform: rotateY(3deg) rotateX(10deg); /* Subtle rotation */
 }
 
 .podium-2:hover, .podium-3:hover {
-  transform: translateY(-10px) rotateY(0deg) rotateX(0deg); /* Lift on hover */
+  transform: translateY(-10px);
   box-shadow: 0 10px 25px rgba(255, 255, 255, 0.7);
 }
 
@@ -165,15 +187,14 @@ main {
 }
 
 .podiumPosition .playerName:hover {
-  transform: scale(1.05); /* Slight scaling on hover */
+  transform: scale(1.05);
 }
 
-/* Player points - cleaner color and no flicker */
+/* Player points */
 .podiumPosition .playerPoints {
   font-size: 38px;
   font-weight: bold;
   color: #5a1dbb;
-  background: none;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
