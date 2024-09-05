@@ -18,6 +18,10 @@ html {
   --black: #000;
 }
 
+body * {
+  text-decoration: none;
+}
+
 body {
 max-width: 1000px;
   margin: 0;
