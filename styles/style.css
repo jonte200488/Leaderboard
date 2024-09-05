@@ -90,7 +90,7 @@ main {
   background: linear-gradient(180deg, #ff9900, #ff5733); /* Bottom shading for depth */
   width: 190px;
   height: 200px;
-  border-radius: 100px / 50px; /* Oval shape for cylindrical appearance */
+  border-radius: 100px / 25px; /* Oval shape for cylindrical appearance */
   position: relative;
   z-index: 2;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -102,7 +102,7 @@ main {
 .podium-1::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 100%;
   height: 30px; /* Height of the top cap */
@@ -164,7 +164,7 @@ main {
   margin-bottom: 15px;
   border: 4px solid #fff;
   position: absolute;
-  top: -50px;
+  top: -100px;
   left: 50%;
   transform: translateX(-50%) rotateX(10deg); /* Slight tilt to match podium */
   transition: transform 0.3s ease;
