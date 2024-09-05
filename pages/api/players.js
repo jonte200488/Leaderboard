@@ -9,21 +9,24 @@ export default async function handler(req, res) {
     try {
       // Get the current date
       const now = new Date();
-      let startOfDay;
+      let startOfWeek;
 
       // If the time range is 'today', calculate the start of the day for filtering today's games
       if (timeRange === 'today') {
-        startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const dayOfWeek = now.getDay(); // Get the current day of the week (0 = Sunday, 1 = Monday, etc.)
+        const diffToMonday = (dayOfWeek === 0 ? 6 : dayOfWeek - 1); // Calculate how far back Monday is (Sunday needs special treatment)
+        startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - diffToMonday); // Get the start of the week (Monday)
+        startOfWeek.setHours(0, 0, 0, 0); // Set the time to midnight to get all games from that day onwards
       }
 
       // Fetch players along with their games
       const players = await prisma.player.findMany({
         include: {
           games1: {
-            where: timeRange === 'today' ? { date: { gte: startOfDay } } : {},
+            where: timeRange === 'today' ? { date: { gte: startOfWeek } } : {},
           },
           games2: {
-            where: timeRange === 'today' ? { date: { gte: startOfDay } } : {},
+            where: timeRange === 'today' ? { date: { gte: startOfWeek } } : {},
           },
         },
       });
