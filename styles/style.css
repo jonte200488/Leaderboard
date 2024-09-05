@@ -166,7 +166,7 @@ main {
 /* Player name */
 .podiumPosition .playerName {
   font-size: 1.3rem;
-  color: #fefefe; /* Bright gold color for readability */
+  color: #1b263b; /* Bright gold color for readability */
   letter-spacing: 1.5px;
   text-shadow: 1px 1px 5px rgba(255, 153, 0, 0.6); /* Soft glow */
   margin-bottom: 8px;
