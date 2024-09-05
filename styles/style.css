@@ -34,11 +34,11 @@ max-width: 1000px;
 }
 
 main {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 /* Leaderboard Styles */
 .timeRangeToggle {
-  width: 200px;
+  width: 150px;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -56,9 +56,14 @@ main {
   color: #ff9900;
 }
 
+.timeRangeToggle button.active {
+  color: #ff9900;
+}
+
 
 /* Leaderboard Styles */
 .podium {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
