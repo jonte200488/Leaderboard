@@ -296,6 +296,10 @@ main {
     align-items: center;
     color: var(--text-color);
   }
+
+  .playerEntry a {
+    width: 90%;
+  }
   
   .playerInfo {
     display: flex;
