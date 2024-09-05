@@ -71,7 +71,7 @@ main {
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  gap: 40px;
+  gap: 0px;
   margin: 80px 0;
   perspective: 800px; /* Adds 3D depth */
 }
@@ -90,11 +90,10 @@ main {
   background: linear-gradient(180deg, #ff9900, #ff5733); /* Bottom shading for depth */
   width: 190px;
   height: 200px;
-  border-radius: 100px / 25px; /* Oval shape for cylindrical appearance */
   position: relative;
   z-index: 2;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(255, 153, 0, 0.5);
+  /*border: 2px solid rgba(255, 153, 0, 0.5);*/
   padding-top: 100px;
   transition: transform 0.4s, box-shadow 0.4s;
 }
@@ -102,14 +101,14 @@ main {
 .podium-1::before {
   content: "";
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 30px; /* Height of the top cap */
-  background: radial-gradient(circle at 50% 50%, #ffce00, #ff9900); /* Cylindrical top cap */
-  border-radius: 50%;
-  transform: translateY(-15px);
+  height: 30px;
+  background: linear-gradient(to bottom, #ffce00, #ff9900); /* Shading effect */
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); /* Trapezoid shape */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-30px);
 }
 
 .podium-1:hover {
