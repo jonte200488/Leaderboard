@@ -34,7 +34,7 @@ export default function Leaderboard() {
         <button 
           className={timeRange === 'today' ? 'active' : ''} 
           onClick={() => handleTimeRangeChange('today')}>
-          Today
+          This week
         </button>
       </div>
 
