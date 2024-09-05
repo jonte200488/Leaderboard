@@ -37,6 +37,7 @@ export default async function handler(req, res) {
           player2: { connect: { id: parseInt(player2Id, 10) } },
           player1Points: parseInt(player1Points, 10),
           player2Points: parseInt(player2Points, 10),
+          date: new Date(), // Automatically set the current date
         },
       });
 

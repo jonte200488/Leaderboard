@@ -18,11 +18,12 @@ model Player {
 }
 
 model Game {
-  id            Int     @id @default(autoincrement())
-  player1       Player  @relation("Player1", fields: [player1Id], references: [id])
+  id            Int      @id @default(autoincrement())
+  player1       Player   @relation("Player1", fields: [player1Id], references: [id])
   player1Id     Int
-  player2       Player  @relation("Player2", fields: [player2Id], references: [id])
+  player2       Player   @relation("Player2", fields: [player2Id], references: [id])
   player2Id     Int
   player1Points Int
   player2Points Int
+  date          DateTime @default(now()) // Add a date field with default to current date and time
 }
