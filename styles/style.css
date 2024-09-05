@@ -181,7 +181,7 @@ main {
 .podiumPosition .playerPoints {
   font-size: 38px;
   font-weight: bold;
-  color: #ff005a; /* Bright, solid color for easy reading */
+  color: #5a1dbb; /* Bright, solid color for easy reading */
   background: none; /* Removed gradient */
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Added a solid shadow */
 }
