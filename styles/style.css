@@ -71,104 +71,95 @@ main {
   justify-content: center;
   align-items: flex-end;
   position: relative;
-  gap: 40px; /* Reduced spacing between podiums for better cohesion */
+  gap: 40px;
   margin: 80px 0;
-  perspective: 800px; /* Reduced perspective for a more subtle 3D effect */
+  perspective: 1200px; /* Increase perspective for better 3D effect */
 }
 
 .podiumPosition {
   position: relative;
   text-align: center;
-  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  font-family: 'Poppins', sans-serif;
   color: #fff;
   z-index: 2;
 }
 
-/* Center podium with subtler neon glow */
+/* Center podium with cylindrical 3D effect */
 .podium-1 {
   order: 2;
-  background: linear-gradient(45deg, #ffce00, #ff9900, #ff5733);
+  background: radial-gradient(circle at 50% 50%, #ffce00, #ff9900 40%, #ff5733 70%);
   width: 190px;
-  height: 180px;
-  border-radius: 15px;
+  height: 250px;
+  border-radius: 100px / 40px; /* Elliptical border radius for a cylindrical effect */
   position: relative;
   z-index: 2;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(255, 153, 0, 0.3); /* Subtle border */
-  animation: subtle-glow 2s infinite alternate;
-  transform: rotateY(5deg); /* Slight tilt for 3D effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 153, 0, 0.5);
+  padding-top: 100px;
+  transform: rotateX(10deg); /* Tilt for 3D look */
   transition: transform 0.4s, box-shadow 0.4s;
-  padding-top: 70px;
-}
-
-@keyframes subtle-glow {
-  from {
-      box-shadow: 0 0 15px rgba(255, 153, 0, 0.4);
-  }
-  to {
-      box-shadow: 0 0 25px rgba(255, 153, 0, 0.6);
-  }
 }
 
 .podium-1:hover {
-  transform: rotateY(0deg) translateY(-5px); /* Less intense tilt on hover */
-  box-shadow: 0 0 40px rgba(255, 153, 0, 0.8); /* Soft glow on hover */
+  transform: rotateX(0deg) translateY(-10px); /* Smooth transition on hover */
+  box-shadow: 0 12px 30px rgba(255, 153, 0, 0.8);
 }
 
-/* Side podiums with less rotation */
+/* Side podiums with cylindrical 3D effect */
 .podium-2, .podium-3 {
-  background: linear-gradient(135deg, #e0e0e0, #b3b3b3);
+  background: radial-gradient(circle at 50% 50%, #e0e0e0, #b3b3b3 60%);
   width: 150px;
-  height: 150px;
-  border-radius: 10px;
+  height: 200px;
+  border-radius: 80px / 30px; /* Creates a cylindrical look */
   position: relative;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding-top: 80px;
+  transform: rotateX(10deg); /* Apply 3D rotation */
   transition: transform 0.4s, box-shadow 0.4s;
-  padding-top: 60px;
 }
 
 .podium-2 {
   order: 1;
-  transform: rotateY(-3deg); /* More subtle 3D effect */
+  transform: rotateY(-3deg) rotateX(10deg); /* Subtle rotation */
 }
 
 .podium-3 {
   order: 3;
-  transform: rotateY(3deg);
+  transform: rotateY(3deg) rotateX(10deg); /* Subtle rotation */
 }
 
 .podium-2:hover, .podium-3:hover {
-  transform: translateY(-5px) rotateY(0deg); /* Gentle lift and straightening on hover */
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7); /* Softer shadow */
+  transform: translateY(-10px) rotateY(0deg) rotateX(0deg); /* Lift on hover */
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.7);
 }
 
-/* Podium images with a more subtle hover effect */
+/* Podium images with more subtle hover effect */
 .podiumImage {
-  width: 85px;
-  height: 85px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   margin-bottom: 15px;
   border: 4px solid #fff;
   position: absolute;
-  top: -45px;
+  top: -50px;
   left: 50%;
-  transform: translateX(-50%) rotateY(10deg); /* Reduced tilt for readability */
+  transform: translateX(-50%) rotateX(10deg); /* Slight tilt to match podium */
   transition: transform 0.3s ease;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
   object-fit: cover;
 }
 
 .podiumImage:hover {
-  transform: scale(1.15) rotateY(0deg); /* Slight enlargement on hover */
+  transform: scale(1.15) rotateX(0deg); /* Slight enlargement on hover */
 }
 
 /* Player name */
 .podiumPosition .playerName {
   font-size: 1.3rem;
-  color: #5a1dbb; /* Bright gold color for readability */
+  color: #5a1dbb;
   letter-spacing: 1.5px;
-  text-shadow: 1px 1px 5px rgba(255, 153, 0, 0.6); /* Soft glow */
+  text-shadow: 1px 1px 5px rgba(255, 153, 0, 0.6);
   margin-bottom: 8px;
   transition: transform 0.3s ease-in-out;
 }
@@ -181,9 +172,9 @@ main {
 .podiumPosition .playerPoints {
   font-size: 38px;
   font-weight: bold;
-  color: #5a1dbb; /* Bright, solid color for easy reading */
-  background: none; /* Removed gradient */
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Added a solid shadow */
+  color: #5a1dbb;
+  background: none;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Removed the pulsating shadow under the podiums */
