@@ -99,7 +99,8 @@ main {
   box-shadow: 
         inset 5px 0 0 0 #FFD700,    /* Left border */
         inset -5px 0 0 0 #FFD700,   /* Right border */
-        inset 0 5px 0 0 #FFD700;   
+        inset 0 5px 0 0 #FFD700;
+  border: 2px 5px 10px 0px solid #0a0a0a;  
 }
 
 .podium-1::before {
