@@ -31,7 +31,7 @@ export default function Leaderboard() {
                   <img src={players[1].image} alt={players[1].name} className="podiumImage" />
                   <div className="playerName">{players[1].name}</div>
                   <div className="playerPoints">{players[1].averageWins.toFixed(0)}%</div>
-                  <div className="playerTotalPoints">{players[1].totalPoints}</div>
+                  <div className="playerTotalPoints">{players[1].totalPoints}p</div>
                 </a>
               </Link>
             </div>
@@ -41,7 +41,7 @@ export default function Leaderboard() {
                   <img src={players[0].image} alt={players[0].name} className="podiumImage" />
                   <div className="playerName">{players[0].name}</div>
                   <div className="playerPoints">{players[0].averageWins.toFixed(0)}%</div>
-                  <div className="playerTotalPoints">{players[0].totalPoints}</div>
+                  <div className="playerTotalPoints">{players[0].totalPoints}p</div>
                 </a>
               </Link>
             </div>
@@ -51,7 +51,7 @@ export default function Leaderboard() {
                   <img src={players[2].image} alt={players[2].name} className="podiumImage" />
                   <div className="playerName">{players[2].name}</div>
                   <div className="playerPoints">{players[2].averageWins.toFixed(0)}%</div>
-                  <div className="playerTotalPoints">{players[2].totalPoints}</div>
+                  <div className="playerTotalPoints">{players[2].totalPoints}p</div>
                 </a>
               </Link>
             </div>
@@ -69,7 +69,7 @@ export default function Leaderboard() {
                 </div>
                 <div>
                   <span className="playerPoints">{player.averageWins.toFixed(0)}% </span>
-                  <span className="playerTotalPoints">{player.totalPoints}</span>
+                  <span className="playerTotalPoints">{player.totalPoints}p</span>
                 </div>
               </a>
             </Link>
