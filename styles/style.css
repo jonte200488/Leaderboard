@@ -190,7 +190,6 @@ main {
 
 .podium-2:hover, .podium-3:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.7);
 }
 
 /* Podium images with more subtle hover effect */
