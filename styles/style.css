@@ -126,7 +126,7 @@ main {
 
 /* Side podiums with 3D cylindrical effect */
 .podium-2 {
-  background: linear-gradient(180deg, #222222, #242424); /* Bottom shading for depth */
+  background: linear-gradient(180deg, #111111, #1f1f1f); /* Bottom shading for depth */
   width: 150px;
   height: 180px;
   position: relative;
