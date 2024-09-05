@@ -100,9 +100,8 @@ main {
         inset 5px 0 0 0 #FFD700,    /* Left border */
         inset -5px 0 0 0 #FFD700,   /* Right border */
         inset 0 5px 0 0 #FFD700;
-  border-width: 2px 5px 10px 0px; /* top, right, bottom, left */
-  border-style: solid;
-  border-color: #0a0a0a;
+  outline: 5px solid #0a0a0a; /* Creates a 5px solid black outline */
+  outline-offset: -10px; /* Moves the outline inside by 10px */
 }
 
 .podium-1::before {
