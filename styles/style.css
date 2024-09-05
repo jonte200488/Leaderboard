@@ -97,9 +97,9 @@ main {
   padding-top: 100px;
   transition: transform 0.4s, box-shadow 0.4s;
   box-shadow: 
-        inset 5px 0 0 0 black,    /* Left border */
-        inset -5px 0 0 0 black,   /* Right border */
-        inset 0 5px 0 0 black;   
+        inset 5px 0 0 0 #FFD700,    /* Left border */
+        inset -5px 0 0 0 #FFD700,   /* Right border */
+        inset 0 5px 0 0 #FFD700;   
 }
 
 .podium-1::before {
