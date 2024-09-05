@@ -104,7 +104,6 @@ main {
   outline-style: solid;
   outline-width: 5px;
   outline-offset: -15px; /* Moves the outline inside by 10px */
-  transform: translateY(10px);
 }
 
 .podium-1::before {
