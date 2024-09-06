@@ -3,7 +3,7 @@ html {
     background: radial-gradient(ellipse farthest-corner at right bottom, #dfce82 0%, #f1c876 8%, #dfb258 30%, #caa652 40%, transparent 80%),
     radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
     background-size: 400% 400%;
-    animation: gradientAnimation 1s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
 }
 
 @keyframes gradientAnimation {
