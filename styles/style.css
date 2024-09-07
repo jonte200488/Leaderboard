@@ -260,7 +260,7 @@ main {
 }
 
 .otherPlayers .playerEntry {
-    background-color: #535353d7; /* Light background to keep focus on podiums */
+    background-color: #121212db; /* Light background to keep focus on podiums */
     padding: 1rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -268,14 +268,13 @@ main {
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: #F0C75E solid 1px;
-    border-left: 4px solid transparent; /* Accent that appears on hover */
+    border: #F0C75E solid 2px;
 }
 
 .otherPlayers .playerEntry:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    border-left: 4px solid #ff9900; /* Orange accent on hover matching podiums */
+    border-left: 4px solid #fff; /* Orange accent on hover matching podiums */
 }
 
 .otherPlayers .playerEntry a {
