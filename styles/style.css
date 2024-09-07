@@ -260,7 +260,7 @@ main {
 }
 
 .otherPlayers .playerEntry {
-    background-color: #5a1dbb; /* Light background to keep focus on podiums */
+    background-color: #535353d7; /* Light background to keep focus on podiums */
     padding: 1rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -268,6 +268,7 @@ main {
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: #F0C75E solid 1px;
     border-left: 4px solid transparent; /* Accent that appears on hover */
 }
 
@@ -300,7 +301,7 @@ main {
 
 .otherPlayers .playerEntry .playerName {
     font-size: 1.1rem;
-    color: #ffc400; /* Dark text for readability */
+    color: #F0C75E; /* Dark text for readability */
     font-weight: 600;
     letter-spacing: 0.5px;
     flex-grow: 1;
@@ -314,7 +315,7 @@ main {
 .otherPlayers .playerEntry .playerPoints {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #ffc400; /* Purple color matching the podiums */
+    color: #F0C75E; /* Purple color matching the podiums */
     margin-right: 0.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
