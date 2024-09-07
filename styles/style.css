@@ -245,6 +245,10 @@ main {
   color: #FFECB3;
 }
 
+.podium .playerTotalPoints {
+  color: #F0C75E;
+}
+
 /* Removed the pulsating shadow under the podiums */
   
   /* Leaderboard List */
