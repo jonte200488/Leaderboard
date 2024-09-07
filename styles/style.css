@@ -1,16 +1,17 @@
 html {
     padding: 10px;
-    background: radial-gradient(ellipse farthest-corner at right bottom, #dfce82 0%, #f1c876 8%, #dfb258 30%, #caa652 40%, transparent 80%),
+    background-color: #1A1A1A
+    /*background: radial-gradient(ellipse farthest-corner at right bottom, #dfce82 0%, #f1c876 8%, #dfb258 30%, #caa652 40%, transparent 80%),
     radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
     background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;*/
 }
 
-@keyframes gradientAnimation {
+/*@keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
+}*/
 
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
@@ -116,7 +117,7 @@ main {
         inset 5px 0 0 0 #FFD700,    
         inset -5px 0 0 0 #FFD700,   
         inset 0 5px 0 0 #FFD700;*/
-  outline-color: #ffc400; /* Creates a 5px solid black outline */
+  outline-color: #FFD700; /* Creates a 5px solid black outline */
   outline-style: solid;
   outline-width: 5px;
   outline-offset: -15px; /* Moves the outline inside by 10px */
@@ -227,7 +228,7 @@ main {
 /* Player name */
 .podiumPosition .playerName {
   font-size: 1.3rem;
-  color: #fefefe;
+  color: #F0C75E;
   letter-spacing: 1.5px;
   margin-bottom: 8px;
   transition: transform 0.3s ease-in-out;
@@ -241,7 +242,7 @@ main {
 .podiumPosition .playerPoints {
   font-size: 38px;
   font-weight: bold;
-  color: #ffc400;
+  color: #FFECB3;
 }
 
 /* Removed the pulsating shadow under the podiums */
