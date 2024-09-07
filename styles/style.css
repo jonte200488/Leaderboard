@@ -117,7 +117,7 @@ main {
         inset 5px 0 0 0 #FFD700,    
         inset -5px 0 0 0 #FFD700,   
         inset 0 5px 0 0 #FFD700;*/
-  outline-color: #FFD700; /* Creates a 5px solid black outline */
+  outline-color: #FFECB3; /* Creates a 5px solid black outline */
   outline-style: solid;
   outline-width: 5px;
   outline-offset: -15px; /* Moves the outline inside by 10px */
