@@ -25,7 +25,9 @@ export default function PlayerPage() {
         throw new Error('Failed to fetch player data');
       }
       const data = await response.json(); // Parse the JSON response
-      setPlayer(data); // Set the player data
+      setPlayer(data.id = id); // Set the player data
+      console.log(player);
+      console.log(data.id);
       console.log(data);
       
     } catch (error) {
