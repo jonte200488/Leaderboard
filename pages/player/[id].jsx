@@ -6,6 +6,8 @@ export default function PlayerPage() {
   const router = useRouter();
   const { id } = router.query; // Get the dynamic ID from the URL
 
+  console.log(id);
+
   const [player, setPlayer] = useState(null); // Player data
   const [loading, setLoading] = useState(true); // Loading state
 
