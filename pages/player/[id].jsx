@@ -4,33 +4,38 @@ import Link from 'next/link';
 
 export default function PlayerPage() {
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router.query; // Get the dynamic ID from the URL
 
-  const [player, setPlayer] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [player, setPlayer] = useState(null); // Player data
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     if (id) {
-      fetchPlayer();
+      fetchPlayer(); // Fetch the player data when the ID is available
     }
   }, [id]);
 
   const fetchPlayer = async () => {
     try {
-      const response = await fetch(`/api/players/${id}`);
-      const data = await response.json();
-      setPlayer(data);
+      const response = await fetch(`/api/players/${id}`); // Fetch from your API
+      if (!response.ok) {
+        throw new Error('Failed to fetch player data');
+      }
+      const data = await response.json(); // Parse the JSON response
+      setPlayer(data); // Set the player data
     } catch (error) {
-      console.error("Failed to fetch player data:", error);
+      console.error('Error fetching player data:', error);
     } finally {
-      setLoading(false);
+      setLoading(false); // End loading state
     }
   };
 
+  // Handle loading state
   if (loading) {
     return <div>Loading player data...</div>;
   }
 
+  // Handle if player data is not found
   if (!player) {
     return <div>Player not found</div>;
   }
@@ -41,6 +46,8 @@ export default function PlayerPage() {
       <img src={player.image} alt={player.name} />
       <p>Average Wins: {player.averageWins}%</p>
       <p>Total Points: {player.totalPoints}p</p>
+      <p>Total Games Played: {player.totalGamesPlayed}</p>
+
       <Link href="/">
         <a>Back to leaderboard</a>
       </Link>
