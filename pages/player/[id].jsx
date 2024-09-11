@@ -25,7 +25,16 @@ export default function PlayerPage() {
         throw new Error('Failed to fetch player data');
       }
       const data = await response.json(); // Parse the JSON response
-      setPlayer(data.id = id); // Set the player data
+
+      // Use .find() to get the player with the matching id
+      const player = data.find((player) => player.id === id);
+
+      if (player) {
+        setPlayer(player); // Set the player's data
+        console.log(player);
+      } else {
+        console.error("Player not found");
+      }
       console.log(player);
       console.log(data.id);
       console.log(data);
