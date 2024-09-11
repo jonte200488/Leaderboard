@@ -17,7 +17,7 @@ export default function PlayerPage() {
 
   const fetchPlayer = async () => {
     try {
-      const response = await fetch(`/api/player/${id}`);
+      const response = await fetch(`/api/players/${id}`);
       const data = await response.json();
       setPlayer(data);
     } catch (error) {
