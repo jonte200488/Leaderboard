@@ -17,7 +17,7 @@ export default function PlayerPage() {
 
   const fetchPlayer = async () => {
     try {
-      const response = await fetch(`/api/players/${id}`); // Fetch from your API
+      const response = await fetch(`/api/players${id}`); // Fetch from your API
       if (!response.ok) {
         throw new Error('Failed to fetch player data');
       }
