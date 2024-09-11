@@ -17,10 +17,10 @@ export default function PlayerPage() {
     }
   }, [id]);
 
-  const fetchPlayer = async () => {
+  const fetchPlayer = async (playerId) => {
     try {
       // Ensure the correct API endpoint path
-      const response = await fetch(`../api/player/${id}`); // or `/api/player/${id}` depending on your API structure
+      const response = await fetch(`/api/players/${playerId}`)
       if (!response.ok) {
         throw new Error('Failed to fetch player data');
       }
@@ -39,9 +39,9 @@ export default function PlayerPage() {
   }
 
   // Handle if player data is not found
-  if (!player) {
-    return <div>Player not found</div>;
-  }
+  //if (!player) {
+    //return <div>Player not found</div>;
+  //}
 
   return (
     <div>
