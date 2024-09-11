@@ -26,6 +26,8 @@ export default function PlayerPage() {
       }
       const data = await response.json(); // Parse the JSON response
       setPlayer(data); // Set the player data
+      console.log(data);
+      
     } catch (error) {
       console.error('Error fetching player data:', error);
     } finally {
