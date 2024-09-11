@@ -39,7 +39,7 @@ export default function PlayerPage() {
     <div>
       <h1>{player.name}</h1>
       <img src={player.image} alt={player.name} />
-      <p>Average Wins: {player.averageWins.toFixed(0)}%</p>
+      <p>Average Wins: {player.averageWins}%</p>
       <p>Total Points: {player.totalPoints}p</p>
       <Link href="/">
         <a>Back to leaderboard</a>
