@@ -27,7 +27,7 @@ export default function PlayerPage() {
       const data = await response.json(); // Parse the JSON response
 
       // Use .find() to get the player with the matching id
-      const player = data.find((player) => player.id === id);
+      player = data.find((id) => player.id === id);
 
       if (player) {
         setPlayer(player); // Set the player's data
