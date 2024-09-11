@@ -17,8 +17,8 @@ export default function PlayerPage() {
 
   const fetchPlayer = async () => {
     try {
-        const response = await fetch(`/api/players/${id}`);
-    if (!response.ok) {
+      const response = await fetch(`/api/players/${id}`); // Fetch from your API
+      if (!response.ok) {
         throw new Error('Failed to fetch player data');
       }
       const data = await response.json(); // Parse the JSON response
@@ -44,7 +44,7 @@ export default function PlayerPage() {
     <div>
       <h1>{player[id].name}</h1>
       <img src={player.image} alt={player.name} />
-      <p>Average Wins: {player.averageWins}%</p>
+      <p>Average Wins: {player.averageWins.toFixed(0)}%</p>
       <p>Total Points: {player.totalPoints}p</p>
       <p>Total Games Played: {player.totalGamesPlayed}</p>
 
