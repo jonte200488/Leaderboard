@@ -92,7 +92,7 @@ export default function PlayerPage() {
   // Check if weeklyAverageWins contains valid data
 const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins));
 
-console.log(weeklyAverageWins.map(week => week.averageWins.length));
+console.log(weeklyAverageWins.map(week => week.averageWins));
 
 
 return (
@@ -102,6 +102,7 @@ return (
     <p>Average Wins: {player.averageWins}%</p>
     <p>Total Points: {player.totalPoints}p</p>
     <p>Total Games Played: {player.games1.length + player.games2.length}</p>
+    <p>{weeklyAverageWins.map(week => week.averageWins)}</p>
 
     {isValidData ? (
       <LineChart
