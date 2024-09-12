@@ -109,8 +109,8 @@ return (
             label: 'Average Wins %',
           },
         ]}
-        width={500}
-        height={300}
+        width={1000}
+        height={600}
       />
     ) : (
       <p>No valid data for chart</p> // Fallback if data is invalid
