@@ -48,7 +48,10 @@ export default function PlayerPage() {
   const calculateWeeklyAverageWins = (player) => {
     const games = [...player.games1, ...player.games2]; // Combine games1 and games2
     const weeks = {};
-  
+
+    console.log(weeks);
+    console.log(games);
+    
     games.forEach((game) => {
       const week = Number(dayjs(game.date).week()); // Ensure week number is a number
       if (!weeks[week]) {
