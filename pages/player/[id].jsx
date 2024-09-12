@@ -106,10 +106,10 @@ return (
 
     {isValidData ? (
       <LineChart
-        xAxis={[1, 2, 3]} // Label each week
+        xAxis={weeklyAverageWins.map(week => week.week)} // Label each week
         series={[
           {
-            data: weeklyAverageWins.map(week => week.week), // Plot average wins per week
+            data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
             label: 'Average Wins %',
           },
         ]}
