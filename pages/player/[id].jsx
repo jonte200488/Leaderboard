@@ -30,6 +30,8 @@ export default function PlayerPage() {
       // Find the player with the matching id (convert `id` from string to number for comparison)
       const player = data.find((player) => player.id === Number(id));
 
+      console.log(data);
+
       if (player) {
         setPlayer(player); // Set the player's data (e.g., update state or display the player)
       } else {
