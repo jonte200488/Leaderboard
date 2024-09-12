@@ -102,14 +102,14 @@ return (
     <p>Average Wins: {player.averageWins}%</p>
     <p>Total Points: {player.totalPoints}p</p>
     <p>Total Games Played: {player.games1.length + player.games2.length}</p>
-    <p>{weeklyAverageWins.map(week => week.averageWins)}</p>
+    <p>{weeklyAverageWins.map(week => week.week)}</p>
 
     {isValidData ? (
       <LineChart
         xAxis={[1, 2, 3]} // Label each week
         series={[
           {
-            data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
+            data: weeklyAverageWins.map(week => week.week), // Plot average wins per week
             label: 'Average Wins %',
           },
         ]}
