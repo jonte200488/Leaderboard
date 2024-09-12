@@ -90,39 +90,42 @@ export default function PlayerPage() {
   console.log(weeklyAverageWins);
 
   // Check if weeklyAverageWins contains valid data
-const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins));
+  const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins));
 
-console.log(weeklyAverageWins.map(week => week.averageWins));
+  console.log(weeklyAverageWins.map(week => week.averageWins));
 
+  return (
+    <div>
+      <h1>{player.name}</h1>
+      <img src={player.image} alt={player.name} />
+      <p>Average Wins: {player.averageWins}%</p>
+      <p>Total Points: {player.totalPoints}p</p>
+      <p>Total Games Played: {player.games1.length + player.games2.length}</p>
+      
+      {/* Display each week */}
+      <p>{weeklyAverageWins.map((week) => (
+        <span key={week.week}>{`Week ${week.week} `}</span> 
+      ))}</p>
 
-return (
-  <div>
-    <h1>{player.name}</h1>
-    <img src={player.image} alt={player.name} />
-    <p>Average Wins: {player.averageWins}%</p>
-    <p>Total Points: {player.totalPoints}p</p>
-    <p>Total Games Played: {player.games1.length + player.games2.length}</p>
-    <p>{weeklyAverageWins.map(week => week.week)}</p>
+      {isValidData ? (
+        <LineChart
+          xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]} // Dynamically label each week
+          series={[
+            {
+              data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
+              label: 'Average Wins %',
+            },
+          ]}
+          width={1000}
+          height={600}
+        />
+      ) : (
+        <p>No valid data for chart</p> // Fallback if data is invalid
+      )}
 
-    {isValidData ? (
-      <LineChart
-        xAxis={[10, 20, 30, 40 ,50 ,60, 70, 80 , 90 ,100]} // Label each week
-        series={[
-          {
-            data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
-            label: 'Average Wins %',
-          },
-        ]}
-        width={1000}
-        height={600}
-      />
-    ) : (
-      <p>No valid data for chart</p> // Fallback if data is invalid
-    )}
-
-    <Link href="/">
-      <a>Back to leaderboard</a>
-    </Link>
-  </div>
-);
+      <Link href="/">
+        <a>Back to leaderboard</a>
+      </Link>
+    </div>
+  );
 }
