@@ -48,10 +48,7 @@ export default function PlayerPage() {
   const calculateWeeklyAverageWins = (player) => {
     const games = [...player.games1, ...player.games2]; // Combine games1 and games2
     const weeks = {};
-
-    console.log(weeks);
-    console.log(games);
-    
+  
     games.forEach((game) => {
       const week = Number(dayjs(game.date).week()); // Ensure week number is a number
       if (!weeks[week]) {
@@ -70,7 +67,7 @@ export default function PlayerPage() {
   
     const weeklyData = Object.keys(weeks).map((week) => {
       const { wins, total } = weeks[week];
-      const averageWins = parseFloat((wins / total) * 100); // Ensure averageWins is a number
+      const averageWins = Math.round((wins / total) * 100); // Round averageWins to the nearest integer
       return {
         week: Number(week), // Ensure week number is a number
         averageWins: averageWins || 0, // Avoid NaN if no games were played
@@ -78,6 +75,7 @@ export default function PlayerPage() {
     });
   
     setWeeklyAverageWins(weeklyData);
+    console.log("Weekly Average Wins Data (rounded):", weeklyData); // Debugging log
   };
 
   // Handle loading state
