@@ -3,7 +3,10 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 import { LineChart } from '@mui/x-charts/LineChart';
 import Link from 'next/link';
-import dayjs from 'dayjs'; // A lightweight date library to help with week calculations.
+import dayjs from 'dayjs';
+import weekOfYear from 'dayjs/plugin/weekOfYear'; // Import the plugin
+
+dayjs.extend(weekOfYear); // Extend dayjs with the weekOfYear plugin
 
 export default function PlayerPage() {
   const router = useRouter();
@@ -47,7 +50,7 @@ export default function PlayerPage() {
     const weeks = {};
 
     games.forEach((game) => {
-      const week = dayjs(game.date).week(); // Get the week number of the year
+      const week = dayjs(game.date).week(); // Get the week number of the year using the plugin
       if (!weeks[week]) {
         weeks[week] = { wins: 0, total: 0 };
       }
@@ -93,7 +96,7 @@ export default function PlayerPage() {
       <p>Total Games Played: {player.games1.length + player.games2.length}</p>
 
       <LineChart
-        xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]} // Label each week
+        xAxis={[{ data: weeklyAverageWins.map(week => `V. ${week.week}`) }]} // Label each week
         series={[
           {
             data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
