@@ -48,32 +48,32 @@ export default function PlayerPage() {
   const calculateWeeklyAverageWins = (player) => {
     const games = [...player.games1, ...player.games2]; // Combine games1 and games2
     const weeks = {};
-
+  
     games.forEach((game) => {
-      const week = dayjs(game.date).week(); // Get the week number of the year using the plugin
+      const week = Number(dayjs(game.date).week()); // Ensure week number is a number
       if (!weeks[week]) {
         weeks[week] = { wins: 0, total: 0 };
       }
-
+  
       if (game.player1Id === player.id && game.player1Points > game.player2Points) {
         weeks[week].wins += 1;
       }
       if (game.player2Id === player.id && game.player2Points > game.player1Points) {
         weeks[week].wins += 1;
       }
-
+  
       weeks[week].total += 1; // Count each game
     });
-
+  
     const weeklyData = Object.keys(weeks).map((week) => {
       const { wins, total } = weeks[week];
-      const averageWins = (wins / total) * 100; // Calculate average win percentage for the week
+      const averageWins = parseFloat((wins / total) * 100); // Ensure averageWins is a number
       return {
-        week: Number(week), // Week number
+        week: Number(week), // Ensure week number is a number
         averageWins: averageWins || 0, // Avoid NaN if no games were played
       };
     });
-
+  
     setWeeklyAverageWins(weeklyData);
   };
 
