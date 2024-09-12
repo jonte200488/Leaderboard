@@ -87,16 +87,20 @@ export default function PlayerPage() {
     return <div>Player not found</div>;
   }
 
-  return (
-    <div>
-      <h1>{player.name}</h1> {/* Correctly access player object properties */}
-      <img src={player.image} alt={player.name} />
-      <p>Average Wins: {player.averageWins}%</p>
-      <p>Total Points: {player.totalPoints}p</p>
-      <p>Total Games Played: {player.games1.length + player.games2.length}</p>
+  // Check if weeklyAverageWins contains valid data
+const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins));
 
+return (
+  <div>
+    <h1>{player.name}</h1>
+    <img src={player.image} alt={player.name} />
+    <p>Average Wins: {player.averageWins}%</p>
+    <p>Total Points: {player.totalPoints}p</p>
+    <p>Total Games Played: {player.games1.length + player.games2.length}</p>
+
+    {isValidData ? (
       <LineChart
-        xAxis={[{ data: weeklyAverageWins.map(week => `V. ${week.week}`) }]} // Label each week
+        xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]} // Label each week
         series={[
           {
             data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
@@ -106,10 +110,13 @@ export default function PlayerPage() {
         width={500}
         height={300}
       />
+    ) : (
+      <p>No valid data for chart</p> // Fallback if data is invalid
+    )}
 
-      <Link href="/">
-        <a>Back to leaderboard</a>
-      </Link>
-    </div>
-  );
+    <Link href="/">
+      <a>Back to leaderboard</a>
+    </Link>
+  </div>
+);
 }
