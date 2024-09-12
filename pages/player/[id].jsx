@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { LineChart } from '@mui/x-charts/BarChart';
+import { LineChart } from '@mui/x-charts/LineChart';
 import Link from 'next/link';
 
 export default function PlayerPage() {
