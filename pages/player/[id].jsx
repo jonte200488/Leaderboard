@@ -58,6 +58,17 @@ export default function PlayerPage() {
       <p>Total Points: {player.totalPoints}p</p>
       <p>Total Games Played: {player.totalGamesPlayed}</p> {/* Assuming this data exists */}
 
+      <LineChart
+        xAxis={[{ data: [0, 10, 20, 30, 50, 80, 100] }]}
+        series={[
+          {
+            data: [20, 55, 20, 85, 15, 50],
+          },
+        ]}
+        width={500}
+        height={300}
+      />
+
       <Link href="/">
         <a>Back to leaderboard</a>
       </Link>
