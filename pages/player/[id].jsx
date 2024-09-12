@@ -92,6 +92,9 @@ export default function PlayerPage() {
   // Check if weeklyAverageWins contains valid data
 const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins));
 
+console.log(weeklyAverageWins.map(week => week.averageWins));
+
+
 return (
   <div>
     <h1>{player.name}</h1>
