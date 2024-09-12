@@ -6,8 +6,6 @@ export default function PlayerPage() {
   const router = useRouter();
   const { id } = router.query; // Get the dynamic ID from the URL
 
-  console.log(id);
-
   const [player, setPlayer] = useState(null); // Player data
   const [loading, setLoading] = useState(true); // Loading state
 
@@ -17,28 +15,24 @@ export default function PlayerPage() {
     }
   }, [id]);
 
-  const fetchPlayer = async (playerId) => {
+  const fetchPlayer = async () => {
     try {
       // Ensure the correct API endpoint path
-      const response = await fetch(`/api/players`)
+      const response = await fetch(`/api/players`);
       if (!response.ok) {
         throw new Error('Failed to fetch player data');
       }
 
       const data = await response.json(); // Parse the JSON response
 
-      // Find the player with the matching id in the data array
-      const player = data.find((player) => player.id === id);
+      // Find the player with the matching id (convert `id` from string to number for comparison)
+      const player = data.find((player) => player.id === Number(id));
 
       if (player) {
         setPlayer(player); // Set the player's data (e.g., update state or display the player)
       } else {
         console.error('Player not found');
       }
-      console.log(player);
-      console.log(data.id);
-      console.log(data);
-      
     } catch (error) {
       console.error('Error fetching player data:', error);
     } finally {
@@ -52,9 +46,9 @@ export default function PlayerPage() {
   }
 
   // Handle if player data is not found
-  //if (!player) {
-    //return <div>Player not found</div>;
-  //}
+  if (!player) {
+    return <div>Player not found</div>;
+  }
 
   return (
     <div>
@@ -62,7 +56,7 @@ export default function PlayerPage() {
       <img src={player.image} alt={player.name} />
       <p>Average Wins: {player.averageWins}%</p>
       <p>Total Points: {player.totalPoints}p</p>
-      <p>Total Games Played: {player.totalGamesPlayed}</p>
+      <p>Total Games Played: {player.totalGamesPlayed}</p> {/* Assuming this data exists */}
 
       <Link href="/">
         <a>Back to leaderboard</a>
