@@ -67,15 +67,17 @@ export default function PlayerPage() {
   
     const weeklyData = Object.keys(weeks).map((week) => {
       const { wins, total } = weeks[week];
-      const averageWins = Math.round((wins / total) * 100); // Round averageWins to the nearest integer
+      const averageWins = (wins / total) * 100;
+  
+      // Ensure no NaN values
       return {
-        week: Number(week), // Ensure week number is a number
-        averageWins: averageWins || 0, // Avoid NaN if no games were played
+        week: Number(week), // Ensure week is a number
+        averageWins: isNaN(averageWins) ? 0 : Math.round(averageWins), // Replace NaN with 0 and round to the nearest integer
       };
     });
   
     setWeeklyAverageWins(weeklyData);
-    console.log("Weekly Average Wins Data (rounded):", weeklyData); // Debugging log
+    console.log("Weekly Average Wins Data (validated):", weeklyData); // Debugging log
   };
 
   // Handle loading state
