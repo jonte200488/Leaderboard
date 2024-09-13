@@ -107,7 +107,7 @@ main {
 /* Center podium with 3D cylindrical effect using pseudo-elements */
 .podium-1 {
   order: 2;
-  background: linear-gradient(180deg, #0a0a0a, #0a0a0a); /* Bottom shading for depth */
+  background-color: var(--white); /* Bottom shading for depth */
   width: 190px;
   height: 220px;
   position: relative;
@@ -116,14 +116,6 @@ main {
   /*border: 2px solid rgba(255, 153, 0, 0.5);*/
   padding-top: 100px;
   transition: transform 0.4s, box-shadow 0.4s;
-  /*box-shadow: 
-        inset 5px 0 0 0 #FFD700,    
-        inset -5px 0 0 0 #FFD700,   
-        inset 0 5px 0 0 #FFD700;*/
-  outline-color: #F0C75E; /* Creates a 5px solid black outline */
-  outline-style: solid;
-  outline-width: 5px;
-  outline-offset: -15px; /* Moves the outline inside by 10px */
   transform: translateY(10px);
 }
 
