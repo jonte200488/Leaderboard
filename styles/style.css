@@ -18,7 +18,7 @@ html {
 
 /* Global Styles */
 :root {
-    --bg-color: linear-gradient(to bottom right, #a324c9, #3d0b98);
+    --bg-color: linear-gradient(to bottom right, #00ecdd, #ffffff);
     --accent-color: #5a1dbb;
   --highlight-color: #ffc400;
   --text-color: #e0e1dd;
