@@ -18,13 +18,10 @@ html {
 
 /* Global Styles */
 :root {
-    --bg-color: linear-gradient(to bottom right, #00ecdd, #ffffff);
-    --accent-color: #5a1dbb;
-  --highlight-color: #ffc400;
-  --text-color: #e0e1dd;
-  --button-bg: #778da9;
-  --button-hover-bg: #1b263b;
-  --button-text-color: #fefefe;
+  --bg-color: linear-gradient(to bottom right, #00ecdd, #ffffff);
+  --blue: #00ecdd;
+  --darkBlue: #1eadac;
+  --white: #fff;
   --black: #000;
 }
 
@@ -39,7 +36,7 @@ max-width: 1000px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   background: transparent;
-  color: var(--text-color);
+  color: var(--white);
   min-height: 100vh;
 }
 
@@ -68,18 +65,21 @@ main {
 }
 
 .timeRangeToggle button {
-  background-color: transparent;
+  background-color: var(--white);
   border: none;
-  color: #ffc400;
+  padding: 1rem 2rem;
+  color: var(--blue);
   cursor: pointer;
 }
 
 .timeRangeToggle button:hover {
-  color: #ff9900;
+  background-color: var(--darkBlue);
+  color: var(--white);
 }
 
 .timeRangeToggle button.active {
-  color: #ff9900;
+  background-color: var(--darkBlue);
+  color: var(--white);
 }
 
 
