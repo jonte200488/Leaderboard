@@ -239,9 +239,9 @@ main {
 
 /* Player points */
 .podiumPosition .playerPoints {
-  font-size: var(--black);
+  font-size: 2rem;
   font-weight: bold;
-  color: #FFECB3;
+  color: var(--black);
 }
 
 .podium .playerTotalPoints {
