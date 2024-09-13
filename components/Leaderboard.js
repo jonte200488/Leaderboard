@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Leaderboard() {
   const [players, setPlayers] = useState([]);
   const [timeRange, setTimeRange] = useState('all'); // 'today' or 'all'
+  const router = useRouter();
 
   useEffect(() => {
     fetchPlayers();
