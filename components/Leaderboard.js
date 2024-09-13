@@ -82,6 +82,17 @@ export default function Leaderboard() {
           </section>
         </div>
         <section id="otherPlayers" className="otherPlayers">
+          <nav className="navbar">
+            <Link href="/" passHref>
+              <a className={router.pathname === '/' ? 'active' : ''}>Leaderboard</a>
+            </Link>
+            <Link href="/manage-games" passHref>
+              <a className={router.pathname === '/manage-games' ? 'active' : ''}>Manage Games</a>
+            </Link>
+            <Link href="/manage-players" passHref>
+              <a className={router.pathname === '/manage-players' ? 'active' : ''}>Manage Players</a>
+            </Link>
+          </nav>
           {players.slice(3).map((player) => (
             <div key={player.id} className="playerEntry">
               <Link href={`/player/${player.id}`}>
