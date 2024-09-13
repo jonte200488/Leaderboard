@@ -83,6 +83,7 @@ main {
 .timeRangeToggle button.active {
   background-color: var(--darkBlue);
   color: var(--white);
+  cursor: not-allowed;
 }
 
 
