@@ -129,6 +129,10 @@ main {
   background: linear-gradient(to bottom, #535353, #252525); /* Shading effect */
   clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%); /* Trapezoid shape */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  outline-color: #ffc400; /* Creates a 5px solid black outline */
+  outline-style: solid;
+  outline-width: 5px;
+  outline-offset: -15px; /* Moves the outline inside by 10px */
   transform: translateY(-30px);
 }
 
