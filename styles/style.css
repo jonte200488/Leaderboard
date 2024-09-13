@@ -21,6 +21,7 @@ html {
   --bg-color: linear-gradient(to bottom right, #00ecdd, #ffffff);
   --blue: #00ecdd;
   --darkBlue: #1eadac;
+  --text: #14b0d6;
   --white: #fff;
   --black: #000;
 }
@@ -69,7 +70,8 @@ main {
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 1000px;
-  color: var(--blue);
+  color: var(--text);
+  font-weight: bold;
   cursor: pointer;
 }
 
