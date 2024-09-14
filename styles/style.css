@@ -758,9 +758,11 @@ main {
   }
  }
 
+ .playerPage {
+  margin-top: 50px;
+}
+
  .playerPage a {
-  padding-top: 50px;
-  padding-bottom: 50px;
   font-size: 20px;
   font-weight: 400;
   color: var(--white);
@@ -769,6 +771,7 @@ main {
 
  .playerContainer {
   background-color: var(--white);
+  margin-top: 50px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 15px;
