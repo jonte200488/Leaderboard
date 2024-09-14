@@ -109,8 +109,8 @@ export default function PlayerPage() {
         </Link>
       <div className="playerContainer">
         <div className="playerHeader">
-          <h1>{player.name}</h1>
           <img src={player.image} alt={player.name} />
+          <h1>{player.name}</h1>
         </div>
         {isValidData && weeklyAverageWins.length > 0 ? (
           <LineChart
