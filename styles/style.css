@@ -277,12 +277,16 @@ main {
 
 /* Removed the pulsating shadow under the podiums */
   /* Leaderboard List */
+  .otherSide {
+    margin-top: 35px;
+  }
+
   .otherPlayers {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1rem;
-    margin-top: 50px;
+    margin-top: 15px;
     max-height: 600px;
     overflow-y: scroll;
     border-radius: 15px;
