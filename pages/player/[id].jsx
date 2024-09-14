@@ -92,11 +92,12 @@ export default function PlayerPage() {
   // Check if weeklyAverageWins contains valid data
   const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins) && typeof week.averageWins === 'number');
 
-  console.log(weeklyAverageWins.map(week => week.week));
-
-  console.log(weeklyAverageWins.map(week => `Week ${week.week}`));
-
-  console.log(weeklyAverageWins);
+  console.log("Weekly Average Wins Data:", weeklyAverageWins);
+  weeklyAverageWins.forEach(week => {
+    if (typeof week.averageWins !== 'number' || isNaN(week.averageWins)) {
+      console.error(`Invalid averageWins for week ${week.week}:`, week.averageWins);
+    }
+  });
 
   return (
     <div>
