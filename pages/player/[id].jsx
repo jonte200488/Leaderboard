@@ -120,6 +120,7 @@ export default function PlayerPage() {
           series={[
             {
               data: weeklyAverageWins.map(week => week.averageWins), // Extract average wins
+              area: true,
             },
           ]}
           width={500}
