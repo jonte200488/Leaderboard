@@ -374,9 +374,7 @@ main {
 /* Navbar Styles */
 .navbar {
     display: flex;
-    justify-content: space-between;
-    max-width: 100px;
-    margin-left: auto;
+    justify-content: end;
     align-items: center;
     background-color: transparent;
     border-radius: 1000px;
