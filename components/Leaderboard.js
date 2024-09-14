@@ -83,7 +83,7 @@ export default function Leaderboard() {
             )}
           </section>
         </div>
-        <section id="otherPlayers" className="otherPlayers">
+        <div className='otherSide'>
           <nav className="navbar">
             <Link href="/manage-games" passHref>
               <a className={router.pathname === '/manage-games' ? 'active' : ''}>
@@ -100,6 +100,7 @@ export default function Leaderboard() {
               </a>
             </Link>
           </nav>
+          <section id="otherPlayers" className="otherPlayers">
           {players.slice(3).map((player) => (
             <div key={player.id} className="playerEntry">
               <Link href={`/player/${player.id}`}>
@@ -117,6 +118,7 @@ export default function Leaderboard() {
             </div>
           ))}
         </section>
+        </div>
       </div>
     </div>
   );
