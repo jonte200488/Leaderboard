@@ -276,7 +276,6 @@ main {
 }
 
 /* Removed the pulsating shadow under the podiums */
-  
   /* Leaderboard List */
   .otherPlayers {
     display: grid;
@@ -289,8 +288,8 @@ main {
 }
 
 .otherPlayers .playerEntry {
-    background-color: #121212db; /* Light background to keep focus on podiums */
-    padding: 0rem 1.5rem;
+    background-color: var(--white); /* Light background to keep focus on podiums */
+    padding: 0.5rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -376,7 +375,7 @@ main {
 .navbar {
     display: flex;
     justify-content: space-between;
-    max-width: 550px;
+    max-width: 100px;
     margin-left: auto;
     align-items: center;
     background-color: transparent;
