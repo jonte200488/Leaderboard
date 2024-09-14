@@ -284,6 +284,7 @@ main {
     padding: 1rem;
     max-height: 600px;
     overflow-y: scroll;
+    background-color: var(--white);
 
 }
 
@@ -296,7 +297,6 @@ main {
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: var(--blue) solid 2px;
 }
 
 .otherPlayers .playerEntry:hover {
@@ -403,7 +403,7 @@ main {
   } 
   
   .navbar > * + * {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   
   .navbar > *:focus {
