@@ -38,7 +38,7 @@ max-width: 1000px;
   font-family: 'Roboto', sans-serif;
   background: transparent;
   color: var(--white);
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 60px);
 }
 
 main {
