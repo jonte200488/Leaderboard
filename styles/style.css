@@ -382,7 +382,7 @@ main {
   }
 
   .navbar svg path {
-    fill: var(--black);
+    fill: var(--white);
   }
   .navbar svg {
     width: 35px;
