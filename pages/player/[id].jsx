@@ -103,31 +103,36 @@ export default function PlayerPage() {
   console.log("Weekly Average Wins Data:", weeklyAverageWins);
 
   return (
-    <div>
-      <h1>{player.name}</h1>
-      <p>Average Wins: {player.averageWins.toFixed(0)}%</p>
-      <p>Total Points: {player.totalPoints}p</p>
-      <p>Total Games Played: {player.games1.length + player.games2.length}</p>
-
-      {isValidData && weeklyAverageWins.length > 0 ? (
-        <LineChart
-          xAxis={[{ data: weeklyAverageWins.map(week => week.week) }]} // Extract week numbers directly
-          series={[
-            {
-              data: weeklyAverageWins.map(week => week.averageWins), // Extract average wins
-              area: true,
-            },
-          ]}
-          width={500}
-          height={300}
-        />
-      ) : (
-        <p>No valid data for chart</p>
-      )}
-
+    <div className='playerPage'>
       <Link href="/">
-        <a>Back to leaderboard</a>
-      </Link>
+          <a>Back to leaderboard</a>
+        </Link>
+      <div className="playerContainer">
+        <div className="playerHeader">
+          <h1>{player.name}</h1>
+          <img src={player.image} alt={player.name} />
+        </div>
+        {isValidData && weeklyAverageWins.length > 0 ? (
+          <LineChart
+            xAxis={[{ data: weeklyAverageWins.map(week => week.week) }]} // Extract week numbers directly
+            series={[
+              {
+                data: weeklyAverageWins.map(week => week.averageWins), // Extract average wins
+                area: true,
+              },
+            ]}
+            width={1300}
+            height={300}
+          />
+        ) : (
+          <p>No valid data for chart</p>
+        )}
+        <div className="playerInfo">
+          <p>Average Wins: {player.averageWins.toFixed(0)}%</p>
+          <p>Total Points: {player.totalPoints}p</p>
+          <p>Total Games Played: {player.games1.length + player.games2.length}</p>
+        </div>
+      </div>
     </div>
   );
 }
