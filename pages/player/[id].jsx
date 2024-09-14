@@ -67,9 +67,8 @@ export default function PlayerPage() {
   
     const weeklyData = Object.keys(weeks).map((week) => {
       const { wins, total } = weeks[week];
-      const averageWins = (wins / total) * 100;
+      const averageWins = total > 0 ? (wins / total) * 100 : 0; // Ensure no division by zero
   
-      // Ensure no NaN values
       return {
         week: Number(week), // Ensure week is a number
         averageWins: isNaN(averageWins) ? 0 : Math.round(averageWins), // Replace NaN with 0 and round to the nearest integer
@@ -77,7 +76,6 @@ export default function PlayerPage() {
     });
   
     setWeeklyAverageWins(weeklyData);
-    console.log("Weekly Average Wins Data (validated):", weeklyData); // Debugging log
   };
 
   // Handle loading state
@@ -92,11 +90,13 @@ export default function PlayerPage() {
   console.log(weeklyAverageWins);
 
   // Check if weeklyAverageWins contains valid data
-  const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins));
+  const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins) && typeof week.averageWins === 'number');
 
   console.log(weeklyAverageWins.map(week => week.week));
 
   console.log(weeklyAverageWins.map(week => `Week ${week.week}`));
+
+  console.log(weeklyAverageWins);
 
   return (
     <div>
@@ -113,12 +113,17 @@ export default function PlayerPage() {
       {isValidData ? (
         <LineChart
           xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]}
-          series={[{ data: weeklyAverageWins.map(week => week.averageWins), label: 'Average Wins %' }]}
+          series={[
+            {
+              data: weeklyAverageWins.map(week => week.averageWins),
+              label: 'Average Wins %',
+            },
+          ]}
           width={1000}
           height={600}
         />
       ) : (
-        <p>No valid data for chart</p> // Fallback if data is invalid
+        <p>No valid data for chart</p>
       )}
 
       <Link href="/">
