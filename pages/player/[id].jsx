@@ -111,13 +111,8 @@ export default function PlayerPage() {
 
       {isValidData ? (
         <LineChart
-          xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]} // Dynamically label each week
-          series={[
-            {
-              data: weeklyAverageWins.map(week => week.averageWins), // Plot average wins per week
-              label: 'Average Wins %',
-            },
-          ]}
+          xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]}
+          series={[{ data: weeklyAverageWins.map(week => week.averageWins), label: 'Average Wins %' }]}
           width={1000}
           height={600}
         />
