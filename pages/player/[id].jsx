@@ -105,14 +105,9 @@ export default function PlayerPage() {
   return (
     <div>
       <h1>{player.name}</h1>
-      <p>Average Wins: {player.averageWins}%</p>
+      <p>Average Wins: {player.averageWins.toFixed(0)}%</p>
       <p>Total Points: {player.totalPoints}p</p>
       <p>Total Games Played: {player.games1.length + player.games2.length}</p>
-      
-      {/* Display each week */}
-      <p>{weeklyAverageWins.map((week) => (
-        <span key={week.week}>{`Week ${week.week} `}</span> 
-      ))}</p>
 
       {isValidData && weeklyAverageWins.length > 0 ? (
         <LineChart
