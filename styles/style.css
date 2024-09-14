@@ -380,13 +380,13 @@ main {
     margin-left: auto;
     align-items: center;
     background-color: transparent;
-    box-shadow: inset 0px 0px 10px 0px rgba(34,0,84,1);
     border-radius: 1000px;
     font-family: 'Raleway', sans-serif;
   }
   
   .navbar > * {
     color: var(--black);
+    stroke: var(--black);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: 1000px;
