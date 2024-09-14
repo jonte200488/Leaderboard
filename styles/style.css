@@ -282,8 +282,10 @@ main {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 1rem;
+    margin-top: 50px;
     max-height: 600px;
     overflow-y: scroll;
+    border-radius: 15px;
     background-color: var(--white);
 
 }
@@ -292,7 +294,7 @@ main {
     background-color: var(--white); /* Light background to keep focus on podiums */
     padding: 0.75rem 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
