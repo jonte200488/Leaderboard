@@ -760,12 +760,14 @@ main {
 
  .playerContainer {
   background-color: var(--white);
-  padding: 1rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-radius: 15px;
   color: var(--black);
  }
 
  .playerContainer .playerHeader {
+  padding-left: 20px;
   display: inline-flex;
   align-items: center;
  }
@@ -779,6 +781,7 @@ main {
  }
 
  .playerInfo {
+  padding-left: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 600px;
