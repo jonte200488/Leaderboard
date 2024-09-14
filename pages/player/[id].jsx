@@ -99,7 +99,6 @@ export default function PlayerPage() {
   return (
     <div>
       <h1>{player.name}</h1>
-      <img src={player.image} alt={player.name} />
       <p>Average Wins: {player.averageWins}%</p>
       <p>Total Points: {player.totalPoints}p</p>
       <p>Total Games Played: {player.games1.length + player.games2.length}</p>
