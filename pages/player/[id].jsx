@@ -113,7 +113,7 @@ export default function PlayerPage() {
 
       {isValidData ? (
         <LineChart
-          xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]}
+          xAxis={[ 10, 20 ]}
           series={[
             {
               data: weeklyAverageWins.map(week => week.averageWins),
