@@ -116,7 +116,7 @@ export default function PlayerPage() {
 
       {isValidData && weeklyAverageWins.length > 0 ? (
         <LineChart
-          xAxis={[{ data: weeklyAverageWins.map(week => week.week) }]} // Extract week numbers directly
+          xAxis={[{ data: weeklyAverageWins.map(week => `Week ${week.week}`) }]} // Extract week numbers directly
           series={[
             {
               data: weeklyAverageWins.map(week => week.averageWins), // Extract average wins
