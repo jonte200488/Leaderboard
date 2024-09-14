@@ -96,6 +96,8 @@ export default function PlayerPage() {
 
   console.log(weeklyAverageWins.map(week => week.week));
 
+  console.log(weeklyAverageWins.map(week => `Week ${week.week}`));
+
   return (
     <div>
       <h1>{player.name}</h1>
