@@ -767,6 +767,7 @@ main {
 
  .playerContainer .playerHeader {
   display: inline-flex;
+  align-items: center;
  }
 
  .playerHeader img {
@@ -774,4 +775,11 @@ main {
   height: 50px;
   border-radius: 1000px;
   object-fit: cover;
+  margin-right: 15px;
+ }
+
+ .playerInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 300px;
  }
