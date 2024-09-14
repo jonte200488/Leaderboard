@@ -383,10 +383,16 @@ main {
     border-radius: 1000px;
     font-family: 'Raleway', sans-serif;
   }
+
+  .navbar svg path {
+    fill: var(--black);
+  }
+  .navbar svg {
+    width: 40px;
+    height: 40px;
+  }
   
   .navbar > * {
-    color: var(--black);
-    fill: var(--black);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: 1000px;
