@@ -328,7 +328,7 @@ main {
 
 .otherPlayers .playerEntry .playerName {
     font-size: 1.1rem;
-    color: #F0C75E; /* Dark text for readability */
+    color: var(--black); /* Dark text for readability */
     font-weight: 600;
     letter-spacing: 0.5px;
     flex-grow: 1;
@@ -342,7 +342,7 @@ main {
 .otherPlayers .playerEntry .playerPoints {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #F0C75E; /* Purple color matching the podiums */
+    color: var(--black); /* Purple color matching the podiums */
     margin-right: 0.5rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
@@ -350,7 +350,7 @@ main {
 .otherPlayers .playerEntry .playerTotalPoints {
     font-size: 1rem;
     font-weight: 500;
-    color: #fefefe; /* Neutral gray for less emphasis */
+    color: var(--text); /* Neutral gray for less emphasis */
     margin-left: 0.2rem;
 }
   
