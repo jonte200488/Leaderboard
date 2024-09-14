@@ -398,7 +398,7 @@ main {
   }
   
   .navbar > *:hover {
-    background-color: var(--text);
+    background-color: var(--darkBlue);
     transform: translateY(-3px);
   }
   .navbar > *:hover svg path {
