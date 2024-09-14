@@ -388,8 +388,8 @@ main {
     fill: var(--black);
   }
   .navbar svg {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
   }
   
   .navbar > * {
@@ -401,10 +401,12 @@ main {
   }
   
   .navbar > *:hover {
-    color: var(--white);
     background-color: var(--text);
     transform: translateY(-3px);
   }
+  .navbar > *.hover svg path {
+    fill: var(--white);
+  } 
   
   .navbar > * + * {
     margin-left: 1rem;
