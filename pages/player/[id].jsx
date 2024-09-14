@@ -128,9 +128,9 @@ export default function PlayerPage() {
           <p>No valid data for chart</p>
         )}
         <div className="playerInfo">
-          <p>Average Wins: {player.averageWins.toFixed(0)}%</p>
-          <p>Total Points: {player.totalPoints}p</p>
-          <p>Total Games Played: {player.games1.length + player.games2.length}</p>
+          <p>Average Wins: <span>{player.averageWins.toFixed(0)}%</span></p>
+          <p>Total Points: <span>{player.totalPoints}p</span></p>
+          <p>Total Games Played: <span>{player.games1.length + player.games2.length}</span></p>
         </div>
       </div>
     </div>

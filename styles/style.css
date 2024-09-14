@@ -783,3 +783,18 @@ main {
   grid-template-columns: repeat(3, 1fr);
   width: 300px;
  }
+
+ .playerInfo * {
+  display: block;
+ }
+
+ .playerInfo p {
+  font-size: 20px;
+  font-weight: 600;
+ }
+
+ .playerInfo p span {
+  font-size: 32px;
+  font-size: 400;
+  color: var(--blue);
+ }
