@@ -289,14 +289,14 @@ main {
 
 .otherPlayers .playerEntry {
     background-color: var(--white); /* Light background to keep focus on podiums */
-    padding: 0.5rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: #F0C75E solid 2px;
+    border: var(--blue) solid 2px;
 }
 
 .otherPlayers .playerEntry:hover {
