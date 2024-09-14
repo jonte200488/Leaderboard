@@ -386,7 +386,7 @@ main {
   
   .navbar > * {
     color: var(--black);
-    stroke: var(--black);
+    fill: var(--black);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: 1000px;
