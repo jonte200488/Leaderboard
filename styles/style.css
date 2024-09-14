@@ -377,16 +377,16 @@ main {
     display: flex;
     justify-content: space-between;
     max-width: 550px;
-    margin: auto;
+    margin-left: auto;
     align-items: center;
-    background-color: #5a1dbb;
+    background-color: transparent;
     box-shadow: inset 0px 0px 10px 0px rgba(34,0,84,1);
     border-radius: 1000px;
     font-family: 'Raleway', sans-serif;
   }
   
   .navbar > * {
-    color: var(--button-text-color);
+    color: var(--black);
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: 1000px;
@@ -395,15 +395,9 @@ main {
   }
   
   .navbar > *:hover {
-    color: #5a1dbb;
-    background-color: #ffc400;
+    color: var(--white);
+    background-color: var(--text);
     transform: translateY(-3px);
-  }
-  
-  .navbar > *:active {
-    color: #5a1dbb;
-    background-color: #fece3d;
-    transform: translateY(0);
   }
   
   .navbar > * + * {
@@ -412,13 +406,6 @@ main {
   
   .navbar > *:focus {
     outline: none;
-  }
-  
-  /* Add active link styling */
-  .navbar a.active {
-    color: #5a1dbb;
-    background-color: #fece3d;
-    transform: translateY(0);
   }
   
   /* Responsive adjustments */
