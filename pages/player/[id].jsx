@@ -113,16 +113,15 @@ export default function PlayerPage() {
 
       {isValidData ? (
         <LineChart
-          xAxis={[ 10, 20 ]}
-          series={[
-            {
-              data: weeklyAverageWins.map(week => week.averageWins),
-              label: 'Average Wins %',
-            },
-          ]}
-          width={1000}
-          height={600}
-        />
+        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+        series={[
+          {
+            data: [2, 5.5, 2, 8.5, 1.5, 5],
+          },
+        ]}
+        width={500}
+        height={300}
+      />
       ) : (
         <p>No valid data for chart</p>
       )}
