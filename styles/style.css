@@ -480,6 +480,8 @@ main {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    max-height: 400px;
+    overflow-y: scroll;
   }
   
   .playerEntry {
