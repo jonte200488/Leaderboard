@@ -99,6 +99,9 @@ export default function PlayerPage() {
     }
   });
 
+  // Ensure to log and validate data before using it in the LineChart
+  console.log("Weekly Average Wins Data:", weeklyAverageWins);
+
   return (
     <div>
       <h1>{player.name}</h1>
@@ -111,17 +114,17 @@ export default function PlayerPage() {
         <span key={week.week}>{`Week ${week.week} `}</span> 
       ))}</p>
 
-      {isValidData ? (
+      {isValidData && weeklyAverageWins.length > 0 ? (
         <LineChart
-        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
-        series={[
-          {
-            data: [2, 5.5, 2, 8.5, 1.5, 5],
-          },
-        ]}
-        width={500}
-        height={300}
-      />
+          xAxis={[{ data: weeklyAverageWins.map(week => week.week) }]} // Extract week numbers directly
+          series={[
+            {
+              data: weeklyAverageWins.map(week => week.averageWins), // Extract average wins
+            },
+          ]}
+          width={500}
+          height={300}
+        />
       ) : (
         <p>No valid data for chart</p>
       )}
