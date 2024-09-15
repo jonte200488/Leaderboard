@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
-import table from '../table.png'; // Ensure this path is correct
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -163,14 +161,6 @@ export default function Games() {
                   +
                 </button>
               </div>
-            </div>
-            <div className="versusImage">
-              <Image src={table} alt="Versus" className="versusImg"
-              style={{
-                all: 'unset', // Resets all styles
-                width: 'auto',
-                height: 'auto'
-              }} />
             </div>
             <div className="playerSide right">
               <select
