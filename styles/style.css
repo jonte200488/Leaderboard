@@ -570,12 +570,12 @@ main {
   }
   
   .gameEntry {
-    background-color: var(--white);
+    background-color: var(--darkBlue);
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
-    color: var(--blue);
+    color: var(--white);
   }
   
   .gamePlayers {
@@ -636,17 +636,24 @@ main {
     justify-content: space-between; /* Align player sides */
     align-items: center;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 .playerSide {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    width: 40%;
+    width: 20%;
     z-index: 99;
 }
 
-.playerSide.left {
+.playerSide button {
+  border-radius: 15px;
+  background-color: var(--darkBlue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .playerSide.right {
@@ -666,12 +673,11 @@ main {
 .input, .select {
     padding: 0.75rem;
     border-radius: 10px;
-    border: 1px solid var(--blue);
+    border: none;
     background-color: var(--white);
     color: var(--blue);
     font-size: 1rem;
     width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -680,8 +686,6 @@ main {
 }
 
 .input:focus, .select:focus {
-    box-shadow: 0 6px 12px rgba(90, 29, 187, 0.3);
-    transform: translateY(-2px); /* Subtle lift on focus */
     outline: none;
 }
 
