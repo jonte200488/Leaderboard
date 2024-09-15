@@ -548,6 +548,12 @@ main {
   .gamesContainer {
     padding: 20px;
   }
+
+  manageGamescontainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1300px;
+  }
   
   .header {
     color: var(--highlight-color);
