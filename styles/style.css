@@ -624,7 +624,6 @@ main {
 }
 
 .form:hover {
-    transform: translateY(-5px); /* Gentle lift on hover */
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
@@ -655,6 +654,7 @@ main {
   align-items: center;
   justify-content: center;
   border: none;
+  font-size: 1.5rem;
 }
 
 .playerSide.right {
@@ -677,7 +677,7 @@ main {
     border: none;
     background-color: var(--white);
     color: var(--blue);
-    font-size: 1rem;
+    font-size: 2rem;
     width: 100%;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
     text-align: center;
