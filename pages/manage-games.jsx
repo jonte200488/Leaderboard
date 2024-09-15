@@ -1,5 +1,3 @@
-// /pages/manage-games.js
-
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
@@ -10,14 +8,24 @@ export default function Games() {
   const [players, setPlayers] = useState([]);
   const [player1Id, setPlayer1Id] = useState('');
   const [player2Id, setPlayer2Id] = useState('');
-  const [player1Points, setPlayer1Points] = useState('');
-  const [player2Points, setPlayer2Points] = useState('');
+  const [player1Points, setPlayer1Points] = useState(0); // Initialize with 0
+  const [player2Points, setPlayer2Points] = useState(0); // Initialize with 0
 
-  const incrementPoints = () => {
+  // Increment and Decrement Functions for Player 1
+  const incrementPlayer1Points = () => {
+    setPlayer1Points((prevPoints) => Number(prevPoints) + 1);
+  };
+
+  const decrementPlayer1Points = () => {
+    setPlayer1Points((prevPoints) => prevPoints > 0 ? Number(prevPoints) - 1 : 0);
+  };
+
+  // Increment and Decrement Functions for Player 2
+  const incrementPlayer2Points = () => {
     setPlayer2Points((prevPoints) => Number(prevPoints) + 1);
   };
 
-  const decrementPoints = () => {
+  const decrementPlayer2Points = () => {
     setPlayer2Points((prevPoints) => prevPoints > 0 ? Number(prevPoints) - 1 : 0);
   };
 
@@ -93,125 +101,153 @@ export default function Games() {
   };
 
   return (
-    <div className="container">
-      <Navbar />
-      <header className="header"></header>
-
-      <h3 className="header">Add a New Game</h3>
-      <form className="form" onSubmit={handleAddGame}>
-        <div className="playersWrapper">
-          <div className="playerSide left">
-            <select
-              id="player1"
-              className="select"
-              value={player1Id}
-              onChange={(e) => setPlayer1Id(e.target.value)}
-              required
-            >
-              <option value="">Player 1</option>
-              {players.map((player) => (
-                <option key={player.id} value={player.id}>
-                  {player.name}
-                </option>
-              ))}
-            </select>
-
-            <input
-              type="number"
-              id="player1Points"
-              className="input"
-              placeholder="Points"
-              value={player1Points}
-              onChange={(e) => setPlayer1Points(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="versusImage">
-            <Image src={table} alt="Versus" className="versusImg" 
-            style={{ 
-              all: 'unset', // Resets all styles
-              width: 'auto', 
-              height: 'auto' 
-            }} />
-          </div>
-
-          <div className="playerSide right">
-            <select
-              id="player2"
-              className="select"
-              value={player2Id}
-              onChange={(e) => setPlayer2Id(e.target.value)}
-              required
-            >
-              <option value="">Player 2</option>
-              {players.map((player) => (
-                <option key={player.id} value={player.id}>
-                  {player.name}
-                </option>
-              ))}
-            </select>
-
-            <div className="points-input-container" style={{ display: 'flex', alignItems: 'center' }}>
-              <button
-                type="button"
-                onClick={decrementPoints}
-                style={{
-                  width: '30px',
-                  height: '30px',
-                  textAlign: 'center',
-                  lineHeight: '30px',
-                  cursor: 'pointer',
-                }}
-              >
-                -
-              </button>
-              <input
-                type="number"
-                id="player2Points"
-                className="input"
-                placeholder="Points"
-                value= {player2Points}
-                onChange={(e) => setPlayer2Points(Number(e.target.value))}
+    <div className="manageGamescontainer">
+      <div className="createGameContainer">
+        <h3 className="header">Add a New Game</h3>
+        <form className="form" onSubmit={handleAddGame}>
+          <div className="playersWrapper">
+            <div className="playerSide left">
+              <select
+                id="player1"
+                className="select"
+                value={player1Id}
+                onChange={(e) => setPlayer1Id(e.target.value)}
                 required
-                style={{
-                  textAlign: 'center',
-                  margin: '0 10px',
-                  width: '60px',
-                }}
-              />
-              <button
-                type="button"
-                onClick={incrementPoints}
-                style={{
-                  width: '30px',
-                  height: '30px',
-                  textAlign: 'center',
-                  lineHeight: '30px',
-                  cursor: 'pointer',
-                }}
               >
-                +
-              </button>
+                <option value="">Player 1</option>
+                {players.map((player) => (
+                  <option key={player.id} value={player.id}>
+                    {player.name}
+                  </option>
+                ))}
+              </select>
+              <div className="points-input-container" style={{ display: 'flex', alignItems: 'center' }}>
+                <button
+                  type="button"
+                  onClick={decrementPlayer1Points}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    textAlign: 'center',
+                    lineHeight: '30px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  id="player1Points"
+                  className="input"
+                  placeholder="Points"
+                  value={player1Points}
+                  onChange={(e) => setPlayer1Points(Number(e.target.value))}
+                  required
+                  style={{
+                    textAlign: 'center',
+                    margin: '0 10px',
+                    width: '60px',
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={incrementPlayer1Points}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    textAlign: 'center',
+                    lineHeight: '30px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div className="versusImage">
+              <Image src={table} alt="Versus" className="versusImg"
+              style={{
+                all: 'unset', // Resets all styles
+                width: 'auto',
+                height: 'auto'
+              }} />
+            </div>
+            <div className="playerSide right">
+              <select
+                id="player2"
+                className="select"
+                value={player2Id}
+                onChange={(e) => setPlayer2Id(e.target.value)}
+                required
+              >
+                <option value="">Player 2</option>
+                {players.map((player) => (
+                  <option key={player.id} value={player.id}>
+                    {player.name}
+                  </option>
+                ))}
+              </select>
+              <div className="points-input-container" style={{ display: 'flex', alignItems: 'center' }}>
+                <button
+                  type="button"
+                  onClick={decrementPlayer2Points}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    textAlign: 'center',
+                    lineHeight: '30px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  id="player2Points"
+                  className="input"
+                  placeholder="Points"
+                  value={player2Points}
+                  onChange={(e) => setPlayer2Points(Number(e.target.value))}
+                  required
+                  style={{
+                    textAlign: 'center',
+                    margin: '0 10px',
+                    width: '60px',
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={incrementPlayer2Points}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    textAlign: 'center',
+                    lineHeight: '30px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+          <button type="submit" className="addButton">Add Game</button>
+        </form>
+      </div>
 
-        <button type="submit" className="addButton">Add Game</button>
-      </form>
-
-      <h2 className="header">Games</h2>
-
-      <section className="gamesList">
-        {games.map((game) => (
-          <div key={game.id} className="gameEntry">
-            <div className="gamePlayers">
-              <span>{game.player1.name} {game.player1Points} - {game.player2Points} {game.player2.name}</span>
+      <div className="gamesContainer">
+        <h2 className="header">Games</h2>
+        <section className="gamesList">
+          {games.map((game) => (
+            <div key={game.id} className="gameEntry">
+              <div className="gamePlayers">
+                <span>{game.player1.name} {game.player1Points} - {game.player2Points} {game.player2.name}</span>
+              </div>
+              <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
             </div>
-            <button className="gameButton" onClick={() => handleDeleteGame(game.id)}>Delete Game</button>
-          </div>
-        ))}
-      </section>
+          ))}
+        </section>
+      </div>
     </div>
   );
 }
