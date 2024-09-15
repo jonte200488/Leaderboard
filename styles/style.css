@@ -549,7 +549,7 @@ main {
     padding: 20px;
   }
 
-  manageGamescontainer {
+  .manageGamescontainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     max-width: 1300px;
