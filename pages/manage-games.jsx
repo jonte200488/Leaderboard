@@ -226,7 +226,7 @@ export default function Games() {
       </div>
 
       <div className="gamesContainer">
-        <h2 className="header">Games</h2>
+        <h3 className="header">Games</h3>
         <section className="gamesList">
           {games.map((game) => (
             <div key={game.id} className="gameEntry">
