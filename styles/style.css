@@ -562,20 +562,20 @@ main {
   }
   
   .gamesList {
-    max-width: 800px;
-    margin: 0 auto 2rem auto;
     padding: 20px;
-    background-color: var(--accent-color);
-    box-shadow: inset 0px 0px 10px 0px rgba(34,0,84,1);
-    border-radius: 10px;
+    background-color: var(--white);
+    border-radius: 15px;
+    max-height: 500px;
+    overflow-y: scroll;
   }
   
   .gameEntry {
-    background-color: var(--accent-color);
+    background-color: var(--white);
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
+    color: var(--blue);
   }
   
   .gamePlayers {
@@ -594,8 +594,8 @@ main {
   }
   
   .gameButton {
-    background-color: var(--button-bg);
-    color: var(--button-text-color);
+    background-color: red;
+    color: var(--white);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -606,15 +606,14 @@ main {
   }
   
   .gameButton:hover {
-    background-color: var(--button-hover-bg);
+    background-color: rgb(186, 0, 0);
   }
   
   .form {
     position: relative;
-    max-width: 1300px;
     margin: 0 auto;
-    height: 650px;
-    background: linear-gradient(135deg, #ffdd57, #ff9900);
+    max-height: 500px;
+    background: var(--white);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow for a "pop" effect */
@@ -641,40 +640,16 @@ main {
 
 .playerSide {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     gap: 1rem;
-    width: 20%;
+    width: 40%;
     z-index: 99;
 }
 
 .playerSide.left {
-    text-align: right;
 }
 
 .playerSide.right {
-    text-align: left;
-}
-
-.versusImage {
-    position: relative;
-    width: 60%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    border-radius: 50%;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-    background: radial-gradient(circle, rgba(255,255,255,0.2), rgba(0,0,0,0.1)); /* Faded background */
-    overflow: hidden;
-}
-
-.versusImage img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 50%;
-    animation: versus-appear 1s ease-in-out; /* Animation for the image */
 }
 
 @keyframes versus-appear {
@@ -691,9 +666,9 @@ main {
 .input, .select {
     padding: 0.75rem;
     border-radius: 10px;
-    border: 1px solid #5a1dbb;
-    background-color: #f9f9f9;
-    color: #5a1dbb;
+    border: 1px solid var(--blue);
+    background-color: var(--white);
+    color: var(--blue);
     font-size: 1rem;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -701,7 +676,7 @@ main {
 }
 
 .input::placeholder, .select {
-    color: #5a1dbb;
+    color: var(--blue);
 }
 
 .input:focus, .select:focus {
@@ -711,7 +686,7 @@ main {
 }
 
 .addButton {
-    background-color: #ff005a;
+    background-color: var(--darkBlue);
     color: white;
     border: none;
     padding: 0.85rem 1.2rem;
@@ -728,7 +703,7 @@ main {
 }
 
 .addButton:hover {
-    background-color: #ff3377;
+    background-color: var(--text);
     transform: translateY(-3px); /* Slight lift on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
