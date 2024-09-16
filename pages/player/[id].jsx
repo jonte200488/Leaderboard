@@ -48,33 +48,39 @@ export default function PlayerPage() {
   const calculateWeeklyAverageWins = (player) => {
     const games = [...player.games1, ...player.games2]; // Combine games1 and games2
     const weeks = {};
-  
+
     games.forEach((game) => {
       const week = Number(dayjs(game.date).week()); // Ensure week number is a number
       if (!weeks[week]) {
         weeks[week] = { wins: 0, total: 0 };
       }
-  
+
       if (game.player1Id === player.id && game.player1Points > game.player2Points) {
         weeks[week].wins += 1;
       }
       if (game.player2Id === player.id && game.player2Points > game.player1Points) {
         weeks[week].wins += 1;
       }
-  
+
       weeks[week].total += 1; // Count each game
     });
-  
-    const weeklyData = Object.keys(weeks).map((week) => {
-      const { wins, total } = weeks[week];
+
+    // Determine the range of weeks
+    const minWeek = Math.min(...Object.keys(weeks).map(Number));
+    const maxWeek = Math.max(...Object.keys(weeks).map(Number));
+
+    // Create an array to hold weekly data, initializing all weeks to zero
+    const weeklyData = [];
+    for (let week = minWeek; week <= maxWeek; week++) {
+      const { wins = 0, total = 0 } = weeks[week] || {};
       const averageWins = total > 0 ? (wins / total) * 100 : 0; // Ensure no division by zero
-  
-      return {
-        week: Number(week), // Ensure week is a number
+
+      weeklyData.push({
+        week,
         averageWins: isNaN(averageWins) ? 0 : Math.round(averageWins), // Replace NaN with 0 and round to the nearest integer
-      };
-    });
-  
+      });
+    }
+
     setWeeklyAverageWins(weeklyData);
   };
 
@@ -87,32 +93,23 @@ export default function PlayerPage() {
   if (!player) {
     return <div>Player not found</div>;
   }
-  console.log(weeklyAverageWins);
 
   // Check if weeklyAverageWins contains valid data
   const isValidData = weeklyAverageWins.length > 0 && weeklyAverageWins.every(week => !isNaN(week.averageWins) && typeof week.averageWins === 'number');
 
   console.log("Weekly Average Wins Data:", weeklyAverageWins);
-  weeklyAverageWins.forEach(week => {
-    if (typeof week.averageWins !== 'number' || isNaN(week.averageWins)) {
-      console.error(`Invalid averageWins for week ${week.week}:`, week.averageWins);
-    }
-  });
-
-  // Ensure to log and validate data before using it in the LineChart
-  console.log("Weekly Average Wins Data:", weeklyAverageWins);
 
   return (
     <div className='playerPage'>
       <Link href="/">
-          <a>Back to leaderboard</a>
-        </Link>
+        <a>Back to leaderboard</a>
+      </Link>
       <div className="playerContainer">
         <div className="playerHeader">
           <img src={player.image} alt={player.name} />
           <h1>{player.name}</h1>
         </div>
-        {isValidData && weeklyAverageWins.length > 0 ? (
+        {isValidData ? (
           <LineChart
             xAxis={[{ data: weeklyAverageWins.map(week => week.week) }]} // Extract week numbers directly
             series={[
