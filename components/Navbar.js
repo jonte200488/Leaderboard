@@ -2,7 +2,8 @@
 export default function Navbar() {
 
   return (
-    <div className='topBar'>
-    </div>
+    <head>
+      <link rel="icon" href="%PUBLIC_URL%/Kexchoklad_logo_R.png" type="image/png" />
+    </head>
   );
 }
