@@ -101,10 +101,10 @@ export default function Games() {
 
   return (
     <div className="manageGamescontainer">
+      <div className="createGameContainer">
       <Link href="/">
         <a>Back to leaderboard</a>
       </Link>
-      <div className="createGameContainer">
         <h3 className="header">Add a New Game</h3>
         <form className="form" onSubmit={handleAddGame}>
           <div className="playersWrapper">
