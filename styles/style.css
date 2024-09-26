@@ -67,23 +67,23 @@ main {
 }
 
 .timeRangeToggle button {
-  background-color: var(--white);
+  background-color: var(--darkBlue);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 1000px;
-  color: var(--text);
+  color: var(--white);
   font-weight: bold;
   cursor: pointer;
 }
 
 .timeRangeToggle button:hover {
-  background-color: var(--darkBlue);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--text);
 }
 
 .timeRangeToggle button.active {
-  background-color: var(--darkBlue);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--text);
   cursor: not-allowed;
 }
 
