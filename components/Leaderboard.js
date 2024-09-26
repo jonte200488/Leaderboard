@@ -18,24 +18,29 @@ export default function Leaderboard() {
   const fetchPlayers = async () => {
     const response = await fetch(`/api/players?timeRange=${timeRange}`);
     const data = await response.json();
-
+  
     // Calculate Bayesian Average for each player
     const playersWithBayesianAvg = data.map(player => {
       const wins = player.wins || 0;
       const gamesPlayed = player.gamesPlayed || 0;
-
+  
       // Player's win rate (W)
-      const playerWinRate = gamesPlayed > 0 ? wins / gamesPlayed : 0;
-
-      // Bayesian Average calculation
+      let playerWinRate = 0;
+      if (gamesPlayed > 0) {
+        playerWinRate = wins / gamesPlayed;
+      }
+  
+      // Handle edge case: if a player has played no games
       const bayesianAverage = (playerWinRate * gamesPlayed + GLOBAL_WIN_RATE * SMOOTHING_FACTOR) / (gamesPlayed + SMOOTHING_FACTOR);
-
+  
+      console.log(`Player: ${player.name}, Wins: ${wins}, Games Played: ${gamesPlayed}, Win Rate: ${playerWinRate}, Bayesian Average: ${bayesianAverage}`);
+  
       return { ...player, bayesianAverage }; // Add bayesianAverage to each player object
     });
-
+  
     // Sort players by Bayesian Average in descending order
     playersWithBayesianAvg.sort((a, b) => b.bayesianAverage - a.bayesianAverage);
-
+  
     setPlayers(playersWithBayesianAvg);
   };
 
