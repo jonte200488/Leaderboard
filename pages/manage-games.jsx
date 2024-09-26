@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -100,6 +101,9 @@ export default function Games() {
 
   return (
     <div className="manageGamescontainer">
+      <Link href="/">
+        <a>Back to leaderboard</a>
+      </Link>
       <div className="createGameContainer">
         <h3 className="header">Add a New Game</h3>
         <form className="form" onSubmit={handleAddGame}>
