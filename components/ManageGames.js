@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Games() {
   const [games, setGames] = useState([]);
@@ -81,6 +82,9 @@ export default function Games() {
 
   return (
     <div className="gamesContainer">
+      <Link href="/">
+        <a>Back to leaderboard</a>
+      </Link>
       <h2 className="header">Games</h2>
 
       <section className="gamesList">

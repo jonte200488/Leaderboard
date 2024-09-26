@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function ManagePlayers() {
   const [players, setPlayers] = useState([]);
@@ -72,6 +73,9 @@ export default function ManagePlayers() {
 
   return (
     <div className="managePlayersContainer">
+      <Link href="/">
+        <a>Back to leaderboard</a>
+      </Link>
       <h2>Manage Players</h2>
       <form onSubmit={handleAddPlayer} className="newPlayerForm">
         <input
