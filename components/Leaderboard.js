@@ -14,10 +14,26 @@ export default function Leaderboard() {
   const fetchPlayers = async () => {
     const response = await fetch(`/api/players?timeRange=${timeRange}`);
     const data = await response.json();
-
-    // Ensure the players are sorted by averagePoints in descending order
-    data.sort((a, b) => b.averageWins - a.averageWins);
-
+  
+    // Compute the global average win rate (m)
+    const totalWins = data.reduce((sum, player) => sum + player.totalWins, 0);
+    const totalGames = data.reduce((sum, player) => sum + player.totalGames, 0);
+    const globalAverage = totalGames > 0 ? totalWins / totalGames : 0;
+  
+    // Constant C representing the threshold of games for a reliable average
+    const C = 10;
+  
+    // Add a Bayesian average field to each player
+    data.forEach(player => {
+      const gamesPlayed = player.games1.length + player.games2.length;
+      player.bayesianWins = (
+        (player.averageWins * gamesPlayed) + (C * globalAverage)
+      ) / (gamesPlayed + C);
+    });
+  
+    // Sort by Bayesian average wins in descending order
+    data.sort((a, b) => b.bayesianWins - a.bayesianWins);
+  
     setPlayers(data);
   };
 
