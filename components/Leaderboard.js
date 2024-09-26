@@ -66,7 +66,7 @@ export default function Leaderboard() {
                       <a>
                         <img src={players[1].image} alt={players[1].name} className="podiumImage" />
                         <div className="playerName">{players[1].name}</div>
-                        <div className="playerPoints">{players[1].averageWins.toFixed(0)}%</div>
+                        <div className="playerPoints">{players[1].bayesianWins.toFixed(0)}%</div>
                         <div className="playerTotalPoints">{players[1].totalPoints}p</div>
                       </a>
                     </Link>
@@ -126,7 +126,7 @@ export default function Leaderboard() {
                     <span className="playerName">{player.name}</span>
                   </div>
                   <div>
-                    <span className="playerPoints">{player.averageWins.toFixed(0)}% </span>
+                    <span className="playerPoints">{player.bayesianWins.toFixed(0)}% </span>
                     <span className="playerTotalPoints">{player.totalPoints}p</span>
                   </div>
                 </a>
