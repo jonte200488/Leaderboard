@@ -19,6 +19,8 @@ export default function Leaderboard() {
     const totalWins = data.reduce((sum, player) => sum + player.totalWins, 0);
     const totalGames = data.reduce((sum, player) => sum + player.totalGames, 0);
     const globalAverage = totalGames > 0 ? totalWins / totalGames : 0;
+
+    console.log(globalAverage);
   
     // Constant C representing the threshold of games for a reliable average
     const C = 10;
